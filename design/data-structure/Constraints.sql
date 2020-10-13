@@ -20,3 +20,6 @@ add constraint fk_song_playlist_playlist foreign key (playlist_id) references pl
 
 alter table song add constraint legal_prices
 check ((Price >= 0.10) and (Price <= 3.00));
+
+alter table users 
+ADD CONSTRAINT check_password_length CHECK (LENGTH(Password) >= 8);
