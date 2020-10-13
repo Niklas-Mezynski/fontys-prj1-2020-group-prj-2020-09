@@ -17,3 +17,6 @@ alter table giftcard add constraint fk_giftcard_users foreign key (user_id) refe
 
 alter table song_playlist add constraint fk_song_playlist_song foreign key (song_id) references song (song_id),
 add constraint fk_song_playlist_playlist foreign key (playlist_id) references playlist (playlist_id);
+
+alter table song add constraint legal_prices
+check ((Price >= 0.10) and (Price <= 3.00));
