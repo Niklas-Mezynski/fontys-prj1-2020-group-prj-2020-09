@@ -23,3 +23,6 @@ check ((Price >= 0.10) and (Price <= 3.00));
 
 alter table users 
 ADD CONSTRAINT check_password_length CHECK (LENGTH(Password) >= 8);
+
+alter table credit_card 
+add constraint check_expiration_date check (CAST( now() AS Date ) < Expiration_Date);
