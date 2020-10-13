@@ -1,18 +1,18 @@
-INSERT INTO permissions(user_role_id,manage_users,upload_songs,listen_to_songs,create_playlist,create_albums)VALUES
-(1,false,false,false,false,false),
-(2,false,false,true,true,false),
-(3,false,true,true,true,true),
-(4,true,true,true,true,true);
-
 INSERT INTO user_role(role_id,role_name,role_description)VALUES
 (1,'User','Regular Users do not have any special permissions'),
 (2,'Subscriber','Subscribed users are able to listen to songs and create playlists'),
 (3,'Artist','Artists are able to upload music and create albums'),
 (4,'Admin','Administrators can do enything, including managing users');
 
+INSERT INTO permissions(user_role_id,manage_users,upload_songs,listen_to_songs,create_playlist,create_albums)VALUES
+(1,false,false,false,false,false),
+(2,false,false,true,true,false),
+(3,false,true,true,true,true),
+(4,true,true,true,true,true);
+
 INSERT INTO credit_card(cc_number,cvc_cvv_code,type_of_card,first_name,last_name,expiration_date)VALUES
 (4175002145914542,563,'visa-electron','Duke','Nukem','2022-10-13'),
-(3531650456173404,798,'jcb','Helmut','rütgers','2020-11-23'),
+(3531650456173404,798,'jcb','Helmut','Rütgers','2020-11-23'),
 (3535929089852667,390,'jcb','Eric','Cartman','2022-10-25');
 
 INSERT INTO users(user_id,first_name,last_name,date_of_birth,email,password,user_name,address,blocked,subscription_status,user_role,cc_number)VALUES
