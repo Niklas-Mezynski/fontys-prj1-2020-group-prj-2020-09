@@ -19,19 +19,19 @@ CREATE TABLE Users (
 );
 CREATE TABLE Album (
 	Album_ID serial primary key,
-	Title varchar(50) not null,
+	Title varchar(999) not null,
 	Date date,
 	Artist_ID serial ,
-	Label varchar(50),
-	Publisher varchar(50)
+	Label varchar(255),
+	Publisher varchar(255)
 );
 CREATE TABLE Song (
 	Song_ID serial primary key,
-	Title varchar(50) not null,
+	Title varchar(255) not null,
 	Date date,
 	Artist_ID int,
-	Label varchar(50),
-	Publisher varchar(50),
+	Label varchar(255),
+	Publisher varchar(255),
 	Price money,
 	Listens int,
 	Album_ID serial 
