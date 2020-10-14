@@ -16,12 +16,12 @@ INSERT INTO credit_card(cc_number,cvc_cvv_code,type_of_card,first_name,last_name
 (3535929089852667,390,'jcb','Eric','Cartman','2022-10-25');
 
 INSERT INTO users(user_id,first_name,last_name,date_of_birth,email,password,user_name,street, house_nr, zip_code, city, country,blocked,subscription_status,user_role,cc_number)VALUES
-(1,'Mark','Salzberg','1986-05-13','m.salzberg@songify.com','Song!fyIsT€B€st','M_Salzberg','Silicon Sqare', '4', '40670', 'Meerbusch', 'Germany' ,false,false,4,NULL),
+(1,'Mark','Salzberg','1986-05-13','m.salzberg@songify.com','Song!fyIsT€B€st','M_Salzberg','Silicon Square', '4', '40670', 'Meerbusch', 'Germany' ,false,false,4,NULL),
 (2,'Susanna','Neubau','1975-11-14','s.neubau@songify.com','!havAHobby','S_Neubau','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',false,false,4,NULL),
-(3,'Kevin','Alex','2003-04-14','kevin.alex@gmail.com','IbntheKevin','Kevin','Silicon Sqare', '4', '40670', 'Meerbusch', 'Germany',false,false,1,NULL),
-(4,'Duke','Nukem','1997-01-20','duke.nukem@gmail.com','DoSomSportBro','Sporty Nukem','Silicon Sqare', '4', '40670', 'Meerbusch', 'Germany',true,false,1,4175002145914542),
-(5,'Helmut','Rütgers','1935-06-07','ruetgers.helmut@gmx.de','IchBinDerHelmut','Neuzeit Opa','Silicon Sqare', '4', '40670', 'Meerbusch', 'Germany',false,true,2,3531650456173404),
-(6,'Eric','Cartman','2000-09-10','cartman.records@ukmail.com','!AMTHEBEST','Eric Cartman','Silicon Sqare', '4', '40670', 'Meerbusch', 'Germany',false,true,3,3535929089852667);
+(3,'Kevin','Alex','2003-04-14','kevin.alex@gmail.com','IbntheKevin','Kevin','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',false,false,1,NULL),
+(4,'Duke','Nukem','1997-01-20','duke.nukem@gmail.com','DoSomSportBro','Sporty Nukem','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',true,false,1,4175002145914542),
+(5,'Helmut','Rütgers','1935-06-07','ruetgers.helmut@gmx.de','IchBinDerHelmut','Neuzeit Opa','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',false,true,2,3531650456173404),
+(6,'Eric','Cartman','2000-09-10','cartman.records@ukmail.com','!AMTHEBEST','Eric Cartman','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',false,true,3,3535929089852667);
 
 INSERT INTO giftcard(code,value,status,user_id)VALUES
 ('5TZ489I7Z6RE',8,false,4),
