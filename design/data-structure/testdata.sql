@@ -25,11 +25,13 @@ INSERT INTO users(user_id,first_name,last_name,date_of_birth,email,password,user
 
 INSERT INTO giftcard(code,value,status,user_id)VALUES
 ('5TZ489I7Z6RE',8,false,4),
-('OL7F3WQ0FG6N',12,true,5);
+('OL7F3WQ0FG6N',12,true,5),
+('JF8WU76WJFI5',6,true,2);
 
 INSERT INTO bill(bill_id,date,price,status,payment_method,user_id)VALUES
 (1,'2020-10-12',1.45,true,'Credit Card',4),
-(2,'2020-01-01',5.99,true,'Giftcard',5);
+(2,'2020-01-01',5.99,true,'Giftcard',5),
+(3,'2020-05-08',5.99,true,'Giftcard',2);
 
 INSERT INTO album(album_id,title,date,artist_id,label,publisher)VALUES
 (1,'Wonderful Day','2020-03-05',6,'Royal Records','Cartmaners'),
