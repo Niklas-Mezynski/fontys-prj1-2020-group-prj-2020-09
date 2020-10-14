@@ -4,7 +4,7 @@ CREATE TABLE Users (
 	First_Name varchar(255) not null,
 	Last_Name varchar(255) not null,
 	Date_Of_Birth date not null,
-	Email varchar(50) unique,
+	Email varchar(255) unique,
 	Password varchar(32) not null,
 	User_Name varchar(20) not null,
 	Street varchar(255) not null,
@@ -58,7 +58,7 @@ CREATE TABLE Permissions (
 CREATE TABLE User_Role (
 	Role_ID serial  primary key,
 	Role_Name varchar(15) not null,
-	Role_Description varchar(50)
+	Role_Description varchar(255)
 );
 CREATE TABLE Credit_Card (
 	CC_Number varchar(25) primary key,
