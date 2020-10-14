@@ -1,8 +1,8 @@
 INSERT INTO user_role(role_id,role_name,role_description)VALUES
-(1,'User','Regular Users do not'),
-(2,'Subscriber','Subscribed users'),
-(3,'Artist','Artists are able'),
-(4,'Admin','Administrators ');
+(1,'User','Regular Users do not have any special permissions'),
+(2,'Subscriber','Subscribed users are able to listen to songs and create playlists'),
+(3,'Artist','Artists are able to upload music and create albums'),
+(4,'Admin','Administrators can do enything, including managing users');
 
 INSERT INTO permissions(user_role_id,manage_users,upload_songs,listen_to_songs,create_playlist,create_albums)VALUES
 (1,false,false,false,false,false),
