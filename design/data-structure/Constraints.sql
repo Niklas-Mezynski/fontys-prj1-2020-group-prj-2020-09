@@ -26,3 +26,8 @@ ADD CONSTRAINT check_password_length CHECK (LENGTH(Password) >= 8);
 
 alter table credit_card 
 add constraint check_expiration_date check (CAST( now() AS Date ) < Expiration_Date);
+                            
+ALTER TABLE users
+add CONSTRAINT check_16_years_old
+CHECK (date_part('year', age(Date_Of_Birth)) >= 16);
+
