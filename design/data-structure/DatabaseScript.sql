@@ -44,7 +44,8 @@ CREATE TABLE Playlist (
 );
 CREATE TABLE Song_Playlist (
 	Playlist_ID serial ,
-	Song_ID serial 
+	Song_ID serial ,
+	primary key (Playlist_ID,Song_ID)
 );
 CREATE TABLE Permissions ( 
 	Manage_Users boolean default false,
