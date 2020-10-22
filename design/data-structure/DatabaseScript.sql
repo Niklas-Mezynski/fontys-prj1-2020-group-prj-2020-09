@@ -42,9 +42,9 @@ CREATE TABLE Playlist (
 	User_ID int,
 	Public boolean default false
 );
-CREATE TABLE Song_Playlist (
-	Playlist_ID serial ,
-	Song_ID serial ,
+CREATE TABLE Playlist_Songs (
+	Playlist_ID int,
+	Song_ID int,
 	primary key (Playlist_ID,Song_ID)
 );
 CREATE TABLE Permissions ( 
