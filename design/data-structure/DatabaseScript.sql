@@ -38,7 +38,7 @@ CREATE TABLE Song (
 );
 CREATE TABLE Playlist (
 	Playlist_ID serial  primary key,
-	Name varchar(50) not null,
+	Name varchar(255) not null,
 	User_ID int,
 	Public boolean default false
 );
