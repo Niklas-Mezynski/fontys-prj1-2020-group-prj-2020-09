@@ -4,7 +4,8 @@ alter table users add constraint fk_users_cc foreign key (cc_number) references 
 
 alter table album add constraint fk_album_users foreign key (artist_id) references users (user_id);
 
-alter table playlist add constraint fk_playlist_users foreign key (user_id) references users (user_id);
+alter table playlist
+add constraint fk_playlist_users foreign key (user_id) references users (user_id);
 
 alter table song add constraint fk_song_user foreign key (artist_id) references users (user_id),
 add constraint fk_song_album foreign key (album_id) references album (album_id);
