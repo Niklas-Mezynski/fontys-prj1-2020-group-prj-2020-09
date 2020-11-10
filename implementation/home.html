@@ -1,49 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
-	<head>
-		<title>Home</title>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="css/main.css"><!-- link to stylesheet -->
-	</head>
+<html>
 
-	<body>
+<head>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/main.css"><!-- link to stylesheet -->
+</head>
 
-		<main>
-			<header>
-                <div>
-                <p>HEADER</p>
-            </div>
-			</header><!-- end of header -->
+<body>
 
-			<aside>
-                <p>ASIDE</p>
-                
-				<nav id="menu_v">
-                    <p>NAV</p>
-                    <input id="searchbar" placeholder="Search" type="text">
-					<ul>
-						<li><a href="home.html">Home</a></li>
-						<li><a href="library.html">Library</a></li>
-						<li><a href="playlists.html">Playlists</a></li>
-						<li><a href="shop.html">Shop</a></li>
-                        <li><a href="trends.html">Trends</a></li>
-                        <li><a href="home.html">Logout</a></li>
-					</ul>
-				</nav><!-- end of nav -->
-			</aside>
+	<main>
+		<header>
+			<div class="column" id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+			<div class="column" id="profileButton"><a href="profile.html">User Profile</a></div>
+		</header><!-- end of header -->
 
-			<article>
-				<p>CONTENT IN ARTICLE</p>
-			</article><!-- end of article -->
+		<aside>
+			<p></p>
 
-			<footer>
-                <p>
-                    <a href="termsandconditions.html">Terms and Conditions</a>
-                </p>
-                
-			</footer><!-- end of footer -->
+			<nav id="menu_v">
+				<form action="search.php" method="GET">
+					<input type="text" name="search" placeholder="Search.." id="searchbar">
+				</form>
+				<ul>
+					<li><a href="home.html">Home</a></li>
+					<li><a href="library.html">Library</a></li>
+					<li><a href="playlists.html">Playlists</a></li>
+					<li><a href="shop.html">Shop</a></li>
+					<li><a href="trends.html">Trends</a></li>
+					<li><a href="home.html">Logout</a></li>
+				</ul>
+			</nav><!-- end of nav -->
+		</aside>
 
-		</main><!-- end of main-container -->
+		<article>
+			<p>CONTENT IN ARTICLE</p>
+		</article><!-- end of article -->
 
-	</body>
+		<footer>
+			<p>
+				<a href="termsandconditions.html">Terms and Conditions</a>
+			</p>
+
+		</footer><!-- end of footer -->
+
+	</main><!-- end of main-container -->
+
+</body>
+
 </html>

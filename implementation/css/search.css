@@ -1,0 +1,20 @@
+#mainSearchbar {
+    width: 35%;
+    height: 30px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    color: #000000;
+}
+
+table {
+    width: 70%;
+    margin-top: 20px;
+}
+
+table,tr,th {
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-color: white;
+}
