@@ -24,7 +24,21 @@ header {
 	width: 100%;
 	height: 80px;
     background-image: linear-gradient(to right, #1f1f1f, #202020, #292929, #3b3b3b, #4e4e4e);
+}
 
+.column {
+	float: left;
+	width: 49%;
+	padding: 5px;
+  }
+
+#logo {
+	  text-align: left;
+  }
+
+#profileButton {
+	text-align: right;
+	vertical-align: middle;
 }
 article, aside, nav {
     background-color:#4e4e4e;
@@ -106,6 +120,10 @@ table#songlist td {
 
 table#songlist tr {
 	border-bottom: 2px solid white;
+}
+
+tr audio {
+	height: 30px;
 }
 
 tr#song:hover {
