@@ -23,7 +23,6 @@
             <nav id="menu_v">
                 <p>NAV</p>
                 <input id="searchbar" placeholder="Search" type="text">
-                <?php echo $_GET["search"];?>
                 <ul>
                     <li><a href="home.html">Home</a></li>
                     <li><a href="library.html">Library</a></li>
@@ -36,7 +35,7 @@
         </aside>
 
         <article>
-            <input id="mainSearchbar" placeholder="Search" type="text"><br>
+            <input id="mainSearchbar" placeholder="Search" type="text" value="<?php echo (isset($_GET["search"]))?$_GET["search"]:'';?>"><br>
 
             <input type="radio" name="search" value="Song" checked> Song <br>
             <input type="radio" name="search" value="Album"> Album <br>
