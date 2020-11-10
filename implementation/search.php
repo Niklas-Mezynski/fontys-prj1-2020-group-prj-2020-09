@@ -2,9 +2,10 @@
 <html>
 
 <head>
-	<title>Home</title>
+	<title>Search</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/main.css"><!-- link to stylesheet -->
+    <link rel="stylesheet" href="css/main.css"><!-- link to stylesheet -->
+    <link rel="stylesheet" href="css/search.css">
 </head>
 
 <body>
@@ -38,18 +39,22 @@
 			</nav><!-- end of nav -->
 		</aside>
 
-		<article>
-			<p>CONTENT IN ARTICLE</p>
-		</article><!-- end of article -->
+        <article>
+            <input id="mainSearchbar" placeholder="Search" type="text" value="<?php echo (isset($_GET["search"]))?$_GET["search"]:'';?>"><br>
 
-		<footer>
-			<p>
-				<a href="termsandconditions.html">Terms and Conditions</a>
-			</p>
+            <input type="radio" name="search" value="Song" checked> Song <br>
+            <input type="radio" name="search" value="Album"> Album <br>
+            <input type="radio" name="search" value="Artist"> Artist <br>
+        </article><!-- end of article -->
 
-		</footer><!-- end of footer -->
+        <footer>
+            <p>
+                <a href="termsandconditions.html">Terms and Conditions</a>
+            </p>
 
-	</main><!-- end of main-container -->
+        </footer><!-- end of footer -->
+
+    </main><!-- end of main-container -->
 
 </body>
 
