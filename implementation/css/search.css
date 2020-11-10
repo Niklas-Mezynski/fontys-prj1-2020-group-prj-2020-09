@@ -1,0 +1,7 @@
+#mainSearchbar {
+    width: 35%;
+    height: 30px;
+    border-radius: 8px;
+	margin: 0px 0px 10px;
+	border: 2px solid black;
+}
