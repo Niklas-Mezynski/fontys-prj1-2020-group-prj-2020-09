@@ -23,6 +23,7 @@
             <nav id="menu_v">
                 <p>NAV</p>
                 <input id="searchbar" placeholder="Search" type="text">
+                <?php echo $_GET['email'];?>
                 <ul>
                     <li><a href="home.html">Home</a></li>
                     <li><a href="library.html">Library</a></li>
