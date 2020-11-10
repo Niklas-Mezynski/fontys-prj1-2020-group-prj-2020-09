@@ -26,7 +26,9 @@ header {
     background-image: linear-gradient(to right, #1f1f1f, #202020, #292929, #3b3b3b, #4e4e4e);
 
 }
-
+article, aside, nav {
+    background-color:#4e4e4e;
+}
 aside {
 	float: left;
 	width: 160px;
@@ -87,4 +89,16 @@ footer {
 	margin: 8px;
 	border: 2px solid black;
 	color: #000000;
+}
+
+table#songlist {
+	margin-top: 20px;
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid rgb(255, 255, 255);
+	text-align: center;
+}
+
+img#cover {
+	margin: 20px;
 }
