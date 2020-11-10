@@ -87,3 +87,8 @@ footer {
 	margin: 8px;
 	border: 2px solid black;
 }
+
+#userfont{
+	float: left;
+	margin-top: 1cm;
+}
