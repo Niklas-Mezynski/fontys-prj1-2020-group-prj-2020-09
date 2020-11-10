@@ -21,10 +21,7 @@
         </header><!-- end of header -->
 
         <aside>
-            <p>ASIDE</p>
-
             <nav id="menu_v">
-                <p>NAV</p>
                 <form action="search.php" method="GET">
                     <input type="text" name="search" placeholder="Search.." id="searchbar">
                 </form>
