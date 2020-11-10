@@ -108,6 +108,10 @@ table#songlist tr {
 	border-bottom: 2px solid white;
 }
 
+tr audio {
+	height: 30px;
+}
+
 tr#song:hover {
 	background-color:#f5f5f53a;
 }
