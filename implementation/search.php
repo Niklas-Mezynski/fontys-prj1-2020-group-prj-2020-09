@@ -1,38 +1,43 @@
 <!DOCTYPE html>
-<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<html>
 
 <head>
-    <title>Search</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/main.css">
+	<title>Search</title>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css"><!-- link to stylesheet -->
     <link rel="stylesheet" href="css/search.css">
 </head>
 
 <body>
 
-    <main>
-        <header>
-            <div>
-                <p>HEADER</p>
-            </div>
-        </header><!-- end of header -->
+	<main>
+		<header>
+			<div style= "text-align: center">
+				<p>Songify</p>
+				
+			</div>
+			<div><img src="img/Logo.png" alt="Logo" width="60" height="60" float="left">
+			</div>
+		</header><!-- end of header -->
 
-        <aside>
-            <p>ASIDE</p>
+		<aside>
+			<p>ASIDE</p>
 
-            <nav id="menu_v">
-                <p>NAV</p>
-                <input id="searchbar" placeholder="Search" type="text">
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="library.html">Library</a></li>
-                    <li><a href="playlists.html">Playlists</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="trends.html">Trends</a></li>
-                    <li><a href="home.html">Logout</a></li>
-                </ul>
-            </nav><!-- end of nav -->
-        </aside>
+			<nav id="menu_v">
+				<p>NAV</p>
+				<form action="search.php" method="GET">
+					<input type="text" name="search" placeholder="Search.." id="searchbar">
+				</form>
+				<ul>
+					<li><a href="home.html">Home</a></li>
+					<li><a href="library.html">Library</a></li>
+					<li><a href="playlists.html">Playlists</a></li>
+					<li><a href="shop.html">Shop</a></li>
+					<li><a href="trends.html">Trends</a></li>
+					<li><a href="home.html">Logout</a></li>
+				</ul>
+			</nav><!-- end of nav -->
+		</aside>
 
         <article>
             <input id="mainSearchbar" placeholder="Search" type="text" value="<?php echo (isset($_GET["search"]))?$_GET["search"]:'';?>"><br>
