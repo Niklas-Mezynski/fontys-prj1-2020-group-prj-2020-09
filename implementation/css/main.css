@@ -24,7 +24,21 @@ header {
 	width: 100%;
 	height: 80px;
     background-image: linear-gradient(to right, #1f1f1f, #202020, #292929, #3b3b3b, #4e4e4e);
+}
 
+.column {
+	float: left;
+	width: 49%;
+	padding: 5px;
+  }
+
+#logo {
+	  text-align: left;
+  }
+
+#profileButton {
+	text-align: right;
+	vertical-align: middle;
 }
 
 aside {
