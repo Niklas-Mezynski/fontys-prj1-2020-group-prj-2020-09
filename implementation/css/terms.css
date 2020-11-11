@@ -1,0 +1,8 @@
+#terms {
+    height:500px;
+    width:35%;
+    border:1px solid #ccc;
+    font:16px/26px Georgia, Garamond, Serif;
+    overflow:auto;
+    margin: auto;
+}
