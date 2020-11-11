@@ -1,8 +1,28 @@
 #terms {
-    height:500px;
-    width:35%;
-    border:1px solid #ccc;
-    font:16px/26px Georgia, Garamond, Serif;
-    overflow:auto;
+    height: 600px;
+    width: 35%;
+    border: 1px solid #ccc;
+    font: 16px/26px Georgia;
+    overflow: auto;
     margin: auto;
 }
+
+#termsSubmit {
+    color: #000000;
+    width: 100px;
+    height: 25px;
+    margin: auto;
+    display: block;
+}
+
+#termsCheck {
+    color: #ffffff;
+}
+
+.checkboxClass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    word-wrap: break-word;
+  }
