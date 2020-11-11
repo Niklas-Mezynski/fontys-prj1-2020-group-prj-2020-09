@@ -21,10 +21,7 @@
         </header><!-- end of header -->
 
         <aside>
-            <p>ASIDE</p>
-
             <nav id="menu_v">
-                <p>NAV</p>
                 <form action="search.php" method="GET">
                     <input type="text" name="search" placeholder="Search.." id="searchbar">
                 </form>
@@ -41,7 +38,7 @@
 
         <article>
             <!-- actual search page content -->
-            <input id="mainSearchbar" placeholder="Search" type="text" value="<?php echo (isset($_GET["search"])) ? $_GET["search"] : ''; ?>"><br>
+            <input id="mainSearchbar" placeholder="Search.." type="text" value="<?php echo (isset($_GET["search"])) ? $_GET["search"] : ''; ?>"><br>
 
             <div>
                 <input type="radio" name="search" value="Song" checked> Song <br>
