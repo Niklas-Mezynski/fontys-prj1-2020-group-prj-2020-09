@@ -1,8 +1,22 @@
 #inputs {
-    margin-top: 0px;
-    margin-left: 0px;
+    margin-top: 10px;
+    margin-left: 15%;
 }
 #profilebox {
     float: left;
-    width: 70px;
+    width: 15%;
+    margin-top: 10px;
+}
+
+.button {
+    background-color:  #292929;
+    color: white;
+    border: white;
+    border-style: solid;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.button:hover {
+	background-color: #5d91db;
 }
