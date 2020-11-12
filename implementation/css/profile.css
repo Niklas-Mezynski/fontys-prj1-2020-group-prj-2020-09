@@ -1,11 +1,11 @@
 #inputs {
-    margin-top: 10px;
+    margin-top: 0px;
     margin-left: 15%;
 }
 #profilebox {
     float: left;
     width: 15%;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 .button {
@@ -19,4 +19,8 @@
 
 .button:hover {
 	background-color: #5d91db;
+}
+
+#profilePicture {
+    margin-bottom: 20px;
 }
