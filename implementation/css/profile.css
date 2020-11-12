@@ -9,6 +9,7 @@
 }
 
 .button {
+    margin-top: 10px;
     background-color:  #292929;
     color: white;
     border: white;
@@ -22,5 +23,9 @@
 }
 
 #profilePicture {
-    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.profiletext {
+    padding-top: 10px;
 }
