@@ -40,7 +40,13 @@ article #login{
     background-image: linear-gradient(to top, #1f1f1f, #202020, #292929, #3b3b3b, #4e4e4e);
     margin: 2em;
     margin-right: 20em;
+    padding: 1em;
     text-align: center;
+}
+
+article #login input{
+    border-radius: 8px;
+    height: 35px;
 }
 
 footer {
