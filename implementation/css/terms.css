@@ -8,7 +8,7 @@
 }
 
 #termsSubmit {
-    color: #000000;
+    color: red;
     width: 100px;
     height: 25px;
     margin: auto;
@@ -18,11 +18,3 @@
 #termsCheck {
     color: #ffffff;
 }
-
-.checkboxClass {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;
-    word-wrap: break-word;
-  }

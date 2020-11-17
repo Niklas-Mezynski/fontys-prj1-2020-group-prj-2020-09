@@ -1,0 +1,19 @@
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+    padding: 40px;
+    grid-gap: 100px 100px;
+  }
+
+.grid-item {
+    background-color: #4e4e4e;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.example-songs {
+    list-style-type: none;
+    font-size: 22px;
+    padding-top: 2px;
+}
