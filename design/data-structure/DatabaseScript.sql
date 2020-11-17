@@ -42,7 +42,7 @@ CREATE TABLE Playlist (
 	User_ID int,
 	Public boolean default false
 );
-CREATE TABLE Playlist_Songs (
+CREATE TABLE song_playlist (
 	Playlist_ID int,
 	Song_ID int,
 	primary key (Playlist_ID,Song_ID)
