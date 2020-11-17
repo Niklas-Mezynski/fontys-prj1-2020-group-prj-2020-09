@@ -8,7 +8,7 @@
 }
 
 #termsSubmit {
-    color: red;
+    color: black;
     width: 100px;
     height: 25px;
     margin: auto;
@@ -17,4 +17,9 @@
 
 #termsCheck {
     color: #ffffff;
+}
+
+#submitDiv {
+    text-align: center;
+    margin: 10px 0px;
 }
