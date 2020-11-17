@@ -1,0 +1,22 @@
+#shop {
+    border: 1px solid #ccc;
+    width: 400px;
+    height: 450px;
+    text-align: center;
+    font-size: 20pt;
+}
+
+.text {
+    margin: 10px
+}
+
+.image {
+    height: 320px;
+    width: auto;
+}
+
+button {
+    color: black;
+    width: 25%;
+    height: 6%;
+}
