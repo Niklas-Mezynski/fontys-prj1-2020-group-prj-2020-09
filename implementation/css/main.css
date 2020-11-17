@@ -134,6 +134,12 @@ img#cover {
 	margin: 20px;
 }
 
+<<<<<<< HEAD
+#userfont{
+	float: left;
+	margin-top: 1cm;
+}
+=======
 .card {
 	width: 250px;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -150,9 +156,13 @@ img#cover {
 .container {
 	padding: 2px 16px;
   }
+<<<<<<< HEAD
+>>>>>>> 177c2f34795c2ca65724d36bbddb9a250e41c5cc
+=======
 
   .grid-container {
 	display: grid;
 	grid-template-columns: auto auto auto;
 	padding: 40px;
   }
+>>>>>>> 4ee200be4efa106c0002c1dcddcd1c30e9b5ccdd
