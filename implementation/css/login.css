@@ -25,3 +25,26 @@ header {
 	width: 60px;
 	padding: 5px;
   }
+
+  article {
+	width: calc(100% - 180px);
+    overflow: none;
+	min-height: calc(100vh - 130px);
+    /*background-image: linear-gradient(to left, #00409f, #233596, #33288b, #3e1980, #460073);*/
+	background-color:  #292929;
+	padding-left: 180px;
+	padding-top: 20px;
+}
+
+article #login{
+    background-image: linear-gradient(to top, #1f1f1f, #202020, #292929, #3b3b3b, #4e4e4e);
+    margin: 2em;
+    margin-right: 20em;
+    text-align: center;
+}
+
+footer {
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(to right, #1f1f1f, #202020, #292929, #3b3b3b, #4e4e4e);
+}

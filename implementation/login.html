@@ -6,21 +6,31 @@
 	    <link rel="stylesheet" href="css/login.css">
     </head>
     <body>
-        <header>
-			<div id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
-			<div id="profileButton"><a href="profile.html">User Profile</a></div>
-        </header><!-- end of header -->
-        
-        <div id="content" style="margin: 3em;">
-            <form action="home.html">
-                <fieldset>
-                    <label for="nickname">Nickname or Email</label><br>
-                    <input type="text" id="nickname" name="nickname"/><br>
-                    <label for="pword">Password</label><br>
-                    <input type="text" id="pword" name="pword"/><br>
-                    <input type="submit" value="Submit"/>
-                </fieldset>
-            </form>
-        </div>
+        <main>
+            <header>
+                <div id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+            </header><!-- end of header -->
+    
+            <article>
+                <div id="login">
+                    <form action="home.html">
+                        <label for="uname">Username or Email</label><br>
+                        <input style="color:black;" type="text" id="uname" name="uname"/><br>
+                        <label for="pword">Password</label><br>
+                        <input style="color:black;" type="password" id="pword" name="pword"/><br>
+                        <input style="color:black;" type="submit" value="Submit"/>
+                    </form>
+                    <p>No member?: <a href="register.html">Register here</a></p>
+                </div>
+            </article><!-- end of article -->
+    
+            <footer>
+                <p>
+                    <a href="termsandconditions.html">Terms and Conditions</a>
+                </p>
+    
+            </footer><!-- end of footer -->
+    
+        </main><!-- end of main-container -->
     </body>
 </html>
