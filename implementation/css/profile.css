@@ -27,5 +27,7 @@
 }
 
 input, select, textarea{
-    color: #000000;
+    background-color: #252525;
+    border: 2px solid white;
+    border-radius: 5px;
 }
