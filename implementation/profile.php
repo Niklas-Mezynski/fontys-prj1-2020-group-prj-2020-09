@@ -41,11 +41,11 @@
             </div>
 
             <div>
-                <form class ="inputs" action="#php">
+                <form method="post" action="dbconnection.php">
                     
                     <p class="profiletext"><input type = "text" id = "fname" name = "fname"></p>
                     <p class="profiletext"><input type ="text" id = "lname" name ="lname"></p>
-                    <p class="profiletext"><input type ="date" id="bday" name="bday"></p>
+                    <p class="profiletext"><input type ="number" id="bday" name="bday"></p>
                     <p class="profiletext"><input type ="email" id="email" name="email"></p>
                     <p class="profiletext"><input type ="password" id="password" name="password"></p>
 
