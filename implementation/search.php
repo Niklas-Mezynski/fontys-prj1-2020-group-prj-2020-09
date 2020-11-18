@@ -12,12 +12,9 @@
 
     <main>
         <header>
-            <div style="text-align: center">
-                <p>Songify</p>
-
-            </div>
-            <div><img src="img/Logo.png" alt="Logo" width="60" height="60" float="left">
-            </div>
+            <div id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+			<div id="profileButton"><a href="profile.html">User Profile</a></div>
+			<div id="title"><p>Songify</p></div>
         </header><!-- end of header -->
 
         <aside>
@@ -35,7 +32,25 @@
                 </ul>
             </nav><!-- end of nav -->
         </aside>
-
+        <?php 
+            $host = "prj1_postgres";
+            $port = "5432";
+            $db = "postgres";   /*Just for now*/
+            $user = "postgres";
+            $pword = "mypassword";
+              
+            $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$user;password=$pword";
+              
+            try{
+                $conn = new PDO($dsn);
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                if($conn){
+                    // ...
+                }
+            }catch(PDOException $e){
+                echo $e->getMessage();
+            }
+        ?>
         <article>
             <!-- actual search page content -->
             <input id="mainSearchbar" placeholder="Search.." type="text" value="<?php echo (isset($_GET["search"])) ? $_GET["search"] : ''; ?>"><br>
