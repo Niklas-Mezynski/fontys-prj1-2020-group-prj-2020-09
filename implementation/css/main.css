@@ -159,3 +159,10 @@ img#cover {
 	grid-template-columns: auto auto auto;
 	padding: 40px;
   }
+
+  #welcomepic{
+	float: middle;
+    width: 1450px;
+   
+      
+  }
