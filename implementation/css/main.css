@@ -169,8 +169,13 @@ img#cover {
   }
 
   #welcomepic{
-	float: middle;
-    width: 1450px;
+	float: left;
+	width: 1450px;
+	margin-right: 20px;
    
       
+  }
+  #welcometexttitle{
+   font-size: 50px;
+	
   }
