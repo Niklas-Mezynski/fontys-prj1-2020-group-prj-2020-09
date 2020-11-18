@@ -16,7 +16,7 @@ alter table bill add constraint fk_bill_users foreign key (user_id) references u
 
 alter table giftcard add constraint fk_giftcard_users foreign key (user_id) references users (user_id);
 
-alter table playlist_songs
+alter table song_playlist
 add constraint fk_song_id_to_song foreign key (song_id) references song (song_id),
 add constraint fk_playlist_id_to_playlist foreign key (playlist_id) references playlist (playlist_id);
 
