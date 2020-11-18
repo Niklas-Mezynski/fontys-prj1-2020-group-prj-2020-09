@@ -171,11 +171,16 @@ img#cover {
   #welcomepic{
 	float: left;
 	width: 1450px;
-	margin-right: 20px;
+	margin-right: 10px;
    
       
   }
   #welcometexttitle{
    font-size: 45px;
-	
+   text-align: center;
+  }
+
+  #welcometext{
+   text-align: center;
+
   }
