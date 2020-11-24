@@ -15,14 +15,13 @@
         $stmt->execute();
         $count = $stmt->rowCount();
         if ($count == 0) {
-            echo "Überprüft";
             $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email"); //Email überprüfen
             $stmt->bindParam(":email", $_POST["email"]);
             $stmt->execute();
             $count = $stmt->rowCount();
             if ($count == 0) {
-                $stmt = $conn->prepare("insert into users (first_name,last_name,date_of_birth,email,password,user_name) 
-                values (:fname, :lname, :dob, :email, :pw, :username");
+                $stmt = $conn->prepare("insert into users (first_name,last_name,date_of_birth,email,password,user_name,street, house_nr, zip_code, city, country) 
+                values (:fname, :lname, :dob, :email, :pw, :username, :street, :house_nr, :zipcode, :city, :country)");
                 $stmt->bindParam(":username", $_POST["uname"]);
                 $hash = password_hash($_POST["pword"], PASSWORD_BCRYPT);
                 $stmt->bindParam(":pw", $hash);
@@ -30,6 +29,11 @@
                 $stmt->bindParam(":lname", $_POST["lname"]);
                 $stmt->bindParam(":dob", $_POST["bdate"]);
                 $stmt->bindParam(":email", $_POST["email"]);
+                $stmt->bindParam(":street", $_POST["street"]);
+                $stmt->bindParam(":house_nr", $_POST["house_nr"]);
+                $stmt->bindParam(":zipcode", $_POST["zipcode"]);
+                $stmt->bindParam(":city", $_POST["city"]);
+                $stmt->bindParam(":country", $_POST["country"]);
                 $stmt->execute();
                 echo "Account erfolgreich angelegt";
             }
@@ -45,14 +49,19 @@
 
             <div id="login">
                 <form action="register.php" method="POST">
-                    <input style="color:black;" type="text" id="email" name="email" placeholder="Email" /><br>
+                    <input style="color:black;" type="email" id="email" name="email" placeholder="Email" /><br>
                     <input style="color:black;" type="text" id="uname" name="uname" placeholder="Username" /><br>
                     <input style="color:black;" type="text" id="fname" name="fname" placeholder="First Name" /><br>
                     <input style="color:black;" type="text" id="lname" name="lname" placeholder="Last Name" /><br>
                     <input style="color:black;" type="date" id="bdate" name="bdate" placeholder="YYYY:MM:DD" /><br>
+                    <input style="color:black;" type="text" id="strret" name="street" placeholder="Street" /><br>
+                    <input style="color:black;" type="text" id="house_nr" name="house_nr" placeholder="House Nr." /><br>
+                    <input style="color:black;" type="text" id="zipcode" name="zipcode" placeholder="Zip Code" /><br>
+                    <input style="color:black;" type="text" id="city" name="city" placeholder="City" /><br>
+                    <input style="color:black;" type="text" id="country" name="country" placeholder="Country" /><br>
                     <input style="color:black;" type="password" id="pword" name="pword" placeholder="Password" /><br>
                     <input style="color:black;" type="password" id="pwordconfirm" name="pwordconfirm" placeholder="Confirm Password" /><br>
-                    <input style="color:black;" type="submit" value="Submit" />
+                    <input style="color:black;" type="submit" name="submit" value="Submit" />
                 </form>
                 <p>Are you a member?: <a href="login.html">Log in here</a></p>
                 <p><a href="home.html">Go back to Home</a></p>
