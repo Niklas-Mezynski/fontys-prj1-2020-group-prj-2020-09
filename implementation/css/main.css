@@ -168,20 +168,30 @@ img#cover {
 	padding: 40px;
   }
 
-  #welcomepic{
-	float: left;
-	width: 800px;
-	margin-right: 10px;
-   
-      
-  }
+ 
+  
   #welcometexttitle{
    font-size: 45px;
    text-align: center;
+   margin-bottom: 25px;
+   clear: right;
   }
 
   #welcometext{
    text-align: center;
    font-size: 20px;
+   
 
   }
+
+ 
+
+#welcomepic{
+	float: left;
+	
+	margin-right: 50px;
+	margin-bottom: 1px;
+   
+      
+  }
+

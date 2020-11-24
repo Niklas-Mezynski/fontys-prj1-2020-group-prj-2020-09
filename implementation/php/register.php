@@ -8,7 +8,8 @@
 </head>
 
 <body>
-    <?php if (isset($_POST["submit"])) {
+    <?php
+    if (isset($_POST["submit"])) {
         include_once("dbconnection.php");
         $stmt = $conn->prepare("SELECT * FROM users WHERE user_name = :user"); //Username überprüfen
         $stmt->bindParam(":user", $_POST["uname"]);
@@ -20,8 +21,8 @@
             $stmt->execute();
             $count = $stmt->rowCount();
             if ($count == 0) {
-                $stmt = $conn->prepare("insert into users (first_name,last_name,date_of_birth,email,password,user_name,street, house_nr, zip_code, city, country) 
-                values (:fname, :lname, :dob, :email, :pw, :username, :street, :house_nr, :zipcode, :city, :country)");
+                $stmt = $conn->prepare("insert into users (user_id,first_name,last_name,date_of_birth,email,password,user_name,street, house_nr, zip_code, city, country) 
+                values (DEFAULT, :fname, :lname, :dob, :email, :pw, :username, :street, :house_nr, :zipcode, :city, :country)");
                 $stmt->bindParam(":username", $_POST["uname"]);
                 $hash = password_hash($_POST["pword"], PASSWORD_BCRYPT);
                 $stmt->bindParam(":pw", $hash);
