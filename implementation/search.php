@@ -33,7 +33,7 @@
             </nav><!-- end of nav -->
         </aside>
         <?php 
-            include ("./php/dbconnection.php");
+            include_once ("./php/dbconnection.php");
         ?>
         <article>
             <!-- actual search page content -->
