@@ -11,7 +11,7 @@
         $conn = new PDO($dsn);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         if($conn){
-            echo "Connection to the $db database successfully";
+            //echo "Connection to the $db database successfully";
         }
     }catch(PDOException $e){
         echo $e->getMessage();
