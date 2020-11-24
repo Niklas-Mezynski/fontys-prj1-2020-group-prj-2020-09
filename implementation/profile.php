@@ -41,7 +41,7 @@
             </div>
 
             <div>
-                <form class ="inputs" action="#php">
+                <form method="post" action="dbconnection.php">
                     
                     <p class="profiletext"><input type = "text" id = "fname" name = "fname"></p>
                     <p class="profiletext"><input type ="text" id = "lname" name ="lname"></p>

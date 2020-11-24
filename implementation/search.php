@@ -12,12 +12,9 @@
 
     <main>
         <header>
-            <div style="text-align: center">
-                <p>Songify</p>
-
-            </div>
-            <div><img src="img/Logo.png" alt="Logo" width="60" height="60" float="left">
-            </div>
+            <div id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+			<div id="profileButton"><a href="profile.php">User Profile</a></div>
+			<div id="title"><p>Songify</p></div>
         </header><!-- end of header -->
 
         <aside>
@@ -35,7 +32,9 @@
                 </ul>
             </nav><!-- end of nav -->
         </aside>
-
+        <?php 
+            include_once ("./php/dbconnection.php");
+        ?>
         <article>
             <!-- actual search page content -->
             <input id="mainSearchbar" placeholder="Search.." type="text" value="<?php echo (isset($_GET["search"])) ? $_GET["search"] : ''; ?>"><br>

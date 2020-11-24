@@ -25,3 +25,9 @@
 .profiletext {
     padding-top: 10px;
 }
+
+input, select, textarea{
+    background-color: #252525;
+    border: 2px solid white;
+    border-radius: 5px;
+}
