@@ -4,7 +4,7 @@
 <head>
   <title>Home</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/main.css"><!-- link to stylesheet -->
+  <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
 </head>
 <style> 
 <?php include "css/main.css" ?>
@@ -37,21 +37,19 @@
  <?php
 		  include_once ("dbconnection.php");
 		// create the table - just for testing the connection
-		$album = htmlspecialchars($_GET["albumid"]);
-		$sql = "select album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle, song.artist_id AS sArtist
+		$stmt = $conn-prepare("SELECT album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle, song.artist_id AS sArtist
 		from album left join song
 		on album.album_id = song.album_id
-		where album.album_id = $album";
-			// Execute a statement
-		$stmt = $conn->query($sql);
-		// Iterate the table and echo out the tuples
+    where album.album_id = :albumid");
+    $stmt->bindParam(":albumid", htmlspecialchars($_GET["albumid"]));
+    $stmt->execute();
 ?>
 
     <article>
       <p>Album</p>
       <div>
         <p style="float: left;">
-          <img src="img/albumcover-placeholder.jpg" height="400px" width="400px" id="cover"></p>
+          <img src="../img/albumcover-placeholder.jpg" height="400px" width="400px" id="cover"></p>
 		 <?php
 		$result = $stmt->fetch(\PDO::FETCH_ASSOC);
 		echo "<p style='text-align: center'; font-size: 24px>" .$result['atitle'] . "</p>";
