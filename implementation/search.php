@@ -13,13 +13,15 @@
     <main>
         <header>
             <div id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
-			<div id="profileButton"><a href="profile.php">User Profile</a></div>
-			<div id="title"><p>Songify</p></div>
+            <div id="profileButton"><a href="profile.php">User Profile</a></div>
+            <div id="title">
+                <p>Songify</p>
+            </div>
         </header><!-- end of header -->
 
         <aside>
             <nav id="menu_v">
-                <form action="search.php" method="GET">
+                <form action="search.php" method="POST">
                     <input type="text" name="search" placeholder="Search.." id="searchbar">
                 </form>
                 <ul>
@@ -32,10 +34,18 @@
                 </ul>
             </nav><!-- end of nav -->
         </aside>
-        <?php 
-            include_once ("./php/dbconnection.php");
-            echo $_POST["searchRadio"];
-            echo $_POST["search"];
+        <?php
+        include_once("./php/dbconnection.php");
+        if ($_POST["searchRadio"] == "Artist") {
+            echo "ar";
+        } else if ($_POST["searchRadio"] == "Album") {
+            echo "al";
+        } else {
+            $stmt = $conn -> prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album 
+            FROM song INNER JOIN users ON users.user_id = song.artist_id 
+            INNER JOIN album ON song.album_id = album.album_id;");
+            $stmt->execute();
+        }
         ?>
         <article>
             <!-- actual search page content -->
@@ -51,17 +61,20 @@
 
             <table id="search-results">
                 <tr>
-                    <th>Song 1</th>
+                    <th>Song</th>
                     <th>Artist</th>
                     <th>Album</th>
                     <th>Duration</th>
                 </tr>
-                <tr>
-                    <th>Song 2</th>
-                    <th>Artist</th>
-                    <th>Album</th>
-                    <th>Duration</th>
-                </tr>
+                <?php
+                foreach ($stmt as $row) {
+                    echo "<tr>";
+                    echo "<th>" . $row['title'] . "</th>";
+                    echo "<th>" . $row['artist'] . "</th>";
+                    echo "<th>" . $row['album'] . "</th>";
+                    echo "<th> ? </th>";
+                    echo "</tr>";
+                } ?>
             </table>
         </article><!-- end of article -->
 
