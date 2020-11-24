@@ -3,12 +3,12 @@
     <head>
         <title>Home</title>
 	    <meta charset="UTF-8">
-	    <link rel="stylesheet" href="css/login.css">
+	    <link rel="stylesheet" href="../css/login.css">
     </head>
     <body>
         <main>
             <header>
-                <div id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+                <div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
             </header><!-- end of header -->
     
             <article>

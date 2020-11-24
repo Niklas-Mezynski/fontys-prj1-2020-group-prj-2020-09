@@ -34,16 +34,20 @@
         </aside>
         <?php 
             include_once ("./php/dbconnection.php");
+            echo $_POST["searchRadio"];
+            echo $_POST["search"];
         ?>
         <article>
             <!-- actual search page content -->
-            <input id="mainSearchbar" placeholder="Search.." type="text" value="<?php echo (isset($_GET["search"])) ? $_GET["search"] : ''; ?>"><br>
+            <form method="POST">
+                <input id="mainSearchbar" name="search" placeholder="Search.." type="text" value="<?php echo (isset($_POST["search"])) ? $_POST["search"] : ''; ?>"><br>
 
-            <div>
-                <input type="radio" name="search" value="Song" checked> Song <br>
-                <input type="radio" name="search" value="Album"> Album <br>
-                <input type="radio" name="search" value="Artist"> Artist <br>
-            </div>
+                <div>
+                    <input type="radio" name="searchRadio" value="Song" checked> Song <br>
+                    <input type="radio" name="searchRadio" value="Album"> Album <br>
+                    <input type="radio" name="searchRadio" value="Artist"> Artist <br>
+                </div>
+            </form>
 
             <table id="search-results">
                 <tr>

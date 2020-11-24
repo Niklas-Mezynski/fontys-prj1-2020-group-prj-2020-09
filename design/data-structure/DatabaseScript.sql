@@ -5,7 +5,7 @@ CREATE TABLE Users (
 	Last_Name varchar(255) not null,
 	Date_Of_Birth date not null,
 	Email varchar(255) unique,
-	Password varchar(32) not null,
+	Password varchar(255) not null,
 	User_Name varchar(20) not null,
 	Street varchar(255) not null,
 	House_Nr varchar(10) not null,
