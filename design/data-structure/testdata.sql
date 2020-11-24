@@ -12,43 +12,43 @@ INSERT INTO permissions(user_role_id,manage_users,upload_songs,listen_to_songs,c
 
 INSERT INTO credit_card(cc_number,cvc_cvv_code,type_of_card,first_name,last_name,expiration_date)VALUES
 (4175002145914542,563,'visa-electron','Duke','Nukem','2022-10-13'),
-(3531650456173404,798,'jcb','Helmut','Rütgers','2020-11-23'),
+(3531650456173404,798,'jcb','Helmut','Rütgers','2021-11-23'),
 (3535929089852667,390,'jcb','Eric','Cartman','2022-10-25');
 
-INSERT INTO users(user_id,first_name,last_name,date_of_birth,email,password,user_name,street, house_nr, zip_code, city, country,blocked,subscription_status,user_role,cc_number)VALUES
-(1,'Mark','Salzberg','1986-05-13','m.salzberg@songify.com','Song!fyIsT€B€st','M_Salzberg','Silicon Square', '4', '40670', 'Meerbusch', 'Germany' ,false,false,4,NULL),
-(2,'Susanna','Neubau','1975-11-14','s.neubau@songify.com','!havAHobby','S_Neubau','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',false,false,4,NULL),
-(3,'Kevin','Alex','2003-04-14','kevin.alex@gmail.com','IbntheKevin','Kevin','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',false,false,1,NULL),
-(4,'Duke','Nukem','1997-01-20','duke.nukem@gmail.com','DoSomSportBro','Sporty Nukem','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',true,false,1,4175002145914542),
-(5,'Helmut','Rütgers','1935-06-07','ruetgers.helmut@gmx.de','IchBinDerHelmut','Neuzeit Opa','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',false,true,2,3531650456173404),
-(6,'Eric','Cartman','2000-09-10','cartman.records@ukmail.com','!AMTHEBEST','Eric Cartman','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',false,true,3,3535929089852667);
+INSERT INTO users(first_name,last_name,date_of_birth,email,password,user_name,street, house_nr, zip_code, city, country,blocked,subscription_status,user_role,cc_number)VALUES
+('Mark','Salzberg','1986-05-13','m.salzberg@songify.com','Song!fyIsT€B€st','M_Salzberg','Silicon Square', '4', '40670', 'Meerbusch', 'Germany' ,false,false,4,NULL),
+('Susanna','Neubau','1975-11-14','s.neubau@songify.com','!havAHobby','S_Neubau','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',false,false,4,NULL),
+('Kevin','Alex','2003-04-14','kevin.alex@gmail.com','IbntheKevin','Kevin','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',false,false,1,NULL),
+('Duke','Nukem','1997-01-20','duke.nukem@gmail.com','DoSomSportBro','Sporty Nukem','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',true,false,1,4175002145914542),
+('Helmut','Rütgers','1935-06-07','ruetgers.helmut@gmx.de','IchBinDerHelmut','Neuzeit Opa','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',false,true,2,3531650456173404),
+('Eric','Cartman','2000-09-10','cartman.records@ukmail.com','!AMTHEBEST','Eric Cartman','Silicon Square', '4', '40670', 'Meerbusch', 'Germany',false,true,3,3535929089852667);
 
 INSERT INTO giftcard(code,value,status,user_id)VALUES
 ('5TZ489I7Z6RE',8,false,4),
 ('OL7F3WQ0FG6N',12,true,5),
 ('JF8WU76WJFI5',6,true,2);
 
-INSERT INTO bill(bill_id,date,price,status,payment_method,user_id)VALUES
-(1,'2020-10-12',1.45,true,'Credit Card',4),
-(2,'2020-01-01',5.99,true,'Giftcard',5),
-(3,'2020-05-08',5.99,true,'Giftcard',2);
+INSERT INTO bill(date,price,status,payment_method,user_id)VALUES
+('2020-10-12',1.45,true,'Credit Card',4),
+('2020-01-01',5.99,true,'Giftcard',5),
+('2020-05-08',5.99,true,'Giftcard',2);
 
-INSERT INTO album(album_id,title,date,artist_id,label,publisher)VALUES
-(1,'Wonderful Day','2020-03-05',6,'Royal Records','Cartmaners'),
-(2,'Best Year Ever','2019-12-31',6,'Royal Records','Cartmaners');
+INSERT INTO album(title,date,artist_id,label,publisher)VALUES
+('Wonderful Day','2020-03-05',6,'Royal Records','Cartmaners'),
+('Best Year Ever','2019-12-31',6,'Royal Records','Cartmaners');
 
-INSERT INTO song(song_id,title,date,artist_id,label,publisher,price,listens,album_id)VALUES
-(1,'Day In Hidepark','2020-02-24',6,'Royal Records','Cartmaners',2.99,462319,1),
-(2,'Hallo Steve my old friend','2020-02-25',6,'Royal Records','Cartmaners',1.59,5460,1),
-(3,'BBQ in Siberia','2020-02-28',6,'Royal Records','Cartmaners',2.50,369834512,1),
-(4,'Party In Iran','2019-12-28',6,'Royal Records','Cartmaners',3.00,456,2),
-(5,'Call Me President Whatever you think','2019-12-29',6,'Royal Records','Cartmaners',2.99,561238,2),
-(6,'Dinner in Wuhan','2019-12-30',6,'Royal Records','Cartmaners',1.79,5921357,2);
+INSERT INTO song(title,date,artist_id,label,publisher,price,listens,album_id)VALUES
+('Day In Hidepark','2020-02-24',6,'Royal Records','Cartmaners',2.99,462319,1),
+('Hallo Steve my old friend','2020-02-25',6,'Royal Records','Cartmaners',1.59,5460,1),
+('BBQ in Siberia','2020-02-28',6,'Royal Records','Cartmaners',2.50,369834512,1),
+('Party In Iran','2019-12-28',6,'Royal Records','Cartmaners',3.00,456,2),
+('Call Me President Whatever you think','2019-12-29',6,'Royal Records','Cartmaners',2.99,561238,2),
+('Dinner in Wuhan','2019-12-30',6,'Royal Records','Cartmaners',1.79,5921357,2);
 
-INSERT INTO playlist(playlist_id,name,user_id,public)VALUES
-(1,'Do Some Sport Bro',4,true),
-(2,'Songs to calm down',5,false),
-(3,'Top Tracks',6,true);
+INSERT INTO playlist(name,user_id,public)VALUES
+('Do Some Sport Bro',4,true),
+('Songs to calm down',5,false),
+('Top Tracks',6,true);
 
 INSERT INTO song_playlist(playlist_id,song_id)VALUES
 (1,3),
