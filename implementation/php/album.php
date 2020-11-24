@@ -33,37 +33,42 @@
         </ul>
       </nav><!-- end of nav -->
     </aside>
-<?php 
-include_once ("dbconnection.php");
-// create the table - just for testing the connection
-$album = htmlspecialchars($_GET["albumid"]);
-$sql = "select * from song where album_id = " . $album . ";";
-// Execute a statement
-$stmt = $conn->query($sql);
-// Iterate the table and echo out the tuples
+
+ <?php
+		  include_once ("dbconnection.php");
+		// create the table - just for testing the connection
+		$album = htmlspecialchars($_GET["albumid"]);
+		$sql = "select album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle, song.artist_id AS sArtist
+		from album left join song
+		on album.album_id = song.album_id
+		where album.album_id = $album";
+			// Execute a statement
+		$stmt = $conn->query($sql);
+		// Iterate the table and echo out the tuples
 ?>
+
     <article>
       <p>Album</p>
       <div>
         <p style="float: left;">
           <img src="img/albumcover-placeholder.jpg" height="400px" width="400px" id="cover"></p>
-        <p>Album Title</p>
-        <p>Artist</p>
-        <p>Label/Publisher</p>
-        <p>Album Length</p>
-
+		 <?php
+		$result = $stmt->fetch(\PDO::FETCH_ASSOC);
+		echo "<p style='text-align: center'; font-size: 24px>" .$result['atitle'] . "</p>";
+		echo "<p style='text-align: center'; font-size: 24px>" .$result['alabel'] . "/" .$result['apublisher'] . "</p>";
+		?>
         <table id="songlist">
           <tr id="header">
             <th>Name</th>
             <th>Artists</th>
             <th>Play</th>
           </tr>
-          <?php
+         <?php
 			foreach ($stmt as $row)
 			{
 			echo "<tr id='song'>";
-			echo "<td>" . $row['title'] . "</td>";
-			echo "<td>" . $row['artist_id'] . "</td>";
+			echo "<td>" . $row['stitle'] . "</td>";
+			echo "<td>" . $row['sartist'] . "</td>";
 			echo "<td>
               <audio controls>
                 <source src='audio.mp3' type='audio/mpeg'>
