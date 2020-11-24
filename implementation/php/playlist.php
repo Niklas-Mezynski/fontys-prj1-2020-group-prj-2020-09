@@ -4,15 +4,15 @@
 <head>
 	<title>Home</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/playlist.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/playlist.css">
 </head>
 
 <body>
 
 	<main>
 		<header>
-			<div id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+			<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
 			<div id="profileButton"><a href="profile.html">User Profile</a></div>
 		</header><!-- end of header -->
 
