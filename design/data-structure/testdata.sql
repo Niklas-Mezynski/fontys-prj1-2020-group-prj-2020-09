@@ -12,7 +12,7 @@ INSERT INTO permissions(user_role_id,manage_users,upload_songs,listen_to_songs,c
 
 INSERT INTO credit_card(cc_number,cvc_cvv_code,type_of_card,first_name,last_name,expiration_date)VALUES
 (4175002145914542,563,'visa-electron','Duke','Nukem','2022-10-13'),
-(3531650456173404,798,'jcb','Helmut','Rütgers','2020-11-23'),
+(3531650456173404,798,'jcb','Helmut','Rütgers','2021-11-23'),
 (3535929089852667,390,'jcb','Eric','Cartman','2022-10-25');
 
 INSERT INTO users(first_name,last_name,date_of_birth,email,password,user_name,street, house_nr, zip_code, city, country,blocked,subscription_status,user_role,cc_number)VALUES
