@@ -4,7 +4,7 @@
 <head>
 	<title>Home</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/main.css"><!-- link to stylesheet -->
+	<link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
 	
 </head>
 
@@ -12,8 +12,8 @@
 
 	<main>
 		<header>
-			<div id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
-			<div id="profileButton"><a href="php/profile.php">User Profile</a></div>
+			<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+			<div id="profileButton"><a href="profile.php">User Profile</a></div>
 			<div id="title"><p>Songify</p></div>
 		</header><!-- end of header -->
 
@@ -35,7 +35,7 @@
 
 	<article>
 		
-		<img id="welcomepic"  src="img/homepage picture final.png" alt="ein buntes Bild" style="width: 780px">	
+		<img id="welcomepic"  src="../img/homepage picture final.png" alt="ein buntes Bild" style="width: 780px">	
 		<div>
 			<h1 id="welcometexttitle">Welcome to Songify!</h1>
 			   <h3 id= "welcometext">It doesn't matter where you are. It doesn't matter who you are. </h3>

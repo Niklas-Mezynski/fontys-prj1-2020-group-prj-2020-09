@@ -2,16 +2,16 @@
     <head>
 		<title>Home</title>
 		<meta charset="UTF-8">
-        <link rel="stylesheet" href="css/main.css"><!-- link to stylesheet -->
-        <link rel="stylesheet" href="css/profile.css">
+        <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
+        <link rel="stylesheet" href="../css/profile.css">
 	</head>
 
 	<body>
 
 		<main>
 			<header>
-                <div id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
-                <div id="profileButton"><a href="profile.html">User Profile</a></div>
+                <div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+                <div id="profileButton"><a href="profile.php">User Profile</a></div>
             </header><!-- end of header -->
 
 			<aside>
@@ -30,7 +30,7 @@
 
             <article>
             <div>
-                <img id="profilePicture" src="img/profilepicture-placeholder.jpg" height="128">
+                <img id="profilePicture" src="../img/profilepicture-placeholder.jpg" height="128">
             </div>
             <div id="profilebox">
                 <p class="profiletext"><label for="fname">First name: </label></p>
@@ -60,6 +60,7 @@
             <div id="sub">
                 <p>Subscription End Date: DD-MM-YYYY</p> 
             </div>
+            <br><a href="logout.php">Logout</a>
             
             </article>
 

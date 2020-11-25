@@ -11,7 +11,7 @@ if (isset($_POST["submit"])) {
             $row = $stmt->fetch();
             if (password_verify($_POST["pword"], $row["password"])) {
                 $_SESSION["user_id"] = $row["user_id"];
-                header("Location: ../home.html");
+                header("Location: home.php");
             } else {
                 echo "Der Login ist fehlgeschlagen";
             }
