@@ -24,12 +24,12 @@
         <p></p>
         <input id="searchbar" placeholder="Search" type="text">
         <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="library.html">Library</a></li>
-          <li><a href="playlists.html">Playlists</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="trends.html">Trends</a></li>
-          <li><a href="home.html">Logout</a></li>
+          <li><a href="/home.html">Home</a></li>
+          <li><a href="/library.html">Library</a></li>
+          <li><a href="/playlists.html">Playlists</a></li>
+          <li><a href="/shop.html">Shop</a></li>
+          <li><a href="/trends.html">Trends</a></li>
+          <li><a href="/home.html">Logout</a></li>
         </ul>
       </nav><!-- end of nav -->
     </aside>
@@ -49,7 +49,7 @@
       <p>Album</p>
       <div>
         <p style="float: left;">
-          <img src="../img/albumcover-placeholder.jpg" height="400px" width="400px" id="cover"></p>
+          <img src="/img/albumcover-placeholder.jpg" height="400px" width="400px" id="cover"></p>
 		 <?php
 		$result = $stmt->fetch(\PDO::FETCH_ASSOC);
 		echo "<p style='text-align: center'; font-size: 24px>" .$result['atitle'] . "</p>";
