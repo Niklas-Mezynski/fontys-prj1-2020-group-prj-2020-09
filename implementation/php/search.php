@@ -26,10 +26,10 @@
                 </form>
                 <ul>
                     <li><a href="home.php">Home</a></li>
-                    <li><a href="library.html">Library</a></li>
-                    <li><a href="playlists.html">Playlists</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="trends.html">Trends</a></li>
+                    <li><a href="library.php">Library</a></li>
+                    <li><a href="../playlists.html">Playlists</a></li>
+                    <li><a href="../shop.html">Shop</a></li>
+                    <li><a href="../trends.html">Trends</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
             </nav><!-- end of nav -->
@@ -37,21 +37,30 @@
         <?php
         include_once("../php/dbconnection.php");
         if ($_POST["searchRadio"] == "Artist") {
-            echo "not implemented yet";
+            $searchInput = $_POST["search"];
+            $stmt = $conn -> prepare("SELECT users.user_name AS artist, count(albumsongs.title) AS albums, sum(albumsongs.songs) AS songs
+            FROM users INNER JOIN 
+            (SELECT album.title, album.artist_id, count(song.title) AS songs
+            FROM album INNER JOIN song ON album.album_id = song.album_id
+            GROUP BY album.album_id) AS albumsongs
+            ON users.user_id = albumsongs.artist_id
+            WHERE user_role = 3 AND LOWER(users.user_name) LIKE LOWER('%$searchInput%')
+            GROUP BY users.user_name;");
+            $stmt->execute(); 
         } else if ($_POST["searchRadio"] == "Album") {
-            $test = $_POST["search"];
+            $searchInput = $_POST["search"];
             $stmt = $conn -> prepare("SELECT album.title AS album, users.user_name AS artist, count(song_id) AS songamount 
             FROM album INNER JOIN users ON album.artist_id = users.user_id 
             INNER JOIN song ON album.album_id = song.album_id
-            WHERE LOWER(album.title) LIKE LOWER('%$test%')
+            WHERE LOWER(album.title) LIKE LOWER('%$searchInput%')
             GROUP BY album.title, users.user_name;");
             $stmt->execute();  
         } else {
-            $test = $_POST["search"];
+            $searchInput = $_POST["search"];
             $stmt = $conn -> prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album, song.listens AS listens
             FROM song INNER JOIN users ON users.user_id = song.artist_id 
             INNER JOIN album ON song.album_id = album.album_id
-            WHERE LOWER(song.title) LIKE LOWER('%$test%')
+            WHERE LOWER(song.title) LIKE LOWER('%$searchInput%')
             ORDER BY listens DESC;");
             $stmt->execute();
         }
@@ -71,7 +80,17 @@
             <table id="search-results">
                 <?php
                 if ($_POST["searchRadio"] == "Artist") {
-                    
+                    echo "<th>Artist</th>";
+                    echo "<th>Album Amount</th>";
+                    echo "<th>Song Amount</th>";
+
+                    foreach ($stmt as $row) {
+                        echo "<tr>";
+                        echo "<th>" . $row['artist'] . "</th>";
+                        echo "<th>" . $row['albums'] . "</th>";
+                        echo "<th>" . $row['songs'] . "</th>";
+                        echo "</tr>";
+                    }
                 } else if ($_POST["searchRadio"] == "Album") {
                     echo "<th>Album</th>";
                     echo "<th>Artist</th>";
