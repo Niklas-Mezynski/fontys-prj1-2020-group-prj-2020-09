@@ -1,6 +1,28 @@
+<?php
+session_start();
+if (isset($_POST["submit"])) {
+    include_once("dbconnection.php");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE user_name = :user"); //Username überprüfen
+    $stmt->bindParam(":user", $_POST["uname"]);
+    $stmt->execute();
+    $count = $stmt->rowCount();
+    if ($count == 1) {
+        if ($count == 1) {
+            $row = $stmt->fetch();
+            if (password_verify($_POST["pword"], $row["password"])) {
+                $_SESSION["user_id"] = $row["user_id"];
+                header("Location: ../home.html");
+            } else {
+                echo "Der Login ist fehlgeschlagen";
+            }
+        } else {
+            echo "Der Login ist fehlgeschlagen";
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Home</title>
     <meta charset="UTF-8">
@@ -8,30 +30,7 @@
 </head>
 
 <body>
-    <?php
-    if (isset($_POST["submit"])) {
-        include_once("dbconnection.php");
-        $stmt = $conn->prepare("SELECT * FROM users WHERE user_name = :user"); //Username überprüfen
-        $stmt->bindParam(":user", $_POST["uname"]);
-        $stmt->execute();
-        $count = $stmt->rowCount();
-        if ($count == 1) {
-            if ($count == 1) {
-                $row = $stmt->fetch();
-                if (password_verify($_POST["pword"], $row["password"])) {
-                    if (!($_SESSION["user_id"] = $row["user_id"])) {
-                    session_start();
-                    $_SESSION["user_id"] = $row["user_id"];
-                    }
-                } else {
-                    echo "Der Login ist fehlgeschlagen";
-                }
-            } else {
-                echo "Der Login ist fehlgeschlagen";
-            }
-        }
-    }
-    ?>
+    
 
     <main>
         <header>
@@ -40,12 +39,12 @@
 
         <article>
             <div id="login">
-                <form action="../home.html" method="POST">
+                <form action="login.php" method="post">
                     <label for="uname">Username or Email</label><br>
                     <input style="color:black;" type="text" id="uname" name="uname" /><br>
                     <label for="pword">Password</label><br>
                     <input style="color:black;" type="password" id="pword" name="pword" /><br>
-                    <input style="color:black;" type="submit" value="Submit" name="submit"/>
+                    <input style="color:black;" type="submit" value="Submit" name="submit" />
                 </form>
                 <p>Not a member?: <a href="register.html">Register here</a></p>
                 <p><a href="home.html">Go back to Home</a></p>
