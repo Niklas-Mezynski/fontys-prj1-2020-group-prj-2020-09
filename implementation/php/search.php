@@ -12,8 +12,8 @@
 
     <main>
         <header>
-            <div id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
-            <div id="profileButton"><a href="php/profile.php">User Profile</a></div>
+            <div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+            <div id="profileButton"><a href="profile.php">User Profile</a></div>
             <div id="title">
                 <p>Songify</p>
             </div>
@@ -25,12 +25,12 @@
                     <input type="text" name="search" placeholder="Search.." id="searchbar">
                 </form>
                 <ul>
-                    <li><a href="home.html">Home</a></li>
+                    <li><a href="home.php">Home</a></li>
                     <li><a href="library.html">Library</a></li>
                     <li><a href="playlists.html">Playlists</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="trends.html">Trends</a></li>
-                    <li><a href="home.html">Logout</a></li>
+                    <li><a href="logout.php">Logout</a></li>
                 </ul>
             </nav><!-- end of nav -->
         </aside>
