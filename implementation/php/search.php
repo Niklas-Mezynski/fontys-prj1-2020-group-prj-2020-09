@@ -4,8 +4,8 @@
 <head>
     <title>Search</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/main.css"><!-- link to stylesheet -->
-    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
+    <link rel="stylesheet" href="../css/search.css">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
             </nav><!-- end of nav -->
         </aside>
         <?php
-        include_once("./php/dbconnection.php");
+        include_once("../php/dbconnection.php");
         if ($_POST["searchRadio"] == "Artist") {
             echo "not implemented yet";
         } else if ($_POST["searchRadio"] == "Album") {
