@@ -11,7 +11,7 @@
  <?php
 		 include_once ("dbconnection.php");
 		// create the table - just for testing the connection
-		$stmt = $conn->prepare("Select album.title AS aTitle, users.user_name AS uName from album join users on album.artist_id = users.user_id");
+		$stmt = $conn->prepare("Select album.title AS aTitle, album.album_id AS albumid, users.user_name AS uName from album join users on album.artist_id = users.user_id");
 		$stmt->execute();
 ?>
 	<main>
@@ -28,12 +28,12 @@
 					<input type="text" name="search" placeholder="Search.." id="searchbar">
 				</form>
 				<ul>
-					<li><a href="home.html">Home</a></li>
-					<li><a href="library.html">Library</a></li>
-					<li><a href="playlists.html">Playlists</a></li>
-					<li><a href="shop.html">Shop</a></li>
-					<li><a href="trends.html">Trends</a></li>
-					<li><a href="home.html">Logout</a></li>
+					<li><a href="/home.html">Home</a></li>
+					<li><a href="/library.html">Library</a></li>
+					<li><a href="/playlists.html">Playlists</a></li>
+					<li><a href="/shop.html">Shop</a></li>
+					<li><a href="/trends.html">Trends</a></li>
+					<li><a href="/home.html">Logout</a></li>
 				</ul>
 			</nav><!-- end of nav -->
 		</aside>
@@ -45,8 +45,9 @@
 			foreach ($stmt as $row)
 			{
 				echo "<div class='grid-item'>";
-				echo "<div class='card'>";
-				echo "<img src='../img/albumcover-placeholder.jpg' alt='albumcover' style='width:100%'>";
+				echo "<a href='/php/album.php/?albumid=" .$row["albumid"] . "'>";
+				echo "<div class='card'>";		
+				echo "<img src='../img/albumcover-placeholder.jpg' alt='albumcover' style='width:100%'></a>";
 				echo "<div class='container'>";
 				echo "<h4><b>" . $row["atitle"] . "</b></h4>";
 				echo "<p>" .$row["uname"] ."</p>";
