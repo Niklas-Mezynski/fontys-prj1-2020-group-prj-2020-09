@@ -37,9 +37,13 @@
         <?php
         include_once("./php/dbconnection.php");
         if ($_POST["searchRadio"] == "Artist") {
-            echo "ar";
+            echo "not implemented yet";
         } else if ($_POST["searchRadio"] == "Album") {
-            echo "al";
+            $stmt = $conn -> prepare("SELECT album.title AS album, users.user_name AS artist, count(song_id) AS songamount 
+            FROM album INNER JOIN users ON album.artist_id = users.user_id 
+            INNER JOIN song ON album.album_id = song.album_id
+            GROUP BY album.title, users.user_name;");
+            $stmt->execute();  
         } else {
             $stmt = $conn -> prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album 
             FROM song INNER JOIN users ON users.user_id = song.artist_id 
@@ -60,21 +64,37 @@
             </form>
 
             <table id="search-results">
-                <tr>
-                    <th>Song</th>
-                    <th>Artist</th>
-                    <th>Album</th>
-                    <th>Duration</th>
-                </tr>
                 <?php
-                foreach ($stmt as $row) {
-                    echo "<tr>";
-                    echo "<th>" . $row['title'] . "</th>";
-                    echo "<th>" . $row['artist'] . "</th>";
-                    echo "<th>" . $row['album'] . "</th>";
-                    echo "<th> ? </th>";
-                    echo "</tr>";
-                } ?>
+                if ($_POST["searchRadio"] == "Artist") {
+                    
+                } else if ($_POST["searchRadio"] == "Album") {
+                    echo "<th>Album</th>";
+                    echo "<th>Artist</th>";
+                    echo "<th>Song Amount</th>";
+
+                    foreach ($stmt as $row) {
+                        echo "<tr>";
+                        echo "<th>" . $row['album'] . "</th>";
+                        echo "<th>" . $row['artist'] . "</th>";
+                        echo "<th>" . $row['songamount'] . "</th>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<th>Song</th>";
+                    echo "<th>Artist</th>";
+                    echo "<th>Album</th>";
+                    echo "<th>Duration</th>";
+                    
+                    foreach ($stmt as $row) {
+                        echo "<tr>";
+                        echo "<th>" . $row['title'] . "</th>";
+                        echo "<th>" . $row['artist'] . "</th>";
+                        echo "<th>" . $row['album'] . "</th>";
+                        echo "<th> ? </th>";
+                        echo "</tr>";
+                    }
+                }
+                ?>
             </table>
         </article><!-- end of article -->
 
