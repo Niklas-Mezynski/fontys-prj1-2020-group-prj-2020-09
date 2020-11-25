@@ -39,15 +39,20 @@
         if ($_POST["searchRadio"] == "Artist") {
             echo "not implemented yet";
         } else if ($_POST["searchRadio"] == "Album") {
+            $test = $_POST["search"];
             $stmt = $conn -> prepare("SELECT album.title AS album, users.user_name AS artist, count(song_id) AS songamount 
             FROM album INNER JOIN users ON album.artist_id = users.user_id 
             INNER JOIN song ON album.album_id = song.album_id
+            WHERE LOWER(album.title) LIKE LOWER('%$test%')
             GROUP BY album.title, users.user_name;");
             $stmt->execute();  
         } else {
-            $stmt = $conn -> prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album 
+            $test = $_POST["search"];
+            $stmt = $conn -> prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album, song.listens AS listens
             FROM song INNER JOIN users ON users.user_id = song.artist_id 
-            INNER JOIN album ON song.album_id = album.album_id;");
+            INNER JOIN album ON song.album_id = album.album_id
+            WHERE LOWER(song.title) LIKE LOWER('%$test%')
+            ORDER BY listens DESC;");
             $stmt->execute();
         }
         ?>
@@ -83,14 +88,14 @@
                     echo "<th>Song</th>";
                     echo "<th>Artist</th>";
                     echo "<th>Album</th>";
-                    echo "<th>Duration</th>";
+                    echo "<th>Listens</th>";
                     
                     foreach ($stmt as $row) {
                         echo "<tr>";
                         echo "<th>" . $row['title'] . "</th>";
                         echo "<th>" . $row['artist'] . "</th>";
                         echo "<th>" . $row['album'] . "</th>";
-                        echo "<th> ? </th>";
+                        echo "<th>" . $row['listens'] . "</th>";
                         echo "</tr>";
                     }
                 }
