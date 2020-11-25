@@ -19,6 +19,8 @@
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+  float: left;
+  border: 1px solid black;
   
   
 }
@@ -47,7 +49,8 @@
   right: 0;
 }
 	
-	
+.btn-group .button:not(:last-child) {
+  border-right: none; /* Prevent double borders */	}
 	</style>
 </head>
 
@@ -66,12 +69,12 @@
 					<input type="text" name="search" placeholder="Search.." id="searchbar">
 				</form>
 				<ul>
-					<li><a href="home.html">Home</a></li>
-					<li><a href="library.html">Library</a></li>
-					<li><a href="playlists.html">Playlists</a></li>
-					<li><a href="shop.html">Shop</a></li>
-					<li><a href="trends.html">Trends</a></li>
-					<li><a href="login.html">Logout</a></li>
+					<li><a href="home.php">Home</a></li>
+					<li><a href="library.php">Library</a></li>
+					<li><a href="playlists.php">Playlists</a></li>
+					<li><a href="shop.php">Shop</a></li>
+					<li><a href="trends.php">Trends</a></li>
+					<li><a href="login.php">Logout</a></li>
 				</ul>
 			</nav><!-- end of nav -->
 		</aside>
@@ -86,8 +89,12 @@
 			   <h3 id ="welcometext">Register now, to be able to stream or directly purchase and listen to the greatest hits! And hopefully we can count on seeing your own music on our platform someday! That's right! Our team especially supports independent content creators!</h3>
 			   <h3 id = "welcometext">Songify has access to over 1.000.000 Songs and their number is increasing every day!</h3>
 			   <h3 id = "welcometext">Become one of our 200.000 already music enjoying and producing users today!</h3>
+			   
+			 <div class="btn-group">  
 			   <button class="button" style="vertical-align:middle"><span>Register now! </span></button>
-	</div>
+			   <button class="button" style="vertical-align:middle"><span>Login </span></button>
+			</div>
+	  </div>
 	   
 		
 		
