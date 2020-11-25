@@ -18,12 +18,12 @@
                 <nav id="menu_v">
                     <input id="searchbar" placeholder="Search" type="text">
 					<ul>
-						<li><a href="home.html">Home</a></li>
-						<li><a href="library.html">Library</a></li>
-						<li><a href="playlists.html">Playlists</a></li>
-						<li><a href="shop.html">Shop</a></li>
-                        <li><a href="trends.html">Trends</a></li>
-                        <li><a href="home.html">Logout</a></li>
+						<li><a href="home.php">Home</a></li>
+						<li><a href="library.php">Library</a></li>
+						<li><a href="playlists.php">Playlists</a></li>
+						<li><a href="shop.php">Shop</a></li>
+                        <li><a href="trends.php">Trends</a></li>
+                        <li><a href="home.php">Logout</a></li>
 					</ul>
 				</nav><!-- end of nav -->
 			</aside>
