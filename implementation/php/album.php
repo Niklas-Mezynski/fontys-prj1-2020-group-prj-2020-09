@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
 </head>
 <style> 
-<?php include "css/main.css" ?>
+<?php include "../css/main.css" ?>
 </style>
 <body>
   <main>
@@ -37,12 +37,12 @@
  <?php
 		  include_once ("dbconnection.php");
 		// create the table - just for testing the connection
-		$stmt = $conn-prepare("SELECT album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle, song.artist_id AS sArtist
+		$stmt = $conn->prepare("SELECT album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle, song.artist_id AS sArtist
 		from album left join song
 		on album.album_id = song.album_id
-    where album.album_id = :albumid");
-    $stmt->bindParam(":albumid", htmlspecialchars($_GET["albumid"]));
-    $stmt->execute();
+		where album.album_id = :albumid");
+		$stmt->bindParam(":albumid", htmlspecialchars($_GET["albumid"]));
+		$stmt->execute();
 ?>
 
     <article>
