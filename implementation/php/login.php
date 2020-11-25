@@ -47,7 +47,7 @@ if (isset($_POST["submit"])) {
                     <input style="color:black;" type="submit" value="Submit" name="submit" />
                 </form>
                 <p>Not a member?: <a href="register.html">Register here</a></p>
-                <p><a href="home.html">Go back to Home</a></p>
+                <p><a href="home.php">Go back to Home</a></p>
             </div>
         </article><!-- end of article -->
 

@@ -8,7 +8,12 @@
 </head>
 
 <body>
-
+ <?php
+		 include_once ("dbconnection.php");
+		// create the table - just for testing the connection
+		$stmt = $conn-prepare("select album.title AS aTitle, users.user_name AS uName join users as u on a.artist_id = u.user_id");
+		$stmt->execute();
+?>
 	<main>
 		<header>
 			<div class="column" id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>

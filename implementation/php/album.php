@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
 </head>
 <style> 
-<?php include "css/main.css" ?>
+<?php include "../css/main.css" ?>
 </style>
 <body>
   <main>
@@ -24,12 +24,12 @@
         <p></p>
         <input id="searchbar" placeholder="Search" type="text">
         <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="library.html">Library</a></li>
-          <li><a href="playlists.html">Playlists</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="trends.html">Trends</a></li>
-          <li><a href="home.html">Logout</a></li>
+          <li><a href="/home.html">Home</a></li>
+          <li><a href="/library.html">Library</a></li>
+          <li><a href="/playlists.html">Playlists</a></li>
+          <li><a href="/shop.html">Shop</a></li>
+          <li><a href="/trends.html">Trends</a></li>
+          <li><a href="/home.html">Logout</a></li>
         </ul>
       </nav><!-- end of nav -->
     </aside>
@@ -37,19 +37,19 @@
  <?php
 		  include_once ("dbconnection.php");
 		// create the table - just for testing the connection
-		$stmt = $conn-prepare("SELECT album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle, song.artist_id AS sArtist
+		$stmt = $conn->prepare("SELECT album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle, song.artist_id AS sArtist
 		from album left join song
 		on album.album_id = song.album_id
-    where album.album_id = :albumid");
-    $stmt->bindParam(":albumid", htmlspecialchars($_GET["albumid"]));
-    $stmt->execute();
+		where album.album_id = :albumid");
+		$stmt->bindParam(":albumid", htmlspecialchars($_GET["albumid"]));
+		$stmt->execute();
 ?>
 
     <article>
       <p>Album</p>
       <div>
         <p style="float: left;">
-          <img src="../img/albumcover-placeholder.jpg" height="400px" width="400px" id="cover"></p>
+          <img src="/img/albumcover-placeholder.jpg" height="400px" width="400px" id="cover"></p>
 		 <?php
 		$result = $stmt->fetch(\PDO::FETCH_ASSOC);
 		echo "<p style='text-align: center'; font-size: 24px>" .$result['atitle'] . "</p>";
