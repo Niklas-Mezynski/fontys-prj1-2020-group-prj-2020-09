@@ -48,15 +48,14 @@ session_start();
 				
 				foreach ($stmt as $row) {
 					$playlist_id = $row["playlist_id"];
-					$res = $conn->query("select count(song_id) AS counter from song_playlist where playlist_id = $playlist_id ");
-					$columm = $res->fetchColumn(0);
-					$song_amount = (int) $columm["counter"];
+					$songs_in_pl = $conn->query("select song_id from song_playlist where playlist_id = $playlist_id ");
+					$song_count = $songs_in_pl->rowCount();
 					echo '<div class="grid-item">
 					<div class="card">
 						<img src="../img/playlistcover-placeholder.jpg" alt="albumcover" style="width:100%">
 						<div class="container">
 						  <h4><b>' . $row["name"] . '</b></h4>
-						  <p>' . $song_amount . ' Songs</p>
+						  <p>' . $song_count . ' Songs</p>
 						</div>
 					  </div>
                 </div>';
