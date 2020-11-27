@@ -35,9 +35,10 @@
             <div>
                 <img id="profilePicture" src="../img/profilepicture-placeholder.jpg" height="128">
             </div>
+            <ul>
             <?php
                 require("dbconnection.php");
-                $sqlconnect = "select First_Name, Last_Name, date_of_birth, email
+                $sqlconnect = "select First_Name, Last_Name, date_of_birth, email, password
                                 from users u 
                                 where user_id = 6";
                 $stmt = $conn -> query($sqlconnect);
@@ -45,11 +46,11 @@
                     echo "<li>First Name: " . $row ['first_name'] . 
                         "<li> Last Name: " . $row ['last_name'] . 
                         "<li> Geburtstag: " . $row ['date_of_birth'] .
-                        "<li> Email: " . $row ['email'];
+                        "<li> Email: " . $row ['email'] .
+                        "<li> Password: " .$row ['password'];
                 }
-
-              
             ?>
+            </ul>
             <!--<div id="profilebox">
                 <p class="profiletext"><label for="fname">First name: </label></p>
                 <p class="profiletext"><label for="lname">Last name: </label></p>

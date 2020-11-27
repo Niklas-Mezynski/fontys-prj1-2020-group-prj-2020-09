@@ -31,3 +31,7 @@ input, select, textarea{
     border: 2px solid white;
     border-radius: 5px;
 }
+
+ul {
+    margin-left: 3%;
+}
