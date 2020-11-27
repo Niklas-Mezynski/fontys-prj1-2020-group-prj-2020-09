@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
 	<style>
 .button{
-  display: inline-block;
+  display: block;
   border-radius: 4px;
   background-color: #3f48cc;
   border: none;
@@ -91,8 +91,8 @@
 			   <h3 id = "welcometext">Become one of our 200.000 already music enjoying and producing users today!</h3>
 			   
 			 <div class="btn-group">  
-			   <button class="button" style="vertical-align:middle"><span>Register now! </span></button>
-			   <button class="button" style="vertical-align:middle"><span>Login </span></button>
+			   <a href="register.php"><button class="button" style="vertical-align:middle"><span>Register now! </span></button></a>
+			   <a href="login.php"><button class="button" style="vertical-align:middle"><span>Login </span></button></a>
 			</div>
 	  </div>
 	   

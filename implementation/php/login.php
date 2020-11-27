@@ -11,7 +11,7 @@ if (isset($_POST["submit"])) {
             $row = $stmt->fetch();
             if (password_verify($_POST["pword"], $row["password"])) {
                 $_SESSION["user_id"] = $row["user_id"];
-                header("Location: home.php");
+                header("Location: main.php");
             } else {
                 echo "Der Login ist fehlgeschlagen";
             }
@@ -46,7 +46,7 @@ if (isset($_POST["submit"])) {
                     <input style="color:black;" type="password" id="pword" name="pword" /><br>
                     <input style="color:black;" type="submit" value="Submit" name="submit" />
                 </form>
-                <p>Not a member?: <a href="register.html">Register here</a></p>
+                <p>Not a member?: <a href="register.php">Register here</a></p>
                 <p><a href="home.php">Go back to Home</a></p>
             </div>
         </article><!-- end of article -->

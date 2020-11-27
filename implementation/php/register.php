@@ -35,9 +35,8 @@
                 $stmt->bindParam(":zipcode", $_POST["zipcode"]);
                 $stmt->bindParam(":city", $_POST["city"]);
                 $stmt->bindParam(":country", $_POST["country"]);
-                $stmt->execute();
-                echo "Account erfolgreich angelegt";
-            }
+                $successful = $stmt->execute();
+                }
         }
     }
     ?>
@@ -49,6 +48,11 @@
         <article>
 
             <div id="login">
+                <?php
+                if ($successful) {
+                    echo "<h3> Erfolgreich registriert!</h3>";
+                }   
+                ?>
                 <form action="register.php" method="POST">
                     <input style="color:black;" type="email" id="email" name="email" placeholder="Email" /><br>
                     <input style="color:black;" type="text" id="uname" name="uname" placeholder="Username" /><br>
@@ -64,7 +68,7 @@
                     <input style="color:black;" type="password" id="pwordconfirm" name="pwordconfirm" placeholder="Confirm Password" /><br>
                     <input style="color:black;" type="submit" name="submit" value="Submit" />
                 </form>
-                <p>Are you a member?: <a href="login.html">Log in here</a></p>
+                <p>Are you a member?: <a href="login.php">Log in here</a></p>
                 <p><a href="home.html">Go back to Home</a></p>
             </div>
         </article><!-- end of article -->

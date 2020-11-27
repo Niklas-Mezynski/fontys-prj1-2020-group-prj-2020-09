@@ -21,19 +21,17 @@
 		</header><!-- end of header -->
 
 		<aside>
-			<p></p>
-
 			<nav id="menu_v">
-				<form action="search.php" method="GET">
+				<form action="search.php" method="POST">
 					<input type="text" name="search" placeholder="Search.." id="searchbar">
 				</form>
 				<ul>
-					<li><a href="/home.html">Home</a></li>
-					<li><a href="/library.html">Library</a></li>
-					<li><a href="/playlists.html">Playlists</a></li>
-					<li><a href="/shop.html">Shop</a></li>
-					<li><a href="/trends.html">Trends</a></li>
-					<li><a href="/home.html">Logout</a></li>
+					<li><a href="main.php">Home</a></li>
+					<li><a href="library.php">Library</a></li>
+					<li><a href="playlists.php">Playlists</a></li>
+					<li><a href="shop.php">Shop</a></li>
+					<li><a href="trends.php">Trends</a></li>
+					<li><a href="logout.php">Logout</a></li>
 				</ul>
 			</nav><!-- end of nav -->
 		</aside>

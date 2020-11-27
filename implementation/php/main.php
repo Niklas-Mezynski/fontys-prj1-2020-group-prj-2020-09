@@ -7,8 +7,7 @@ session_start();
 <head>
 	<title>Home</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../css/main.css">
-	<link rel="stylesheet" href="../css/playlist-overview.css">
+	<link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
 </head>
 
 <body>
@@ -17,6 +16,7 @@ session_start();
 		<header>
 			<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
 			<div id="profileButton"><a href="profile.php">User Profile</a></div>
+			<div id="title"><p>Songify</p></div>
 		</header><!-- end of header -->
 
 		<aside>
@@ -35,32 +35,17 @@ session_start();
 			</nav><!-- end of nav -->
 		</aside>
 
-		<article>
-			<h2>Playlist Overview</h2>
-			<div class="grid-container">
-				<?php
-				require("dbconnection.php");
-				$stmt = $conn->prepare("select playlist_id, name from playlist where user_id = :user_id");
-				$stmt->bindParam(":user_id", $_SESSION["user_id"]);
-				$stmt->execute();
-				
-				foreach ($stmt as $row) {
-					$playlist_id = $row["playlist_id"];
-					$songs_in_pl = $conn->query("select song_id from song_playlist where playlist_id = $playlist_id ");
-					$song_count = $songs_in_pl->rowCount();
-					echo '<div class="grid-item">
-					<div class="card">
-						<img src="../img/playlistcover-placeholder.jpg" alt="albumcover" style="width:100%">
-						<div class="container">
-						  <h4><b>' . $row["name"] . '</b></h4>
-						  <p>' . $song_count . ' Songs</p>
-						</div>
-					  </div>
-                </div>';
-				}
-				?>
-
-		</article><!-- end of article -->
+	<article>
+		<?php
+		require("dbconnection.php");
+		$stmt = $conn->prepare("select user_name from users where user_id = :user_id");
+		$stmt->bindParam(":user_id",$_SESSION["user_id"]);
+		$stmt->execute();
+		$row = $stmt->fetch();
+		echo "<h1>Hallo ". $row["user_name"] ."!";
+		?>
+	
+	</article><!-- end of article -->
 
 		<footer>
 			<p>
