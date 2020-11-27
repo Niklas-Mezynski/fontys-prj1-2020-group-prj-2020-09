@@ -1,5 +1,10 @@
 <?php
 session_start();
+if(!isset($_SESSION["user_id"])){
+	header("Location: home.php");
+	session_destroy();
+	exit;
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,6 +36,12 @@ session_start();
 					<li><a href="shop.php">Shop</a></li>
 					<li><a href="trends.php">Trends</a></li>
 					<li><a href="logout.php">Logout</a></li>
+					<?php
+					require("permmanager.php");
+					if (get_role() == 4) {
+						echo '<li><a href="admin.php">Admin Panel</a></li>';
+					}
+					?>
 				</ul>
 			</nav><!-- end of nav -->
 		</aside>
