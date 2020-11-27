@@ -37,15 +37,20 @@
             </div>
             <?php
                 require("dbconnection.php");
-                $sqlconnect = "select First_Name, Last_Name
+                $sqlconnect = "select First_Name, Last_Name, date_of_birth, email
                                 from users u 
                                 where user_id = 6";
                 $stmt = $conn -> query($sqlconnect);
                 foreach($stmt as $row) {
-                    echo "FName: " . $row ['first_name'] . " | LName: " . $row ['last_name'];
+                    echo "<li>First Name: " . $row ['first_name'] . 
+                        "<li> Last Name: " . $row ['last_name'] . 
+                        "<li> Geburtstag: " . $row ['date_of_birth'] .
+                        "<li> Email: " . $row ['email'];
                 }
+
+              
             ?>
-            <div id="profilebox">
+            <!--<div id="profilebox">
                 <p class="profiletext"><label for="fname">First name: </label></p>
                 <p class="profiletext"><label for="lname">Last name: </label></p>
                 <p class="profiletext"><label for="bday">Birthdate: </label></p>
@@ -67,7 +72,7 @@
                     </form>
                 </form>
             </div>
-
+            -->
             <br>
             <br>
             <div id="sub">
