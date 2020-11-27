@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["user_id"])){
+if(!(isset($_SESSION["user_id"]) && isset($_SESSION["user_id"]))) {
 	header("Location: home.php");
 	session_destroy();
 	exit;
@@ -32,16 +32,21 @@ if(!isset($_SESSION["user_id"])){
 				<ul>
 					<li><a href="main.php">Home</a></li>
 					<li><a href="library.php">Library</a></li>
-					<li><a href="playlists.php">Playlists</a></li>
+					<?php
+					if ($_SESSION["user_role"] >= 2) {
+						echo '<li><a href="playlists.php">Playlists</a></li>';
+					}
+					?>
+					<!-- <li><a href="playlists.php">Playlists</a></li> -->
 					<li><a href="shop.php">Shop</a></li>
 					<li><a href="trends.php">Trends</a></li>
-					<li><a href="logout.php">Logout</a></li>
 					<?php
-					require("permmanager.php");
-					if (get_role() == 4) {
+					if ($_SESSION["user_role"] == 4) {
 						echo '<li><a href="admin.php">Admin Panel</a></li>';
 					}
 					?>
+					<li><a href="logout.php">Logout</a></li>
+					
 				</ul>
 			</nav><!-- end of nav -->
 		</aside>
