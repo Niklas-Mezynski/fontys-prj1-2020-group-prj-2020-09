@@ -5,8 +5,7 @@ if(!(isset($_SESSION["user_id"]) && isset($_SESSION["user_id"]))) {
 	session_destroy();
 	exit;
   }
-require("permmanager.php");
-if (get_role() < 4) {
+if ($_SESSION["user_role"] < 4) {
     header("Location: main.php");
     exit;
 }
