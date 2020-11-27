@@ -1,10 +1,14 @@
 <?php
 session_start();
-if(!(isset($_SESSION["user_id"]) && isset($_SESSION["user_id"]))) {
+if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_id"]))) {
 	header("Location: home.php");
 	session_destroy();
 	exit;
-  }
+}
+if ($_SESSION["user_role"] < 1) {
+	header("Location: main.php");
+	exit;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +25,9 @@ if(!(isset($_SESSION["user_id"]) && isset($_SESSION["user_id"]))) {
 		<header>
 			<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
 			<div id="profileButton"><a href="profile.php">User Profile</a></div>
-			<div id="title"><p>Songify</p></div>
+			<div id="title">
+				<p>Songify</p>
+			</div>
 		</header><!-- end of header -->
 
 		<aside>
@@ -37,31 +43,35 @@ if(!(isset($_SESSION["user_id"]) && isset($_SESSION["user_id"]))) {
 						echo '<li><a href="playlists.php">Playlists</a></li>';
 					}
 					?>
-					<!-- <li><a href="playlists.php">Playlists</a></li> -->
 					<li><a href="shop.php">Shop</a></li>
 					<li><a href="trends.php">Trends</a></li>
+					<?php
+					if ($_SESSION["user_role"] >= 3) {
+						echo '<li><a href="uploadsongs.php">Upload Songs</a></li>';
+					}
+					?>
 					<?php
 					if ($_SESSION["user_role"] == 4) {
 						echo '<li><a href="admin.php">Admin Panel</a></li>';
 					}
 					?>
 					<li><a href="logout.php">Logout</a></li>
-					
+
 				</ul>
 			</nav><!-- end of nav -->
 		</aside>
 
-	<article>
-		<?php
-		require("dbconnection.php");
-		$stmt = $conn->prepare("select user_name from users where user_id = :user_id");
-		$stmt->bindParam(":user_id",$_SESSION["user_id"]);
-		$stmt->execute();
-		$row = $stmt->fetch();
-		echo "<h1>Hallo ". $row["user_name"] ."!";
-		?>
-	
-	</article><!-- end of article -->
+		<article>
+			<?php
+			require("dbconnection.php");
+			$stmt = $conn->prepare("select user_name from users where user_id = :user_id");
+			$stmt->bindParam(":user_id", $_SESSION["user_id"]);
+			$stmt->execute();
+			$row = $stmt->fetch();
+			echo "<h1>Hallo " . $row["user_name"] . "!";
+			?>
+
+		</article><!-- end of article -->
 
 		<footer>
 			<p>
