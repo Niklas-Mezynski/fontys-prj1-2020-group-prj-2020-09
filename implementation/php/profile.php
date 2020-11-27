@@ -35,6 +35,16 @@
             <div>
                 <img id="profilePicture" src="../img/profilepicture-placeholder.jpg" height="128">
             </div>
+            <?php
+                require("dbconnection.php");
+                $sqlconnect = "select First_Name, Last_Name
+                                from users u 
+                                where user_id = 6";
+                $stmt = $conn -> query($sqlconnect);
+                foreach($stmt as $row) {
+                    echo "FName: " . $row ['first_name'] . " | LName: " . $row ['last_name'];
+                }
+            ?>
             <div id="profilebox">
                 <p class="profiletext"><label for="fname">First name: </label></p>
                 <p class="profiletext"><label for="lname">Last name: </label></p>
