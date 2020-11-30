@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_id"]))) {
+if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
 	header("Location: home.php");
 	session_destroy();
 	exit;

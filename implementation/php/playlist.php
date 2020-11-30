@@ -1,14 +1,28 @@
 <?php
 session_start();
-if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_id"]))) {
+if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
 	header("Location: home.php");
 	session_destroy();
 	exit;
 }
-if ($_SESSION["user_role"] < 1) {
+if ($_SESSION["user_role"] < 2) {
 	header("Location: main.php");
 	exit;
 }
+if (!isset($_GET["id"])) {
+	header("Location: main.php");
+	exit;
+}
+require("dbconnection.php");
+$playlist_id = $_GET["id"];
+$stmtPlInformation = $conn->query('SELECT * FROM playlist where playlist_id = ' . $playlist_id);
+$plInformation = $stmtPlInformation->fetch();
+$plName = $plInformation["name"];
+if($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["user_id"])) {
+	header("Location: main.php");
+	exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,39 +77,29 @@ if ($_SESSION["user_role"] < 1) {
 		</aside>
 
 		<article>
-
 			<?php
-			$host = "prj1_postgres";
-			$port = "5432";
-			$db = "postgres";
-			$user = "postgres";
-			$pword = "mypassword";
-			// Create Data Source Name (DSN)
-			$dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$user;password=$pword";
-			// Connect to the PostgreSQL database named $dsn
-			$conn = new PDO($dsn);
-			?>
-
-			<h1>Playlist Example (ID: 3)</h1><br><br>
-			<div>
-				<ul class="playlist-songs">
-				<?php
-				// create a statement
-				$sqlSelect =
-				"SELECT s.title, u.user_name, s.publisher
+				$stmt = $conn->prepare("SELECT s.title, u.user_name, s.publisher
 				FROM song s 
 				inner join song_playlist sp 
 				on s.song_id = sp.song_id
-				inner join users u 
+				inner join users u
 				ON s.artist_id = u.user_id 
-				where sp.playlist_id = 3";
-				// Execute a statement
-				$stmt = $conn->query($sqlSelect);
-				// Iterate the table and echo out the tuples
-				foreach ($stmt as $row) {
-					echo "<li><p>Title: " . $row['title'] . "  |  Artist: " . $row['user_name'] . "  |  Publisher: " . $row['publisher'] . "</p></li>";
-				}
-				?>
+				where sp.playlist_id = :playlist_id");
+				$stmt->bindParam(":playlist_id", $playlist_id, PDO::PARAM_INT);
+				$stmt->execute();
+				$getName = $conn->query('SELECT "name" FROM playlist where playlist_id = ' . $playlist_id);
+				$nameRow = $getName->fetch();
+				$plName = $nameRow["name"];
+			?>
+
+			<h1><?php echo $plName; ?></h1><br><br>
+			<div>
+				<ul class="playlist-songs">
+					<?php
+					foreach ($stmt as $row) {
+						echo "<li><p>Title: " . $row['title'] . "  |  Artist: " . $row['user_name'] . "  |  Publisher: " . $row['publisher'] . "</p></li>";
+					}
+					?>
 				</ul>
 			</div>
 		</article>

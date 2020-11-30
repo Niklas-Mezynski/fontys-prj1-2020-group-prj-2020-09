@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!(isset($_SESSION["user_id"]) && isset($_SESSION["user_id"]))) {
+if(!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
 	header("Location: home.php");
 	session_destroy();
 	exit;
@@ -17,6 +17,6 @@ if ($_SESSION["user_role"] < 4) {
     <title>Admin</title>
 </head>
 <body>
-    <h1>Geheim!</h1>
+    <h1>Hier können nur Admins hin.</h1>
 </body>
 </html>

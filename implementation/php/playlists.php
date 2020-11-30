@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_id"]))) {
+if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
 	header("Location: home.php");
 	session_destroy();
 	exit;
@@ -76,9 +76,8 @@ if ($_SESSION["user_role"] < 1) {
 					$playlist_id = $row["playlist_id"];
 					$songs_in_pl = $conn->query("select song_id from song_playlist where playlist_id = $playlist_id ");
 					$song_count = $songs_in_pl->rowCount();
-					echo '<div class="grid-item">
-					<form action="playlist.php" method="post">
-					<input type="hidden" metohd="post" value="'.$row["playlist_id"].'">
+					echo '<a href="playlist.php?id='.$playlist_id.'">
+					<div class="grid-item">
 					<div class="card">
 						<img src="../img/playlistcover-placeholder.jpg" alt="albumcover" style="width:100%">
 						<div class="container">
@@ -86,7 +85,6 @@ if ($_SESSION["user_role"] < 1) {
 						  <p>' . $song_count . ' Songs</p>
 						</div>
 					  </div>
-					  <input type="submit">
                 </div>';
 				}
 				?>
