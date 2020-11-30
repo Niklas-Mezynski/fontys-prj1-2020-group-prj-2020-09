@@ -78,12 +78,14 @@ if($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["us
 
 		<article>
 			<?php
-				$stmt = $conn->prepare("SELECT s.title, u.user_name, s.publisher
+				$stmt = $conn->prepare("SELECT s.title, u.user_name, a.title AS album, s.listens
 				FROM song s 
 				inner join song_playlist sp 
 				on s.song_id = sp.song_id
 				inner join users u
-				ON s.artist_id = u.user_id 
+				ON s.artist_id = u.user_id
+				inner join album a
+				on s.album_id = a.album_id 
 				where sp.playlist_id = :playlist_id");
 				$stmt->bindParam(":playlist_id", $playlist_id, PDO::PARAM_INT);
 				$stmt->execute();
@@ -92,15 +94,29 @@ if($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["us
 				$plName = $nameRow["name"];
 			?>
 
-			<h1><?php echo $plName; ?></h1><br><br>
+			<h1><?php echo $plName; ?></h1><br>
+			<a href="newPlaylist.php"><button id="add">Add songs</button></a><br>
 			<div>
-				<ul class="playlist-songs">
+				<table>
 					<?php
-					foreach ($stmt as $row) {
+					/*foreach ($stmt as $row) {
 						echo "<li><p>Title: " . $row['title'] . "  |  Artist: " . $row['user_name'] . "  |  Publisher: " . $row['publisher'] . "</p></li>";
-					}
+					}*/
+					echo "<th>Song</th>";
+                    echo "<th>Artist</th>";
+                    echo "<th>Album</th>";
+                    echo "<th>Listens</th>";
+                    
+                    foreach ($stmt as $row) {
+                        echo "<tr>";
+                        echo "<th>" . $row['title'] . "</th>";
+                        echo "<th>" . $row['user_name'] . "</th>";
+                        echo "<th>" . $row['album'] . "</th>";
+                        echo "<th>" . $row['listens'] . "</th>";
+                        echo "</tr>";
+                    }
 					?>
-				</ul>
+				</table>
 			</div>
 		</article>
 

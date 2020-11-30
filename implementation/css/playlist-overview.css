@@ -3,8 +3,7 @@ a {
 }
 
 #newpl {
-    float: right;
-    margin-right: 10px;
+    margin-top: 20px;
     background-color: #292929;
     border: solid white 2px;
     border-radius: 5px;
