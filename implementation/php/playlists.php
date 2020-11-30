@@ -65,10 +65,11 @@ if ($_SESSION["user_role"] < 1) {
 
 		<article>
 			<h2>Playlist Overview</h2>
+			<a href="newPlaylist.php"><button id="newpl">Create new playlist</button></a>
 			<div class="grid-container">
 				<?php
 				require("dbconnection.php");
-				$stmt = $conn->prepare("select playlist_id, name from playlist where user_id = :user_id");
+				$stmt = $conn->prepare("select playlist_id, name from playlist where user_id = :user_id order by playlist_id desc");
 				$stmt->bindParam(":user_id", $_SESSION["user_id"]);
 				$stmt->execute();
 				
