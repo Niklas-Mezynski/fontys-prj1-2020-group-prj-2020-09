@@ -1,3 +1,23 @@
 a {
     text-decoration: none;
 }
+
+#newpl {
+    margin-top: 20px;
+    background-color: #292929;
+    border: solid white 2px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.plform {
+    background-color: #292929;
+    border: solid white 2px;
+    border-radius: 5px;
+    padding: 2px;
+    width: 280px;
+}
+
+#centered {
+    margin-left: 34%;
+}

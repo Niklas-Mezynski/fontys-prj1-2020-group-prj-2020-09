@@ -6,3 +6,22 @@
     padding-top: 20px;
     padding-left: 40px;
 }
+
+#add {
+    background-color: #292929;
+    border: solid white 2px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+table {
+    width: 70%;
+    margin-top: 20px;
+}
+
+table,tr,th {
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-color: white;
+}

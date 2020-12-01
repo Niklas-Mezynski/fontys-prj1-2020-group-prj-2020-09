@@ -20,20 +20,20 @@
         </header><!-- end of header -->
 
         <aside>
-            <nav id="menu_v">
-                <form action="search.php" method="POST">
-                    <input type="text" name="search" placeholder="Search.." id="searchbar">
-                </form>
-                <ul>
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="library.php">Library</a></li>
-                    <li><a href="../playlists.html">Playlists</a></li>
-                    <li><a href="../shop.html">Shop</a></li>
-                    <li><a href="../trends.html">Trends</a></li>
-                    <li><a href="logout.php">Logout</a></li>
-                </ul>
-            </nav><!-- end of nav -->
-        </aside>
+			<nav id="menu_v">
+				<form action="search.php" method="POST">
+					<input type="text" name="search" placeholder="Search.." id="searchbar">
+				</form>
+				<ul>
+					<li><a href="main.php">Home</a></li>
+					<li><a href="library.php">Library</a></li>
+					<li><a href="playlists.php">Playlists</a></li>
+					<li><a href="shop.php">Shop</a></li>
+					<li><a href="trends.php">Trends</a></li>
+					<li><a href="logout.php">Logout</a></li>
+				</ul>
+			</nav><!-- end of nav -->
+		</aside>
         <?php
         include_once("../php/dbconnection.php");
         if ($_POST["searchRadio"] == "Artist") {
@@ -79,6 +79,8 @@
 
             <table id="search-results">
                 <?php
+                include 'formatNumber.php';
+
                 if ($_POST["searchRadio"] == "Artist") {
                     echo "<th>Artist</th>";
                     echo "<th>Album Amount</th>";
@@ -114,7 +116,7 @@
                         echo "<th>" . $row['title'] . "</th>";
                         echo "<th>" . $row['artist'] . "</th>";
                         echo "<th>" . $row['album'] . "</th>";
-                        echo "<th>" . $row['listens'] . "</th>";
+                        echo "<th>" . formatNumber($row['listens']) . "</th>";
                         echo "</tr>";
                     }
                 }

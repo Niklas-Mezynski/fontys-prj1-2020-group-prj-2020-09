@@ -14,7 +14,7 @@ CREATE TABLE Users (
 	Country varchar(60) not null,
 	Blocked boolean default false,
 	Subscription_Status boolean default false,
-	User_Role int,
+	User_Role int not null default 1,
 	CC_Number varchar(25)	 
 );
 CREATE TABLE Album (
