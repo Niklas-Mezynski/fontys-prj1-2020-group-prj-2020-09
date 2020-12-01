@@ -5,3 +5,13 @@
     border-radius: 5px;
     padding: 2px;
 }
+
+
+select,option {
+    margin-top: 10px;
+    width: 250px;
+    background-color: #292929;
+    border: solid white 2px;
+    border-radius: 5px;
+    padding: 2px;
+}

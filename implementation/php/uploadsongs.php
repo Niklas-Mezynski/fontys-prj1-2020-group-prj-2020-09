@@ -132,7 +132,20 @@ if ($_SESSION["user_role"] < 3) {
                 <label>Label </label><input class="dataInput" type="text" name="label"><br>
                 <label>Publisher </label><input class="dataInput" type="text" name="publisher"><br>
                 <label>Price </label><input class="dataInput" type="text" name="price"><br>
-                <label>Album </label><input class="dataInput" type="text" name="album"><br>
+                <label for="album">Album </label>
+                <select id="album" name="album">
+                    
+                    <?php
+                    require("dbconnection.php");
+                    $stmtAlbum = $conn->prepare("select * from album where artist_id = :user_id");
+                    $stmtAlbum->bindParam(":user_id", $_SESSION["user_id"]);
+                    $stmtAlbum->execute();
+                    
+                    foreach ($stmtAlbum as $row) {
+                        echo '<option value="'. $row["album_id"] .'">'. $row["title"] .'</option>';
+                    }
+                    ?>
+                </select><br>
                 <input class="dataInput" type="submit" value="Upload song" name="submit">
             </form>
 
