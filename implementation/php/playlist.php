@@ -95,7 +95,7 @@ if($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["us
 			?>
 
 			<h1><?php echo $plName; ?></h1><br>
-			<a href="newPlaylist.php"><button id="add">Add songs</button></a><br>
+			<a href="search.php"><button id="add">Add songs</button></a><br>
 			<div>
 				<table>
 					<?php
