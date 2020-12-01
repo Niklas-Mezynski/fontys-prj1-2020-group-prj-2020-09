@@ -69,7 +69,7 @@ if ($_SESSION["user_role"] < 1) {
             <ul>
             <?php
                 require("dbconnection.php");
-                $sqlconnect = "select First_Name, Last_Name, date_of_birth, email, password
+                $sqlconnect = "select First_Name, Last_Name, date_of_birth, email, password, subscription_status
                                 from users u 
                                 where user_id = :user_id";
                 
@@ -77,14 +77,22 @@ if ($_SESSION["user_role"] < 1) {
                 $stmt -> bindParam(":user_id", $_SESSION['user_id']);
                 $stmt -> execute();
                 foreach($stmt as $row) {
+                    $subscription_status = $row["subscription_status"];
                     echo "<li>First Name: " . $row ['first_name'] . 
                         "<li> Last Name: " . $row ['last_name'] . 
                         "<li> Geburtstag: " . $row ['date_of_birth'] .
-                        "<li> Email: " . $row ['email'] .
-                        "<li> Password: " .$row ['password'];
+                        "<li> Email: " . $row ['email'] .  
+                    if($subscription_status = true) {
+                        echo ' <li>Subscription status: Abo ist aktiv';
+                    } else {
+                        echo ' <li>Subscription status: Abo ist nicht aktiv';
+                    }
                 }
             ?>
+            <li> <a href="changepassword.php">Changepassword</a></li>
             </ul>
+            
+            
             <!--<div id="profilebox">
                 <p class="profiletext"><label for="fname">First name: </label></p>
                 <p class="profiletext"><label for="lname">Last name: </label></p>
@@ -92,6 +100,10 @@ if ($_SESSION["user_role"] < 1) {
                 <p class="profiletext"><label for="email">Email: </label></p>
                 <p class="profiletext"><label for="password">Password: </label></p>
             </div>
+
+
+
+            "<li> Subscription status: " .$row['subscription_status'] .
 
             <div>
                 <form method="post" action="dbconnection.php">
