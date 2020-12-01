@@ -23,12 +23,6 @@
 					<input type="text" name="search" placeholder="Search.." id="searchbar">
 				</form>
 				<ul>
-					
-					<li><a href="library.php">Library</a></li>
-					<li><a href="../playlists.php">Playlists</a></li>
-					<li><a href="../shop.php">Shop</a></li>
-					<li><a href="../trends.php">Trends</a></li>
-					<li><a href="logout.php">Logout</a></li>
 				</ul>
 			</nav><!-- end of nav -->
 		</aside>
