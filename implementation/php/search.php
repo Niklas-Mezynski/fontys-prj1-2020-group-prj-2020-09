@@ -79,13 +79,7 @@
 
             <table id="search-results">
                 <?php
-                function formatNumber($number) {
-                    for ($i = 3; $i < strlen($number); $i+=4) {
-                        $position = strlen($number) - $i;
-                        $number = substr_replace($number, ".", $position, 0);
-                    }
-                    return $number;
-                }
+                include 'formatNumber.php';
 
                 if ($_POST["searchRadio"] == "Artist") {
                     echo "<th>Artist</th>";
