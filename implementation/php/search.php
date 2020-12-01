@@ -79,6 +79,8 @@
 
             <table id="search-results">
                 <?php
+                include 'formatNumber.php';
+
                 if ($_POST["searchRadio"] == "Artist") {
                     echo "<th>Artist</th>";
                     echo "<th>Album Amount</th>";
@@ -114,7 +116,7 @@
                         echo "<th>" . $row['title'] . "</th>";
                         echo "<th>" . $row['artist'] . "</th>";
                         echo "<th>" . $row['album'] . "</th>";
-                        echo "<th>" . $row['listens'] . "</th>";
+                        echo "<th>" . formatNumber($row['listens']) . "</th>";
                         echo "</tr>";
                     }
                 }
@@ -124,7 +126,7 @@
 
         <footer>
             <p>
-                <a href="termsandconditions.html">Terms and Conditions</a>
+                <a href="../termsandconditions.html">Terms and Conditions</a>
             </p>
 
         </footer><!-- end of footer -->

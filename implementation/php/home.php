@@ -5,53 +5,7 @@
 	<title>Home</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
-	<style>
-.button{
-  display: block;
-  border-radius: 4px;
-  background-color: #3f48cc;
-  border: none;
-  color: #3f48cc;
-  text-align: center;
-  font-size: 22px;
-  padding: 20px;
-  width: 220px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  float: left;
-  border: 1px solid black;
-  
-  
-}
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
 	
-.btn-group .button:not(:last-child) {
-  border-right: none; /* Prevent double borders */	}
-	</style>
 </head>
 
 <body>
@@ -69,12 +23,6 @@
 					<input type="text" name="search" placeholder="Search.." id="searchbar">
 				</form>
 				<ul>
-					<li><a href="home.php">Home</a></li>
-					<li><a href="library.php">Library</a></li>
-					<li><a href="../playlists.html">Playlists</a></li>
-					<li><a href="../shop.html">Shop</a></li>
-					<li><a href="../trends.html">Trends</a></li>
-					<li><a href="logout.php">Logout</a></li>
 				</ul>
 			</nav><!-- end of nav -->
 		</aside>
