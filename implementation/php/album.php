@@ -37,23 +37,26 @@
  <?php
 		  include_once ("dbconnection.php");
 		// create the table - just for testing the connection
-		$stmt = $conn->prepare("SELECT album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle, song.artist_id AS sArtist
-		from album left join song
+		$stmt = $conn->prepare("SELECT album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle, users.user_name AS sArtist
+		from (album left join song
 		on album.album_id = song.album_id
+		left join users
+		on song.artist_id = users.user_id)
 		where album.album_id = :albumid");
 		$stmt->bindParam(":albumid", htmlspecialchars($_GET["albumid"]));
 		$stmt->execute();
 ?>
 
     <article>
-      <p>Album</p>
+      <p></p>
       <div>
         <p style="float: left;">
           <img src="/img/albumcover-placeholder.jpg" height="400px" width="400px" id="cover"></p>
 		 <?php
 		$result = $stmt->fetch(\PDO::FETCH_ASSOC);
-		echo "<p style='text-align: center'; font-size: 24px>" .$result['atitle'] . "</p>";
-		echo "<p style='text-align: center'; font-size: 24px>" .$result['alabel'] . "/" .$result['apublisher'] . "</p>";
+		echo "<br>";
+		echo "<p style='text-align: left; font-size: 36px'>" .$result['atitle'] . "</p>";
+		echo "<p style='text-align: left; font-size: 24px'>" .$result['alabel'] . "/" .$result['apublisher'] . "</p>";
 		?>
         <table id="songlist">
           <tr id="header">
