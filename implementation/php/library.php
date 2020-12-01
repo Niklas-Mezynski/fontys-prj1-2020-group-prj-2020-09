@@ -4,7 +4,7 @@
 <head>
 	<title>Library</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
+	<link rel="stylesheet" href="/css/main.css"><!-- link to stylesheet -->
 </head>
 
 <body>
@@ -15,9 +15,12 @@
 		$stmt->execute();
 ?>
 	<main>
-		<header>
-			<div class="column" id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
-			<div class="column" id="profileButton"><a href="profile.html">User Profile</a></div>
+	<header>
+			<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+			<div id="profileButton"><a href="profile.php">User Profile</a></div>
+			<div id="title">
+				<p>Songify</p>
+			</div>
 		</header><!-- end of header -->
 
 		<aside>
@@ -28,10 +31,25 @@
 				<ul>
 					<li><a href="main.php">Home</a></li>
 					<li><a href="library.php">Library</a></li>
-					<li><a href="playlists.php">Playlists</a></li>
+					<?php
+					if ($_SESSION["user_role"] >= 2) {
+						echo '<li><a href="playlists.php">Playlists</a></li>';
+					}
+					?>
 					<li><a href="shop.php">Shop</a></li>
 					<li><a href="trends.php">Trends</a></li>
+					<?php
+					if ($_SESSION["user_role"] >= 3) {
+						echo '<li><a href="uploadsongs.php">Upload Songs</a></li>';
+					}
+					?>
+					<?php
+					if ($_SESSION["user_role"] == 4) {
+						echo '<li><a href="admin.php">Admin Panel</a></li>';
+					}
+					?>
 					<li><a href="logout.php">Logout</a></li>
+
 				</ul>
 			</nav><!-- end of nav -->
 		</aside>
