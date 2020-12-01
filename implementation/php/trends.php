@@ -12,7 +12,7 @@
     <main>
         <header>
             <div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
-            <div id="profileButton"><a href="profile.html">User Profile</a></div>
+            <div id="profileButton"><a href="profile.php">User Profile</a></div>
         </header><!-- end of header -->
 
         <aside>
@@ -36,34 +36,41 @@
         $stmt = $conn->prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album, song.listens AS listens
             FROM song INNER JOIN users ON users.user_id = song.artist_id 
             INNER JOIN album ON song.album_id = album.album_id
-            ORDER BY listens DESC;");
+            ORDER BY listens DESC
+            FETCH NEXT 10 ROWS ONLY;");
         $stmt->execute();
         ?>
         <article>
+            <h1>Top 10 Trending Songs:</h1>
         <table>
             <?php
             include 'formatNumber.php';
 
+            echo "<th>#</th>";
             echo "<th>Song</th>";
             echo "<th>Artist</th>";
             echo "<th>Album</th>";
             echo "<th>Listens</th>";
 
+            $x = 1;
             foreach ($stmt as $row) {
                 echo "<tr>";
+                echo "<th>" . $x . "</th>";
                 echo "<th>" . $row['title'] . "</th>";
                 echo "<th>" . $row['artist'] . "</th>";
                 echo "<th>" . $row['album'] . "</th>";
                 echo "<th>" . formatNumber($row['listens']) . "</th>";
                 echo "</tr>";
+                $x++;
             }
+            $x = 1;
             ?>
         </table>
         </article><!-- end of article -->
 
         <footer>
             <p>
-                <a href="termsandconditions.html">Terms and Conditions</a>
+                <a href="../termsandconditions.html">Terms and Conditions</a>
             </p>
 
         </footer><!-- end of footer -->
