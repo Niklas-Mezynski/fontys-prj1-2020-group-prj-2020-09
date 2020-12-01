@@ -2,14 +2,14 @@
     <head>
         <title>Home</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/main.css"><!-- link to stylesheet -->
+        <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
     </head>
     
     <body>
     
         <main>
             <header>
-                <div id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+                <div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
                 <div id="profileButton"><a href="profile.html">User Profile</a></div>
             </header><!-- end of header -->
     
@@ -19,18 +19,18 @@
                         <input type="text" name="search" placeholder="Search.." id="searchbar">
                     </form>
                     <ul>
-                        <li><a href="php/home.php">Home</a></li>
-                        <li><a href="php/library.php">Library</a></li>
-                        <li><a href="playlists.html">Playlists</a></li>
-                        <li><a href="shop.html">Shop</a></li>
-                        <li><a href="trends.html">Trends</a></li>
-                        <li><a href="php/logout.php">Logout</a></li>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="library.php">Library</a></li>
+                        <li><a href="playlists.php">Playlists</a></li>
+                        <li><a href="shop.php">Shop</a></li>
+                        <li><a href="trends.php">Trends</a></li>
+                        <li><a href="logout.php">Logout</a></li>
                     </ul>
                 </nav><!-- end of nav -->
             </aside>
     
             <article>
-            <img src="img/Final_Moodboard.png" alt="funktioniert immer noch nicht" style="height:800px">	
+            <img src="../img/Final_Moodboard.png" alt="funktioniert immer noch nicht" style="height:800px">	
             </article><!-- end of article -->
     
             <footer>
