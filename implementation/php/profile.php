@@ -81,7 +81,7 @@ if ($_SESSION["user_role"] < 1) {
                     echo "<li>First Name: " . $row ['first_name'] . 
                         "<li> Last Name: " . $row ['last_name'] . 
                         "<li> Geburtstag: " . $row ['date_of_birth'] .
-                        "<li> Email: " . $row ['email'] .  
+                        "<li> Email: " . $row ['email'];
                     if($subscription_status = true) {
                         echo ' <li>Subscription status: Abo ist aktiv';
                     } else {
