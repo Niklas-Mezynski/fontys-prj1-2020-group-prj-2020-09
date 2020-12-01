@@ -34,7 +34,12 @@
 		</aside>
 
 		<article>
-            <div id="shop">
+            <div class="shop">
+				<p class="text">Subscription</p>
+				<img src="../img/shopitem-placeholder.jpg" class="image"></p>
+				<button>Purchase</button>
+			</div>
+			<div id="shop">
 				<p class="text">Subscription</p>
 				<img src="../img/shopitem-placeholder.jpg" class="image"></p>
 				<button>Purchase</button>
