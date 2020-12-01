@@ -79,6 +79,14 @@
 
             <table id="search-results">
                 <?php
+                function formatNumber($number) {
+                    for ($i = 3; $i < strlen($number); $i+=4) {
+                        $position = strlen($number) - $i;
+                        $number = substr_replace($number, ".", $position, 0);
+                    }
+                    return $number;
+                }
+
                 if ($_POST["searchRadio"] == "Artist") {
                     echo "<th>Artist</th>";
                     echo "<th>Album Amount</th>";
@@ -114,7 +122,7 @@
                         echo "<th>" . $row['title'] . "</th>";
                         echo "<th>" . $row['artist'] . "</th>";
                         echo "<th>" . $row['album'] . "</th>";
-                        echo "<th>" . $row['listens'] . "</th>";
+                        echo "<th>" . formatNumber($row['listens']) . "</th>";
                         echo "</tr>";
                     }
                 }
