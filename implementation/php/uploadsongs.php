@@ -108,7 +108,7 @@ if ($_SESSION["user_role"] < 3) {
                     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $finalFile)) {
                         $insert = $conn->prepare('INSERT INTO public.song
                                     (song_id, title, "date", artist_id, "label", publisher, price, album_id, song_path)
-                                    VALUES(:song_id, :song_name, CURRENT_DATE, :artist_id, :label, :publisher, :price,/* placeholder album:1 */ 1, :song_path)');
+                                    VALUES(:song_id, :song_name, CURRENT_DATE, :artist_id, :label, :publisher, :price, :album, :song_path)');
 
                         $insert->bindParam(":song_id", $song_id);
                         $insert->bindParam(":song_name", $_POST["song_name"]);
@@ -116,9 +116,10 @@ if ($_SESSION["user_role"] < 3) {
                         $insert->bindParam(":label", $_POST["label"]);
                         $insert->bindParam(":publisher", $_POST["publisher"]);
                         $insert->bindParam(":price", $_POST["price"]);
+                        $insert->bindParam(":album",$_POST["album"]);
                         $insert->bindParam(":song_path", $finalFile);
                         $insert->execute();
-                        echo "The file has been uploaded.";
+                        echo "<h4>The file has been uploaded.</h4>";
                     } else {
                         echo "Sorry, there was an error uploading your file.";
                     }
