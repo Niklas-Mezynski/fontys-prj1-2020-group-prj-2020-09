@@ -5,7 +5,7 @@
 	<title>Home</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
-	<link rel="stylesheet" href="../css/shop.css">
+	<link rel="stylesheet" href="../css/shopN.css">
 </head>
 
 <body>
@@ -39,7 +39,7 @@
 				<img src="../img/shopitem-placeholder.jpg" class="image"></p>
 				<button>Purchase</button>
 			</div>
-			<div id="shop">
+			<div class="shop">
 				<p class="text">Subscription</p>
 				<img src="../img/shopitem-placeholder.jpg" class="image"></p>
 				<button>Purchase</button>
