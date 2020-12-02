@@ -76,10 +76,11 @@ if ($_SESSION["user_role"] < 1) {
                 }
             ?>
 
-
             <div id="centered">
                 <h1>Create a new playlist</h1><br>
-                <form action="playlists.php" method="POST">
+                <?php if($succesfull) {echo '<h3 style="color: #3f48cc">Playlist erfolgreich erstellt.</h3><br>';
+                echo '<a href="playlists.php">Back to playlist overview</a><br><br>';} ?>
+                <form action="newPlaylist.php" method="POST">
                     <input class="plform" type="text" name="plname" placeholder="Playlist name"><br><br>
                     <input type="checkbox" name="public">
                     <label for="public">Public</label><br><br>

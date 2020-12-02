@@ -5,7 +5,7 @@ if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
 	session_destroy();
 	exit;
 }
-if ($_SESSION["user_role"] < 1) {
+if ($_SESSION["user_role"] < 2) {
 	header("Location: main.php");
 	exit;
 }
