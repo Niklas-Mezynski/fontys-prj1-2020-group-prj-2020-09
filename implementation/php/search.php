@@ -38,7 +38,7 @@ session_start();
             </nav><!-- end of nav -->
         </aside>
         <?php
-        include_once("../php/dbconnection.php");
+        include_once("dbconnection.php");
         if ($_POST["searchRadio"] == "Artist") {
             $searchInput = $_POST["search"];
             $stmt = $conn->prepare("SELECT users.user_name AS artist, count(albumsongs.title) AS albums, sum(albumsongs.songs) AS songs
@@ -74,13 +74,7 @@ session_start();
                 <input id="mainSearchbar" name="search" placeholder="Search.." type="text" value="<?php echo (isset($_POST["search"])) ? $_POST["search"] : ''; ?>"><br>
 
                 <div>
-                    <?php
-                    if (!(isset($_SESSION["radioButton"]) && isset($_SESSION["user_role"]))) {
-                        header("Location: home.php");
-                        session_destroy();
-                        exit;
-                    }
-                    ?>
+                    
 
                     <input type="radio" name="searchRadio" value="Song" checked> Song <br>
                     <input type="radio" name="searchRadio" value="Album"> Album <br>
