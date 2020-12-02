@@ -12,6 +12,7 @@ if (isset($_POST["submit"])) {
             if (password_verify($_POST["pword"], $row["password"])) {
                 $_SESSION["user_id"] = $row["user_id"];
                 $_SESSION["user_role"] = $row["user_role"];
+                $_SESSION["user_name"] = $row["user_name"];
                 header("Location: main.php");
             } else {
                 echo "Der Login ist fehlgeschlagen";

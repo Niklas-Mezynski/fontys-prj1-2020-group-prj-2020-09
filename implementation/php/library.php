@@ -1,6 +1,6 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>Library</title>
 	<meta charset="UTF-8">
@@ -16,8 +16,13 @@
 ?>
 	<main>
 	<header>
-			<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+			<div id="logo"><img id="logo" src="/img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
 			<div id="profileButton"><a href="profile.php">User Profile</a></div>
+			<?php 
+				if(isset($_SESSION['user_name'])) {
+				echo "<div id='profileButton'><br> Username: " .$_SESSION['user_name'] . "</div>";
+				}
+			?>
 			<div id="title">
 				<p>Songify</p>
 			</div>
@@ -55,13 +60,13 @@
 		</aside>
 
 		<article>
-            <p>Library</p>
+            <p></p>
 			<div class="grid-container">
 			<?php 
 			foreach ($stmt as $row)
 			{
 				echo "<div class='grid-item'>";
-				echo "<a href='/php/album.php/?albumid=" .$row["albumid"] . "'>";
+				echo "<a href='/php/album.php?albumid=" .$row["albumid"] . "'>";
 				echo "<div class='card'>";		
 				echo "<img src='../img/albumcover-placeholder.jpg' alt='albumcover' style='width:100%'></a>";
 				echo "<div class='container'>";
