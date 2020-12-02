@@ -66,7 +66,7 @@
 			foreach ($stmt as $row)
 			{
 				echo "<div class='grid-item'>";
-				echo "<a href='/php/album.php?albumid=" .$row["albumid"] . "'>";
+				echo "<a href='album.php?albumid=" .$row["albumid"] . "'>";
 				echo "<div class='card'>";		
 				echo "<img src='../img/albumcover-placeholder.jpg' alt='albumcover' style='width:100%'></a>";
 				echo "<div class='container'>";
