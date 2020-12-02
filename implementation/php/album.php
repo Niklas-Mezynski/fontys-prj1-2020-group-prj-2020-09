@@ -57,7 +57,7 @@
  <?php
 		  include_once ("dbconnection.php");
 		// create the table - just for testing the connection
-		$stmt = $conn->prepare("SELECT album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle, users.user_name AS sArtist
+		$stmt = $conn->prepare("SELECT album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle ,song.song_path AS sPath, users.user_name AS sArtist
 		from (album left join song
 		on album.album_id = song.album_id
 		left join users
@@ -85,14 +85,15 @@
             <th>Play</th>
           </tr>
          <?php
+		 $stmt->execute();
 			foreach ($stmt as $row)
 			{
 			echo "<tr id='song'>";
 			echo "<td>" . $row['stitle'] . "</td>";
 			echo "<td>" . $row['sartist'] . "</td>";
 			echo "<td>
-              <audio controls>
-                <source src='audio.mp3' type='audio/mpeg'>
+              <audio controls controlsList='nodownload'>
+                <source src='".$row['spath'] . "' type='audio/mpeg'>
                 Your browser does not support the audio element.
               </audio>
             </td>";
