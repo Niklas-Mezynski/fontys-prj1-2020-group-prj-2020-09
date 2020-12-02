@@ -11,10 +11,12 @@
 <body>
 
 	<main>
-	<header>
+		<header>
 			<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
 			<div id="profileButton"><a href="profile.php">User Profile</a></div>
-			<div id="title"><p>Songify</p></div>
+			<div id="title">
+				<p>Songify</p>
+			</div>
 		</header><!-- end of header -->
 
 		<aside>
@@ -33,17 +35,35 @@
 			</nav><!-- end of nav -->
 		</aside>
 
+		<?php
+		include_once("dbconnection.php");
+		?>
+
 		<article>
-            <div class="shop">
-				<p class="text">Subscription</p>
-				<img src="../img/shopitem-placeholder.jpg" class="image"></p>
-				<button>Purchase</button>
-			</div>
 			<div class="shop">
 				<p class="text">Subscription</p>
 				<img src="../img/shopitem-placeholder.jpg" class="image"></p>
-				<button>Purchase</button>
-            </div>
+				<form action="shop.php" method="POST">
+					<input type="submit" name="purchaseSubscription" value="Purchase">
+					<?php
+						if (isset($_POST["purchaseSubscription"])) {
+							echo "<br><p class='successText'>Bought Subscription</p>";
+						}
+					?>
+				</form>
+			</div>
+			<div class="shop">
+				<p class="text">Gift Card</p>
+				<img src="../img/shopitem-placeholder.jpg" class="image"></p>
+				<form action="shop.php" method="POST">
+					<input type="submit" name="purchaseGiftcard" value="Purchase">
+					<?php
+						if (isset($_POST["purchaseGiftcard"])) {
+							echo "<br><p class='successText'>Bought Giftcard</p>";
+						}
+					?>
+				</form>
+			</div>
 		</article><!-- end of article -->
 
 		<footer>
