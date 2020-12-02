@@ -74,13 +74,7 @@ session_start();
                 <input id="mainSearchbar" name="search" placeholder="Search.." type="text" value="<?php echo (isset($_POST["search"])) ? $_POST["search"] : ''; ?>"><br>
 
                 <div>
-                    <?php
-                    if (!(isset($_SESSION["radioButton"]) && isset($_SESSION["user_role"]))) {
-                        header("Location: home.php");
-                        session_destroy();
-                        exit;
-                    }
-                    ?>
+                    
 
                     <input type="radio" name="searchRadio" value="Song" checked> Song <br>
                     <input type="radio" name="searchRadio" value="Album"> Album <br>
