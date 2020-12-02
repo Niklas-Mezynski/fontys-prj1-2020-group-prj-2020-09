@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php session_start();
+if (!isset($_SESSION["user_name"])) {
+		header("Location:../login.php");
+		die("Please login");
+} 
+?>
 <!DOCTYPE html>
 <html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 
@@ -29,15 +34,15 @@
 					<input type="text" name="search" placeholder="Search.." id="searchbar">
 				</form>
 				<ul>
-					<li><a href="../main.php">Home</a></li>
-					<li><a href="../library.php">Library</a></li>
+					<li><a href="main.php">Home</a></li>
+					<li><a href="library.php">Library</a></li>
 					<?php
 					if ($_SESSION["user_role"] >= 2) {
 						echo '<li><a href="playlists.php">Playlists</a></li>';
 					}
 					?>
-					<li><a href="../shop.php">Shop</a></li>
-					<li><a href="../trends.php">Trends</a></li>
+					<li><a href="shop.php">Shop</a></li>
+					<li><a href="trends.php">Trends</a></li>
 					<?php
 					if ($_SESSION["user_role"] >= 3) {
 						echo '<li><a href="uploadsongs.php">Upload Songs</a></li>';
@@ -48,7 +53,7 @@
 						echo '<li><a href="admin.php">Admin Panel</a></li>';
 					}
 					?>
-					<li><a href="../logout.php">Logout</a></li>
+					<li><a href="logout.php">Logout</a></li>
 
 				</ul>
 			</nav><!-- end of nav -->
