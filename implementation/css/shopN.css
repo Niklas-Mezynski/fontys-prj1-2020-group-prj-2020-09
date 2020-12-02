@@ -5,10 +5,16 @@
     height: 450px;
     text-align: center;
     font-size: 20pt;
+    margin: 15px;
 }
 
 .text {
     margin: 10px
+}
+
+.successText {
+    font-size: 14pt;
+    margin-top: 4px;
 }
 
 .image {
@@ -16,8 +22,8 @@
     width: auto;
 }
 
-button {
+input[type="submit"] {
     color: black;
-    width: 25%;
-    height: 6%;
+    width: 8em;
+    height: 2em;
 }

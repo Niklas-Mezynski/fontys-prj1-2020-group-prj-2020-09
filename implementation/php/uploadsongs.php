@@ -125,6 +125,7 @@ if ($_SESSION["user_role"] < 3) {
                     }
                 }
             }
+
             ?>
 
             <form action="uploadsongs.php" method="post" enctype="multipart/form-data">
@@ -132,7 +133,7 @@ if ($_SESSION["user_role"] < 3) {
                 <label>Song name </label><input class="dataInput" type="text" name="song_name"><br>
                 <label>Label </label><input class="dataInput" type="text" name="label"><br>
                 <label>Publisher </label><input class="dataInput" type="text" name="publisher"><br>
-                <label>Price </label><input class="dataInput" type="text" name="price"><br>
+                <label>Price </label><input class="dataInput" type="number" min="0.0" max="3.0" step="0.01" value="00.00" name="price"><br>
                 <label for="album">Album </label>
                 <select id="album" name="album">
                     
