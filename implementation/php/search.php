@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -20,25 +23,25 @@
         </header><!-- end of header -->
 
         <aside>
-			<nav id="menu_v">
-				<form action="search.php" method="POST">
-					<input type="text" name="search" placeholder="Search.." id="searchbar">
-				</form>
-				<ul>
-					<li><a href="main.php">Home</a></li>
-					<li><a href="library.php">Library</a></li>
-					<li><a href="playlists.php">Playlists</a></li>
-					<li><a href="shop.php">Shop</a></li>
-					<li><a href="trends.php">Trends</a></li>
-					<li><a href="logout.php">Logout</a></li>
-				</ul>
-			</nav><!-- end of nav -->
-		</aside>
+            <nav id="menu_v">
+                <form action="search.php" method="POST">
+                    <input type="text" name="search" placeholder="Search.." id="searchbar">
+                </form>
+                <ul>
+                    <li><a href="main.php">Home</a></li>
+                    <li><a href="library.php">Library</a></li>
+                    <li><a href="playlists.php">Playlists</a></li>
+                    <li><a href="shop.php">Shop</a></li>
+                    <li><a href="trends.php">Trends</a></li>
+                    <li><a href="logout.php">Logout</a></li>
+                </ul>
+            </nav><!-- end of nav -->
+        </aside>
         <?php
         include_once("../php/dbconnection.php");
         if ($_POST["searchRadio"] == "Artist") {
             $searchInput = $_POST["search"];
-            $stmt = $conn -> prepare("SELECT users.user_name AS artist, count(albumsongs.title) AS albums, sum(albumsongs.songs) AS songs
+            $stmt = $conn->prepare("SELECT users.user_name AS artist, count(albumsongs.title) AS albums, sum(albumsongs.songs) AS songs
             FROM users INNER JOIN 
             (SELECT album.title, album.artist_id, count(song.title) AS songs
             FROM album INNER JOIN song ON album.album_id = song.album_id
@@ -46,18 +49,18 @@
             ON users.user_id = albumsongs.artist_id
             WHERE user_role = 3 AND LOWER(users.user_name) LIKE LOWER('%$searchInput%')
             GROUP BY users.user_name;");
-            $stmt->execute(); 
+            $stmt->execute();
         } else if ($_POST["searchRadio"] == "Album") {
             $searchInput = $_POST["search"];
-            $stmt = $conn -> prepare("SELECT album.title AS album, users.user_name AS artist, count(song_id) AS songamount 
+            $stmt = $conn->prepare("SELECT album.title AS album, users.user_name AS artist, count(song_id) AS songamount 
             FROM album INNER JOIN users ON album.artist_id = users.user_id 
             INNER JOIN song ON album.album_id = song.album_id
             WHERE LOWER(album.title) LIKE LOWER('%$searchInput%')
             GROUP BY album.title, users.user_name;");
-            $stmt->execute();  
+            $stmt->execute();
         } else {
             $searchInput = $_POST["search"];
-            $stmt = $conn -> prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album, song.listens AS listens
+            $stmt = $conn->prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album, song.listens AS listens
             FROM song INNER JOIN users ON users.user_id = song.artist_id 
             INNER JOIN album ON song.album_id = album.album_id
             WHERE LOWER(song.title) LIKE LOWER('%$searchInput%')
@@ -71,6 +74,14 @@
                 <input id="mainSearchbar" name="search" placeholder="Search.." type="text" value="<?php echo (isset($_POST["search"])) ? $_POST["search"] : ''; ?>"><br>
 
                 <div>
+                    <?php
+                    if (!(isset($_SESSION["radioButton"]) && isset($_SESSION["user_role"]))) {
+                        header("Location: home.php");
+                        session_destroy();
+                        exit;
+                    }
+                    ?>
+
                     <input type="radio" name="searchRadio" value="Song" checked> Song <br>
                     <input type="radio" name="searchRadio" value="Album"> Album <br>
                     <input type="radio" name="searchRadio" value="Artist"> Artist <br>
@@ -110,7 +121,7 @@
                     echo "<th>Artist</th>";
                     echo "<th>Album</th>";
                     echo "<th>Listens</th>";
-                    
+
                     foreach ($stmt as $row) {
                         echo "<tr>";
                         echo "<th>" . $row['title'] . "</th>";
@@ -126,7 +137,7 @@
 
         <footer>
             <p>
-                <a href="termsandconditions.html">Terms and Conditions</a>
+                <a href="../termsandconditions.html">Terms and Conditions</a>
             </p>
 
         </footer><!-- end of footer -->

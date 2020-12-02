@@ -34,7 +34,8 @@ CREATE TABLE Song (
 	Publisher varchar(255),
 	Price numeric(4,2),
 	Listens int,
-	Album_ID serial 
+	Album_ID serial ,
+	song_path varchar(255)
 );
 CREATE TABLE Playlist (
 	Playlist_ID serial  primary key,
