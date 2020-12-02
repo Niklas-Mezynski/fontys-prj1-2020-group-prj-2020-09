@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
+	header("Location: home.php");
+	session_destroy();
+	exit;
+}
+if ($_SESSION["user_role"] < 1) {
+	header("Location: main.php");
+	exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -46,9 +58,16 @@
 				<form action="shop.php" method="POST">
 					<input type="submit" name="purchaseSubscription" value="Purchase">
 					<?php
-						if (isset($_POST["purchaseSubscription"])) {
-							echo "<br><p class='successText'>Bought Subscription</p>";
-						}
+					if (isset($_POST["submitCC"])) {
+						$userID = $_SESSION["user_id"];
+
+						//$stmt = $conn->prepare("INSERT INTO credit_card VALUES ($_POST['cc_number'], 111, 'visa', 'abc', 'abc','2022-10-13');");
+						//$stmt->execute();
+
+						$stmt = $conn->prepare("UPDATE users SET subscription_status=true WHERE user_id=$userID");
+						$stmt->execute();
+						echo "<br><p class='successText'>Purchased Subscription</p>";
+					}
 					?>
 				</form>
 			</div>
@@ -58,12 +77,33 @@
 				<form action="shop.php" method="POST">
 					<input type="submit" name="purchaseGiftcard" value="Purchase">
 					<?php
-						if (isset($_POST["purchaseGiftcard"])) {
-							echo "<br><p class='successText'>Bought Giftcard</p>";
-						}
+					//
 					?>
 				</form>
 			</div>
+			<?php
+			if (isset($_POST["purchaseSubscription"])) {
+				echo "<br><h1>Enter Credit Card Information:</h1>";
+
+				echo "<form action='shop.php' method='POST'>";
+				echo "<table>";
+				echo "<tr><td> CC Number: </td>";
+				echo "<td> <input type='text' name='cc_number'></input> </td></tr>";
+				echo "<tr><td> CVC/CVV-Code: </td>";
+				echo "<td> <input type='text'></input> </td></tr>";
+				echo "<tr><td> Type of Card: </td>";
+				echo "<td> <input type='text'></input> </td></tr>";
+				echo "<tr><td> First Name: </td>";
+				echo "<td> <input type='text'></input> </td></tr>";
+				echo "<tr><td> Last Name: </td>";
+				echo "<td> <input type='text'></input> </td></tr>";
+				echo "<tr><td> Expiration Date: </td>";
+				echo "<td> <input type='text'></input> </td></tr>";
+				echo "</table>";
+				echo "<input type='submit' name='submitCC' value='Submit'>";
+				echo "</form>";
+			}
+			?>
 		</article><!-- end of article -->
 
 		<footer>

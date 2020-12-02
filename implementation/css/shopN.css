@@ -27,3 +27,14 @@ input[type="submit"] {
     width: 8em;
     height: 2em;
 }
+
+table,tr,td {
+    padding: 10px;
+    border-collapse: collapse;
+}
+
+input[type="text"] {
+    color: black;
+    width: 15em;
+    height: 1.3em;
+}
