@@ -38,7 +38,7 @@ session_start();
             </nav><!-- end of nav -->
         </aside>
         <?php
-        include_once("../php/dbconnection.php");
+        include_once("dbconnection.php");
         if ($_POST["searchRadio"] == "Artist") {
             $searchInput = $_POST["search"];
             $stmt = $conn->prepare("SELECT users.user_name AS artist, count(albumsongs.title) AS albums, sum(albumsongs.songs) AS songs
