@@ -2,3 +2,20 @@ main article #contentbox{
     text-align: center;
     margin: 4em;
 }
+
+main article #contentbox ul{
+    margin-left: 12em;
+    height:120px;
+    width:60em;
+    border:1px solid #ccc;
+    overflow:auto;
+}
+
+#user_search {
+    width: 85%;
+    height: 30px;
+    border-radius: 8px;
+	margin: 8px;
+	border: 2px solid black;
+	color: #000000;
+}

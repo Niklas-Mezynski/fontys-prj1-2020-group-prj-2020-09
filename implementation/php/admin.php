@@ -15,7 +15,7 @@ if ($_SESSION["user_role"] < 4) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/main.css"><!-- link to stylesheet -->
-    <link rel="stylesheet" href="/css/adminpanel.css"><!-- link to stylesheet -->
+    <link rel="stylesheet" href="/css/adminpannel.css"><!-- link to stylesheet -->
     <title>Admin</title>
 </head>
 <body>
@@ -61,10 +61,61 @@ if ($_SESSION["user_role"] < 4) {
 
         <article>
             <div id="contentbox">
-                <h1>Admin Panel</h1>
-                <form action="">
-                    <input type="text">
+                <h1>Admin Interface</h1>
+                <form method="GET">
+                    <input type="text" id="user_search" placeholder="Search"><br>
+					<input type="radio" name="searchRadio" value="User" checked> User Profiles</input>
+					<input type="radio" name="searchRadio" value="Artist"> Artist Profiles </input><br>
                 </form>
+				<ul>
+					<?php
+						include_once("dbconnection.php");
+						if($_GET["user_search"] != "" && $_GET["user_search"] != null){
+							$search = $_GET["user_search"];
+							if($_GET["searchRadio"] == "Artist"){
+								$sql = "select user_id,user_name from users
+								where user_role = 3
+								and user_name LIKE '" . $search . "'
+								order by user_name;";
+								$stmt = $conn->prepare($sql);
+								$stmt->execute();
+								foreach($stmt as $row){
+									echo "<li><a href='profile.php?id=" . $row["user_id"] . "'>" . $row["user_name"] . "</a></li>";
+								}
+							}else{
+								$sql = "select user_id,user_name from users
+								where user_role != 4
+								and user_name LIKE '" . $search . "'
+								order by user_name;";
+								$stmt = $conn->prepare($sql);
+								$stmt->execute();
+								foreach($stmt as $row){
+									echo "<li><a href='profile.php?id=" . $row["user_id"] . "'>" . $row["user_name"] . "</a></li>";
+								}
+							}
+						}else{
+							if($_GET["searchRadio"] == "Artist"){
+								$sql = "select user_id,user_name from users
+								where user_role = 3
+								order by user_name;";
+								$stmt = $conn->prepare($sql);
+								$stmt->execute();
+								foreach($stmt as $row){
+									echo "<li><a href='profile.php?id=" . $row["user_id"] . "'>" . $row["user_name"] . "</a></li>";
+								}
+							}else{
+								$sql = "select user_id,user_name from users
+								where user_role != 4
+								order by user_name;";
+								$stmt = $conn->prepare($sql);
+								$stmt->execute();
+								foreach($stmt as $row){
+									echo "<li><a href='profile.php?id=" . $row["user_id"] . "'>" . $row["user_name"] . "</a></li>";
+								}
+							}
+						}
+					?>
+				</ul>
             </div>
         </article>
 
