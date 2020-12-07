@@ -62,7 +62,7 @@ if ($_SESSION["user_role"] < 4) {
         <article>
             <div id="contentbox">
                 <h1>Admin Interface</h1>
-                <form method="GET">
+                <form method="POST">
                     <input type="text" id="user_search" placeholder="Search"><br>
 					<input type="radio" name="searchRadio" value="User" checked> User Profiles</input>
 					<input type="radio" name="searchRadio" value="Artist"> Artist Profiles </input><br>
@@ -70,12 +70,12 @@ if ($_SESSION["user_role"] < 4) {
 				<ul>
 					<?php
 						include_once("dbconnection.php");
-						if($_GET["user_search"] != "" && $_GET["user_search"] != null){
-							$search = $_GET["user_search"];
-							if($_GET["searchRadio"] == "Artist"){
+						if($_POST["user_search"] != "" || $_POST["user_search"] != null){
+							$search = $_POST["user_search"];
+							if($_POST["searchRadio"] == "Artist"){
 								$sql = "select user_id,user_name from users
 								where user_role = 3
-								and user_name LIKE '" . $search . "'
+								and user_name LIKE '%" . $search . "%'
 								order by user_name;";
 								$stmt = $conn->prepare($sql);
 								$stmt->execute();
@@ -85,7 +85,7 @@ if ($_SESSION["user_role"] < 4) {
 							}else{
 								$sql = "select user_id,user_name from users
 								where user_role != 4
-								and user_name LIKE '" . $search . "'
+								and user_name LIKE '%" . $search . "%'
 								order by user_name;";
 								$stmt = $conn->prepare($sql);
 								$stmt->execute();
@@ -94,7 +94,7 @@ if ($_SESSION["user_role"] < 4) {
 								}
 							}
 						}else{
-							if($_GET["searchRadio"] == "Artist"){
+							if($_POST["searchRadio"] == "Artist"){
 								$sql = "select user_id,user_name from users
 								where user_role = 3
 								order by user_name;";

@@ -19,9 +19,9 @@
 
 		<aside>
 			<nav id="menu_v">
-				<form action="search.php" method="POST">
+				<!--<form action="search.php" method="POST">
 					<input type="text" name="search" placeholder="Search.." id="searchbar">
-				</form>
+				</form>-->
 				<ul>
 				</ul>
 			</nav><!-- end of nav -->

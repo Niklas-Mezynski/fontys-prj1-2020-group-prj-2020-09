@@ -69,7 +69,7 @@
                     <input style="color:black;" type="submit" name="submit" value="Submit" />
                 </form>
                 <p>Are you a member?: <a href="login.php">Log in here</a></p>
-                <p><a href="home.html">Go back to Home</a></p>
+                <p><a href="main.php">Go back to Home</a></p>
             </div>
         </article><!-- end of article -->
 
