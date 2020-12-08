@@ -68,6 +68,8 @@ if ($_SESSION["user_role"] < 1) {
 		?>
 
 		<article>
+
+			<!-- Purchase Subscription -->
 			<div class="shop">
 				<p class="text">Subscription</p>
 				<img src="../img/shopitem-placeholder.jpg" class="image"></p>
@@ -77,17 +79,23 @@ if ($_SESSION["user_role"] < 1) {
 					if (isset($_POST["submitCC"])) {
 						$userID = $_SESSION["user_id"];
 
-						$sql = "INSERT INTO credit_card VALUES(". $_POST["cc_number"] .",". $_POST["cvc_cvv_code"] .",'".$_POST["type_of_card"]."','".$_POST["first_name"]."','".$_POST["last_name"]."','".$_POST["expiration_date"]."');";
+						// Add Credit Card to Database
+						$sql = "INSERT INTO credit_card VALUES(" . $_POST["cc_number"] . "," . $_POST["cvc_cvv_code"] . ",'" . $_POST["type_of_card"] . "','" . $_POST["first_name"] . "','" . $_POST["last_name"] . "','" . $_POST["expiration_date"] . "');";
 						$stmt = $conn->prepare($sql);
 						$stmt->execute();
 
-						$stmt = $conn->prepare("UPDATE users SET subscription_status=true WHERE user_id=$userID");
+						// Set Subscription Status to true
+						$sql = "UPDATE users SET subscription_status=true WHERE user_id=$userID";
+						$stmt = $conn->prepare($sql);
 						$stmt->execute();
+
 						echo "<br><p class='successText'>Purchased Subscription</p>";
 					}
 					?>
 				</form>
 			</div>
+
+			<!-- Purchase Giftcard -->
 			<div class="shop">
 				<p class="text">Gift Card</p>
 				<img src="../img/shopitem-placeholder.jpg" class="image"></p>
@@ -98,7 +106,9 @@ if ($_SESSION["user_role"] < 1) {
 					?>
 				</form>
 			</div>
+
 			<?php
+			// Create input fields to enter credit card details
 			if (isset($_POST["purchaseSubscription"])) {
 				echo "<br><h1>Enter Credit Card Information:</h1>";
 
