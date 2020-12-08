@@ -25,10 +25,15 @@ if ($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["u
 
 // Checking if a song was added with post and inserting it to the playlist
 if (isset($_POST["submit"])) {
-$inserststmt = $conn->prepare("INSERT INTO song_playlist (playlist_id, song_id) VALUES(:playlist_id, :song_id)");
-$inserststmt->bindParam(":playlist_id", $_POST["playlist_id"],PDO::PARAM_INT);
-$inserststmt->bindParam(":song_id", $_POST["song_id"],PDO::PARAM_INT);
-$inserststmt->execute();
+	$check = $conn->query("SELECT song_already_in_pl(" . $_POST['playlist_id'] . "," . $_POST['song_id'] . ")");
+	$song_already_in_playlist = $check->fetch();
+
+	if ($song_already_in_playlist["song_already_in_pl"] == false) {
+		$inserststmt = $conn->prepare("INSERT INTO song_playlist (playlist_id, song_id) VALUES(:playlist_id, :song_id)");
+		$inserststmt->bindParam(":playlist_id", $_POST["playlist_id"], PDO::PARAM_INT);
+		$inserststmt->bindParam(":song_id", $_POST["song_id"], PDO::PARAM_INT);
+		$inserststmt->execute();
+	}
 }
 
 ?>
