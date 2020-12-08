@@ -63,7 +63,7 @@ if ($_SESSION["user_role"] < 4) {
             <div id="contentbox">
                 <h1>Admin Interface</h1>
                 <form method="POST">
-                    <input type="text" id="user_search" placeholder="Search"><br>
+                    <input type="text" id="user_search" placeholder="Search" name="user_search"><br>
 					<input type="radio" name="searchRadio" value="User" checked> User Profiles</input>
 					<input type="radio" name="searchRadio" value="Artist"> Artist Profiles </input><br>
                 </form>
