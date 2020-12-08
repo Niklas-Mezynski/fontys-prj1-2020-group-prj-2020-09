@@ -92,7 +92,53 @@ if ($_SESSION["user_role"] < 1) {
             ?>
             
             </ul>
+            <br>
+
+
+            <?php
+                
+                if (isset($_POST["submit"])) {
+                    include_once("dbconnection.php");
+                    $sql = "update users
+                            set password =:pword
+                            where user_id = :user_id";
+                    $stmt = $conn->prepare($sql);
+                    $hash = password_hash($_POST['pword'], PASSWORD_BCRYPT);
+                    $stmt-> bindParam(":pword", $hash);
+                    $stmt -> bindParam(":user_id", $_SESSION['user_id']);
+                    $var1 = $_POST['pword'];
+                    $var2 = $_POST['rpword'];
+                    if($var1 == $var2){
+                        $stmt -> execute();
+                        echo'Password change was sucessfull!';
+                    } else {
+                        echo'Password change was not sucessfull!';
+                    }
+                    
+                }
+            ?>
+
+            <br>
+            <form method="post" action="profile.php">
+                    <input type="password" id="pword" name="pword" placeholder="Password" /><br>
+                    <input type="password" id="rpword" name="rpword" placeholder="RPassword" /><br>
+                    <input type="submit" name="submit" value="Submit" />
+            </form> 
             
+
+
+            
+            <!--<div id="profilebox">
+                <p class="profiletext"><label for="fname">First name: </label></p>
+                <p class="profiletext"><label for="lname">Last name: </label></p>
+                <p class="profiletext"><label for="bday">Birthdate: </label></p>
+                <p class="profiletext"><label for="email">Email: </label></p>
+                <p class="profiletext"><label for="password">Password: </label></p>
+            </div>
+
+
+
+            "<li> Subscription status: " .$row['subscription_status'] .
 
 
             <?php
@@ -110,27 +156,19 @@ if ($_SESSION["user_role"] < 1) {
                 }
             ?>
 
-            
-            <form method="post" action="profile.php">
-                    <input type="password" id="pword" name="pword" placeholder="Password" /><br>
-                    <input type="submit" name="submit" value="Submit" />
-            </form> 
-
-            
-
-
-            
-            <!--<div id="profilebox">
-                <p class="profiletext"><label for="fname">First name: </label></p>
-                <p class="profiletext"><label for="lname">Last name: </label></p>
-                <p class="profiletext"><label for="bday">Birthdate: </label></p>
-                <p class="profiletext"><label for="email">Email: </label></p>
-                <p class="profiletext"><label for="password">Password: </label></p>
-            </div>
 
 
 
-            "<li> Subscription status: " .$row['subscription_status'] .
+
+
+
+
+
+
+
+
+
+
 
             <div>
                 <form method="post" action="dbconnection.php">
