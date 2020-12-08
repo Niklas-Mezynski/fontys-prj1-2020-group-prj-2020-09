@@ -22,19 +22,26 @@
     width: auto;
 }
 
-input[type="submit"] {
-    color: black;
-    width: 8em;
-    height: 2em;
-}
-
 table,tr,td {
     padding: 10px;
     border-collapse: collapse;
 }
 
-input[type="text"] {
+input {
     color: black;
+}
+
+input[type="submit"] {
+    width: 8em;
+    height: 2em;
+}
+
+input[type="text"] {
+    width: 15em;
+    height: 1.3em;
+}
+
+input[type="date"] {
     width: 15em;
     height: 1.3em;
 }
