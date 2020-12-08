@@ -77,21 +77,48 @@ if ($_SESSION["user_role"] < 1) {
                 $stmt -> bindParam(":user_id", $_SESSION['user_id']);
                 $stmt -> execute();
                 foreach($stmt as $row) {
-                    $subscription_status = $row["subscription_status"];
+                    //$subscription_status = $row["subscription_status"];
                     echo "<li>First Name: " . $row ['first_name'] . 
                         "<li> Last Name: " . $row ['last_name'] . 
                         "<li> Geburtstag: " . $row ['date_of_birth'] .
                         "<li> Email: " . $row ['email'];
                     if($subscription_status = true) {
-                        echo ' <li>Subscription status: Abo ist aktiv';
+                        echo ' <li>Subscription status: Subscription active';
                     } else {
-                        echo ' <li>Subscription status: Abo ist nicht aktiv';
+                        echo ' <li>Subscription status: Subscription aktiv is not active';
                     }
                 }
+                
             ?>
-            <li> <a href="changepassword.php">Changepassword</a></li>
+            
             </ul>
             
+
+
+            <?php
+                
+                if (isset($_POST["submit"])) {
+                    include_once("dbconnection.php");
+                    $sql = "update users
+                            set password =:pword
+                            where user_id = :user_id";
+                    $stmt = $conn->prepare($sql);
+                    $hash = password_hash($_POST['pword'], PASSWORD_BCRYPT);
+                    $stmt-> bindParam(":pword", $hash);
+                    $stmt -> bindParam(":user_id", $_SESSION['user_id']);
+                    $stmt -> execute();
+                }
+            ?>
+
+            
+            <form method="post" action="profile.php">
+                    <input type="password" id="pword" name="pword" placeholder="Password" /><br>
+                    <input type="submit" name="submit" value="Submit" />
+            </form> 
+
+            
+
+
             
             <!--<div id="profilebox">
                 <p class="profiletext"><label for="fname">First name: </label></p>
