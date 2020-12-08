@@ -38,6 +38,16 @@ if ($_SESSION["user_role"] < 4) {
                     <li><a href="playlists.php">Playlists</a></li>
                     <li><a href="shop.php">Shop</a></li>
                     <li><a href="trends.php">Trends</a></li>
+                    <?php
+					if ($_SESSION["user_role"] >= 3) {
+						echo '<li><a href="uploadsongs.php">Upload Songs</a></li>';
+					}
+					?>
+					<?php
+					if ($_SESSION["user_role"] == 4) {
+						echo '<li><a href="admin.php">Admin Panel</a></li>';
+					}
+					?>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
             </nav><!-- end of nav -->
