@@ -33,7 +33,7 @@ CREATE TABLE Song (
 	Label varchar(255),
 	Publisher varchar(255),
 	Price numeric(4,2),
-	Listens int,
+	Listens int default 0,
 	Album_ID serial ,
 	song_path varchar(255)
 );
