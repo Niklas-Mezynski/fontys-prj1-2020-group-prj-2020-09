@@ -1,7 +1,19 @@
+<?php
+session_start();
+if(!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
+	header("Location: home.php");
+	session_destroy();
+	exit;
+  }
+if ($_SESSION["user_role"] < 4) {
+    header("Location: main.php");
+    exit;
+}
+?>
 <html>
 
 <head>
-    <title>Home</title>
+    <title>Trends</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
     <link rel="stylesheet" href="../css/trends.css">
@@ -21,7 +33,7 @@
                     <input type="text" name="search" placeholder="Search.." id="searchbar">
                 </form>
                 <ul>
-                    <li><a href="home.php">Home</a></li>
+                    <li><a href="main.php">Home</a></li>
                     <li><a href="library.php">Library</a></li>
                     <li><a href="playlists.php">Playlists</a></li>
                     <li><a href="shop.php">Shop</a></li>
@@ -67,16 +79,11 @@
             ?>
         </table>
         </article><!-- end of article -->
-
         <footer>
             <p>
                 <a href="../termsandconditions.html">Terms and Conditions</a>
             </p>
-
         </footer><!-- end of footer -->
-
     </main><!-- end of main-container -->
-
 </body>
-
 </html>
