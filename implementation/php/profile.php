@@ -14,7 +14,7 @@ if ($_SESSION["user_role"] < 1) {
 <html>
 
 <head>
-    <title>Home</title>
+    <title>Profile</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
     <link rel="stylesheet" href="../css/profile.css">

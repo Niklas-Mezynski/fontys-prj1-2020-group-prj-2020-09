@@ -28,7 +28,7 @@ if ($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["u
 <html>
 
 <head>
-	<title>Home</title>
+	<title>Playlists</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/playlist.css">

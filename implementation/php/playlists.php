@@ -14,7 +14,7 @@ if ($_SESSION["user_role"] < 2) {
 <html>
 
 <head>
-	<title>Home</title>
+	<title>Playlists</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/playlist-overview.css">
