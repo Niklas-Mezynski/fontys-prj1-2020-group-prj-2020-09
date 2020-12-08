@@ -36,7 +36,9 @@ if (isset($_POST["submit"])) {
 
     <main>
         <header>
-            <div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+            <div id="logo">
+                <a href="home.php"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></a>
+            </div>
         </header><!-- end of header -->
 
         <article>
