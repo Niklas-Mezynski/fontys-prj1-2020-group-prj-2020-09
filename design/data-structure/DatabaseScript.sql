@@ -84,3 +84,16 @@ CREATE TABLE Giftcard (
 	Status boolean default false,
 	User_ID serial
 );
+
+
+create or replace function song_already_in_pl(playlistid int, songid int)
+returns bool as $$
+declare
+begin 
+	if songid in (select sp.song_id from song_playlist sp where sp.playlist_id = playlistid) then 
+		return true;
+	else
+		return false;
+	end if;
+end;
+$$ language plpgsql;
