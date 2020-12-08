@@ -99,29 +99,40 @@ if ($_SESSION["user_role"] < 1) {
                 
                 if (isset($_POST["submit"])) {
                     include_once("dbconnection.php");
-                    $sql = "update users
+                    $stmt2 = $conn->prepare("SELECT * FROM users WHERE user_name = :user"); //Username überprüfen
+                    $stmt2->bindParam(":user", $_SESSION["user_name"]);
+                    $stmt2 -> execute();
+                    $row = $stmt2 -> fetch();
+                    if (password_verify($_POST["opword"], $row["password"])) {
+                        $sql = "update users
                             set password =:pword
                             where user_id = :user_id";
-                    $stmt = $conn->prepare($sql);
-                    $hash = password_hash($_POST['pword'], PASSWORD_BCRYPT);
-                    $stmt-> bindParam(":pword", $hash);
-                    $stmt -> bindParam(":user_id", $_SESSION['user_id']);
-                    $var1 = $_POST['pword'];
-                    $var2 = $_POST['rpword'];
-                    if($var1 == $var2){
-                        $stmt -> execute();
-                        echo'Password change was sucessfull!';
+                        $stmt = $conn->prepare($sql);
+                        $hash = password_hash($_POST['pword'], PASSWORD_BCRYPT);
+                        $stmt-> bindParam(":pword", $hash);
+                        $stmt -> bindParam(":user_id", $_SESSION['user_id']);
+                        $var1 = $_POST['pword'];
+                        $var2 = $_POST['rpword'];
+                        if($var1 == $var2){
+                            $stmt -> execute();
+                            echo'Password change was sucessfull!';
+                        } else {
+                            echo'Password change was not sucessfull!';
+                        }
+                        
                     } else {
-                        echo'Password change was not sucessfull!';
+                        echo'Password is incorrect!';
                     }
+                    
                     
                 }
             ?>
 
             <br>
             <form method="post" action="profile.php">
-                    <input type="password" id="pword" name="pword" placeholder="Password" /><br>
-                    <input type="password" id="rpword" name="rpword" placeholder="RPassword" /><br>
+                    <input type="password" id="pword" name="opword" placeholder="Old password" /><br>
+                    <input type="password" id="pword" name="pword" placeholder="New password" /><br>    
+                    <input type="password" id="rpword" name="rpword" placeholder="Repeat Password" /><br>
                     <input type="submit" name="submit" value="Submit" />
             </form> 
             
