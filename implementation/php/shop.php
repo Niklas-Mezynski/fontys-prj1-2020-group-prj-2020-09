@@ -14,7 +14,7 @@ if ($_SESSION["user_role"] < 1) {
 <html>
 
 <head>
-	<title>Home</title>
+	<title>Shop</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
 	<link rel="stylesheet" href="../css/shopNN.css">
@@ -39,10 +39,26 @@ if ($_SESSION["user_role"] < 1) {
 				<ul>
 					<li><a href="main.php">Home</a></li>
 					<li><a href="library.php">Library</a></li>
-					<li><a href="playlists.php">Playlists</a></li>
+					<?php
+					if ($_SESSION["user_role"] >= 2) {
+						echo '<li><a href="playlists.php">Playlists</a></li>';
+					}
+					?>
+					<!-- <li><a href="playlists.php">Playlists</a></li> -->
 					<li><a href="shop.php">Shop</a></li>
 					<li><a href="trends.php">Trends</a></li>
+					<?php
+					if ($_SESSION["user_role"] >= 3) {
+						echo '<li><a href="uploadsongs.php">Upload Songs</a></li>';
+					}
+					?>
+					<?php
+					if ($_SESSION["user_role"] == 4) {
+						echo '<li><a href="admin.php">Admin Panel</a></li>';
+					}
+					?>
 					<li><a href="logout.php">Logout</a></li>
+
 				</ul>
 			</nav><!-- end of nav -->
 		</aside>
@@ -61,10 +77,9 @@ if ($_SESSION["user_role"] < 1) {
 					if (isset($_POST["submitCC"])) {
 						$userID = $_SESSION["user_id"];
 
-						//$sql = 'INSERT INTO credit_card VALUES ($_POST["cc_number"], $_POST["cvc_cvv_code"], $_POST["type_of_card"], $_POST["first_name"], $_POST["last_name"], $_POST["expiration_date"]);';
-						//$sql = "INSERT INTO credit_card VALUES('41750614522542', '563', 'visa-electron', 'Duke', 'Nukem', '2022-10-13');";
-						//$stmt = $conn->prepare($sql);
-						//$stmt->execute();
+						$sql = "INSERT INTO credit_card VALUES(". $_POST["cc_number"] .",". $_POST["cvc_cvv_code"] .",'".$_POST["type_of_card"]."','".$_POST["first_name"]."','".$_POST["last_name"]."','".$_POST["expiration_date"]."');";
+						$stmt = $conn->prepare($sql);
+						$stmt->execute();
 
 						$stmt = $conn->prepare("UPDATE users SET subscription_status=true WHERE user_id=$userID");
 						$stmt->execute();
