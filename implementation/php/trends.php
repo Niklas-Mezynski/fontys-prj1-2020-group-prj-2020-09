@@ -73,6 +73,7 @@ if ($_SESSION["user_role"] < 4) {
             echo "<th>Artist</th>";
             echo "<th>Album</th>";
             echo "<th>Listens</th>";
+            echo "<th>Plays</th>";
 
             $x = 1;
             foreach ($stmt as $row) {
@@ -82,6 +83,12 @@ if ($_SESSION["user_role"] < 4) {
                 echo "<th>" . $row['artist'] . "</th>";
                 echo "<th>" . $row['album'] . "</th>";
                 echo "<th>" . formatNumber($row['listens']) . "</th>";
+                echo "<th>
+                        <audio controls controlsList='nodownload'>
+                        <source src='" . $row['spath'] . "' type='audio/mpeg'>
+                        Your browser does not support the audio element.
+                        </audio>
+                     </th>";
                 echo "</tr>";
                 $x++;
             }
@@ -91,7 +98,7 @@ if ($_SESSION["user_role"] < 4) {
         </article><!-- end of article -->
         <footer>
             <p>
-                <a href="../termsandconditions.html">Terms and Conditions</a>
+                <a href="termsandconditions.php">Terms and Conditions</a>
             </p>
         </footer><!-- end of footer -->
     </main><!-- end of main-container -->

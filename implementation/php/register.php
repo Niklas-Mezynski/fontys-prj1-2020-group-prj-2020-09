@@ -42,7 +42,9 @@
     ?>
     <main>
         <header>
-            <div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+            
+               <a href = "home.php"><div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div></a>
+            
         </header><!-- end of header -->
 
         <article>
@@ -75,7 +77,7 @@
 
         <footer>
             <p>
-                <a href="termsandconditions.html">Terms and Conditions</a>
+                <a href="termsandconditions.php">Terms and Conditions</a>
             </p>
 
         </footer><!-- end of footer -->
