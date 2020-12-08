@@ -77,7 +77,7 @@ if ($_SESSION["user_role"] < 4) {
 								$stmt = $conn->prepare($sql);
 								$stmt->execute();													//...then the program looks for users who are artists AND have the searched name
 								foreach($stmt as $row){
-									echo "<li><a href='profile.php?id=" . $row["user_id"] . "'>" . $row["user_name"] . "</a></li>";
+									echo "<li><a href='manageUser.php?id=" . $row["user_id"] . "'>" . $row["user_name"] . "</a></li>";
 								}
 							}else{																	//...otherwise...
 								$sql = "select user_id,user_name from users
@@ -87,7 +87,7 @@ if ($_SESSION["user_role"] < 4) {
 								$stmt = $conn->prepare($sql);
 								$stmt->execute();													// the program looks for users with the searched name
 								foreach($stmt as $row){
-									echo "<li><a href='profile.php?id=" . $row["user_id"] . "'>" . $row["user_name"] . "</a></li>";
+									echo "<li><a href='manageUser.php?id=" . $row["user_id"] . "'>" . $row["user_name"] . "</a></li>";
 								}
 							}
 						}else{														//If the Searchbar is empty...
@@ -98,7 +98,7 @@ if ($_SESSION["user_role"] < 4) {
 								$stmt = $conn->prepare($sql);
 								$stmt->execute();										//This query lists all Artists
 								foreach($stmt as $row){
-									echo "<li><a href='profile.php?id=" . $row["user_id"] . "'>" . $row["user_name"] . "</a></li>";
+									echo "<li><a href='manageUser.php?id=" . $row["user_id"] . "'>" . $row["user_name"] . "</a></li>";
 								}
 							}else{
 								$sql = "select user_id,user_name from users
@@ -107,7 +107,7 @@ if ($_SESSION["user_role"] < 4) {
 								$stmt = $conn->prepare($sql);
 								$stmt->execute();										//This query lists evry user except oneself
 								foreach($stmt as $row){
-									echo "<li><a href='profile.php?id=" . $row["user_id"] . "'>" . $row["user_name"] . "</a></li>";
+									echo "<li><a href='manageUser.php?id=" . $row["user_id"] . "'>" . $row["user_name"] . "</a></li>";
 								}
 							}
 						}
