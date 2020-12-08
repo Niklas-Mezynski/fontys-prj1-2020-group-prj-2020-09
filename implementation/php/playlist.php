@@ -46,7 +46,7 @@ $inserststmt->execute();
 
 	<main>
 		<header>
-			<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+			<a href="main.php"><div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div></a>
 			<div id="profileButton"><a href="profile.php">User Profile</a></div>
 			<div id="title">
 				<p>Songify</p>

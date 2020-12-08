@@ -21,7 +21,7 @@ if ($_SESSION["user_role"] < 4) {
 <body>
 <main>
 	<header>
-		<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+		<a href="main.php"><div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div></a>
 		<div id="profileButton"><a href="profile.php">User Profile</a></div>
 		<div id="title">
 			<p>Songify</p>
@@ -117,7 +117,7 @@ if ($_SESSION["user_role"] < 4) {
         </article>
         <footer>
             <p>
-                <a href="termsandconditions.html">Terms and Conditions</a>
+                <a href="termsandconditions.php">Terms and Conditions</a>
             </p>
         </footer><!-- end of footer -->
 
