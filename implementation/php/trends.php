@@ -91,7 +91,7 @@ if ($_SESSION["user_role"] < 4) {
         </article><!-- end of article -->
         <footer>
             <p>
-                <a href="../termsandconditions.html">Terms and Conditions</a>
+                <a href="termsandconditions.php">Terms and Conditions</a>
             </p>
         </footer><!-- end of footer -->
     </main><!-- end of main-container -->
