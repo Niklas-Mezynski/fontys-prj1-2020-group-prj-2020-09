@@ -14,11 +14,11 @@ if (!isset($_GET["id"])) {
 	exit;
 }
 require("dbconnection.php");
-$playlist_id = $_GET["id"];
+$playlist_id = htmlspecialchars($_GET["id"]);
 $stmtPlInformation = $conn->query('SELECT * FROM playlist where playlist_id = ' . $playlist_id);
 $plInformation = $stmtPlInformation->fetch();
 $plName = $plInformation["name"];
-if($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["user_id"])) {
+if ($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["user_id"])) {
 	header("Location: main.php");
 	exit;
 }
@@ -78,8 +78,8 @@ if($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["us
 
 		<article>
 			<?php
-				$stmt = $conn->prepare("SELECT s.title, u.user_name, a.title AS album, s.listens
-				FROM song s 
+			$stmt = $conn->prepare("SELECT s.title, u.user_name AS sartist, a.title AS album, s.listens, s.song_path
+				FROM song s
 				inner join song_playlist sp 
 				on s.song_id = sp.song_id
 				inner join users u
@@ -87,21 +87,15 @@ if($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["us
 				inner join album a
 				on s.album_id = a.album_id 
 				where sp.playlist_id = :playlist_id");
-				$stmt->bindParam(":playlist_id", $playlist_id, PDO::PARAM_INT);
-				$stmt->execute();
-				$getName = $conn->query('SELECT "name" FROM playlist where playlist_id = ' . $playlist_id);
-				$nameRow = $getName->fetch();
-				$plName = $nameRow["name"];
+			$stmt->bindParam(":playlist_id", $playlist_id, PDO::PARAM_INT);
+			$stmt->execute();
 			?>
 
 			<h1><?php echo $plName; ?></h1><br>
 			<a href="search.php"><button id="add">Add songs</button></a><br>
-			<div>
-				<table>
-					<?php
-					/*foreach ($stmt as $row) {
-						echo "<li><p>Title: " . $row['title'] . "  |  Artist: " . $row['user_name'] . "  |  Publisher: " . $row['publisher'] . "</p></li>";
-					}*/
+
+			<!-- <table>
+					<?php /*
 					echo "<th>Song</th>";
                     echo "<th>Artist</th>";
                     echo "<th>Album</th>";
@@ -114,10 +108,33 @@ if($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["us
                         echo "<th>" . $row['album'] . "</th>";
                         echo "<th>" . $row['listens'] . "</th>";
                         echo "</tr>";
-                    }
+                    } */
 					?>
-				</table>
-			</div>
+				</table> -->
+			<table id="songlist">
+				<tr id="header">
+					<th>Name</th>
+					<th>Artists</th>
+					<th>Album</th>
+					<th>Play</th>
+				</tr>
+				<?php
+				$stmt->execute();
+				foreach ($stmt as $row) {
+					echo "<tr id='song'>";
+					echo "<td>" . $row['title'] . "</td>";
+					echo "<td>" . $row['sartist'] . "</td>";
+					echo "<td>" . $row['album'] . "</td>";
+					echo "<td>
+              <audio controls controlsList='nodownload'>
+                <source src='" . $row['song_path'] . "' type='audio/mpeg'>
+                Your browser does not support the audio element.
+              </audio>
+            </td>";
+					echo "</tr>";
+				} ?>
+			</table>
+
 		</article>
 
 		<footer>
