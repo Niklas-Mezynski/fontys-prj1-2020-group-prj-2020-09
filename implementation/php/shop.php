@@ -61,10 +61,9 @@ if ($_SESSION["user_role"] < 1) {
 					if (isset($_POST["submitCC"])) {
 						$userID = $_SESSION["user_id"];
 
-						//$sql = 'INSERT INTO credit_card VALUES ($_POST["cc_number"], $_POST["cvc_cvv_code"], $_POST["type_of_card"], $_POST["first_name"], $_POST["last_name"], $_POST["expiration_date"]);';
-						//$sql = "INSERT INTO credit_card VALUES('41750614522542', '563', 'visa-electron', 'Duke', 'Nukem', '2022-10-13');";
-						//$stmt = $conn->prepare($sql);
-						//$stmt->execute();
+						$sql = "INSERT INTO credit_card VALUES(". $_POST["cc_number"] .",". $_POST["cvc_cvv_code"] .",'".$_POST["type_of_card"]."','".$_POST["first_name"]."','".$_POST["last_name"]."','".$_POST["expiration_date"]."');";
+						$stmt = $conn->prepare($sql);
+						$stmt->execute();
 
 						$stmt = $conn->prepare("UPDATE users SET subscription_status=true WHERE user_id=$userID");
 						$stmt->execute();
