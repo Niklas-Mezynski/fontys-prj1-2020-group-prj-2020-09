@@ -25,6 +25,7 @@ if ($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["u
 
 // Checking if a song was added with post and inserting it to the playlist
 if (isset($_POST["submit"])) {
+	//checking that the song is not in the playlist yet
 	$check = $conn->query("SELECT song_already_in_pl(" . $_POST['playlist_id'] . "," . $_POST['song_id'] . ")");
 	$song_already_in_playlist = $check->fetch();
 
