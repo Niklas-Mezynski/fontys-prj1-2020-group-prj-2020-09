@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Home</title>
+    <title>Register</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/login.css">
 </head>
@@ -75,7 +75,7 @@
 
         <footer>
             <p>
-                <a href="termsandconditions.html">Terms and Conditions</a>
+                <a href="termsandconditions.php">Terms and Conditions</a>
             </p>
 
         </footer><!-- end of footer -->

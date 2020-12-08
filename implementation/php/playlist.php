@@ -36,7 +36,7 @@ $inserststmt->execute();
 <html>
 
 <head>
-	<title>Home</title>
+	<title>Playlists</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/playlist.css">
@@ -134,7 +134,7 @@ $inserststmt->execute();
 
 		<footer>
 			<p>
-				<a href="termsandconditions.html">Terms and Conditions</a>
+				<a href="termsandconditions.php">Terms and Conditions</a>
 			</p>
 
 		</footer><!-- end of footer -->
