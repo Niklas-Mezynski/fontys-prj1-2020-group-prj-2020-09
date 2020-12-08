@@ -157,6 +157,8 @@ session_start();
                                 Your browser does not support the audio element.
                                 </audio>
                             </th>";
+
+                        // Add Song to Playlist
                         if (isset($_POST["plsubmit"])) {
                             echo "<th>
                                 <form action='playlist.php?id=".$_POST['playlist_id']."' method='post'>
