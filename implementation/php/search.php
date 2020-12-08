@@ -23,20 +23,37 @@ session_start();
         </header><!-- end of header -->
 
         <aside>
-            <nav id="menu_v">
-                <form action="search.php" method="POST">
-                    <input type="text" name="search" placeholder="Search.." id="searchbar">
-                </form>
-                <ul>
-                    <li><a href="main.php">Home</a></li>
-                    <li><a href="library.php">Library</a></li>
-                    <li><a href="playlists.php">Playlists</a></li>
-                    <li><a href="shop.php">Shop</a></li>
-                    <li><a href="trends.php">Trends</a></li>
-                    <li><a href="logout.php">Logout</a></li>
-                </ul>
-            </nav><!-- end of nav -->
+			<nav id="menu_v">
+				<form action="search.php" method="POST">
+					<input type="text" name="search" placeholder="Search.." id="searchbar">
+				</form>
+				<ul>
+					<li><a href="main.php">Home</a></li>
+					<li><a href="library.php">Library</a></li>
+					<?php
+					if ($_SESSION["user_role"] >= 2) {
+						echo '<li><a href="playlists.php">Playlists</a></li>';
+					}
+					?>
+					<!-- <li><a href="playlists.php">Playlists</a></li> -->
+					<li><a href="shop.php">Shop</a></li>
+					<li><a href="trends.php">Trends</a></li>
+					<?php
+					if ($_SESSION["user_role"] >= 3) {
+						echo '<li><a href="uploadsongs.php">Upload Songs</a></li>';
+					}
+					?>
+					<?php
+					if ($_SESSION["user_role"] == 4) {
+						echo '<li><a href="admin.php">Admin Panel</a></li>';
+					}
+					?>
+					<li><a href="logout.php">Logout</a></li>
+
+				</ul>
+			</nav><!-- end of nav -->
         </aside>
+        
         <?php
         include_once("dbconnection.php");
         if ($_POST["searchRadio"] == "Artist") {
