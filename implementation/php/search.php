@@ -60,7 +60,7 @@ session_start();
             $stmt->execute();
         } else {
             $searchInput = $_POST["search"];
-            $stmt = $conn->prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album, song.listens AS listens
+            $stmt = $conn->prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album, song.listens AS listens, song.song_path AS spath, song.song_id
             FROM song INNER JOIN users ON users.user_id = song.artist_id 
             INNER JOIN album ON song.album_id = album.album_id
             WHERE LOWER(song.title) LIKE LOWER('%$searchInput%')
@@ -74,7 +74,7 @@ session_start();
                 <input id="mainSearchbar" name="search" placeholder="Search.." type="text" value="<?php echo (isset($_POST["search"])) ? $_POST["search"] : ''; ?>"><br>
 
                 <div>
-                    
+
 
                     <input type="radio" name="searchRadio" value="Song" checked> Song <br>
                     <input type="radio" name="searchRadio" value="Album"> Album <br>
@@ -115,6 +115,8 @@ session_start();
                     echo "<th>Artist</th>";
                     echo "<th>Album</th>";
                     echo "<th>Listens</th>";
+                    echo "<th>Play</th>";
+                    if (isset($_POST["plsubmit"])) {echo "<th>Add to playlist</th>";}
 
                     foreach ($stmt as $row) {
                         echo "<tr>";
@@ -122,6 +124,21 @@ session_start();
                         echo "<th>" . $row['artist'] . "</th>";
                         echo "<th>" . $row['album'] . "</th>";
                         echo "<th>" . formatNumber($row['listens']) . "</th>";
+                        echo "<th>
+                                <audio controls controlsList='nodownload'>
+                                <source src='" . $row['spath'] . "' type='audio/mpeg'>
+                                Your browser does not support the audio element.
+                                </audio>
+                            </th>";
+                        if (isset($_POST["plsubmit"])) {
+                            echo "<th>
+                                <form action='playlist.php?id=".$_POST['playlist_id']."' method='post'>
+                                    <input type='hidden' name='playlist_id' value='".$_POST['playlist_id']."'>
+                                    <input type='hidden' name='song_id' value='".$row['song_id']."'>
+                                    <input type='submit' name='submit' value='Add song'>
+                                </form>
+                                </th>";
+                        }
                         echo "</tr>";
                     }
                 }
