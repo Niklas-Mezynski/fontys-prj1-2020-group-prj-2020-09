@@ -56,6 +56,8 @@ session_start();
         
         <?php
         include_once("dbconnection.php");
+
+        // Artist Search
         if ($_POST["searchRadio"] == "Artist") {
             $searchInput = $_POST["search"];
             $stmt = $conn->prepare("SELECT users.user_name AS artist, count(albumsongs.title) AS albums, sum(albumsongs.songs) AS songs
@@ -67,6 +69,8 @@ session_start();
             WHERE user_role = 3 AND LOWER(users.user_name) LIKE LOWER('%$searchInput%')
             GROUP BY users.user_name;");
             $stmt->execute();
+
+        // Album Search
         } else if ($_POST["searchRadio"] == "Album") {
             $searchInput = $_POST["search"];
             $stmt = $conn->prepare("SELECT album.title AS album, users.user_name AS artist, count(song_id) AS songamount 
@@ -75,6 +79,8 @@ session_start();
             WHERE LOWER(album.title) LIKE LOWER('%$searchInput%')
             GROUP BY album.title, users.user_name;");
             $stmt->execute();
+
+        // Song Search
         } else {
             $searchInput = $_POST["search"];
             $stmt = $conn->prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album, song.listens AS listens, song.song_path AS spath, song.song_id
@@ -90,19 +96,19 @@ session_start();
             <form method="POST">
                 <input id="mainSearchbar" name="search" placeholder="Search.." type="text" value="<?php echo (isset($_POST["search"])) ? $_POST["search"] : ''; ?>"><br>
 
-                <div>
-
-
+                <div> <!-- Song/Album/Artist Search Selection -->
                     <input type="radio" name="searchRadio" value="Song" checked> Song <br>
                     <input type="radio" name="searchRadio" value="Album"> Album <br>
                     <input type="radio" name="searchRadio" value="Artist"> Artist <br>
                 </div>
             </form>
 
+            <!-- Display List of Search Results -->
             <table id="search-results">
                 <?php
                 include 'formatNumber.php';
 
+                // Artist Search
                 if ($_POST["searchRadio"] == "Artist") {
                     echo "<th>Artist</th>";
                     echo "<th>Album Amount</th>";
@@ -115,6 +121,8 @@ session_start();
                         echo "<th>" . $row['songs'] . "</th>";
                         echo "</tr>";
                     }
+                
+                // Album Search
                 } else if ($_POST["searchRadio"] == "Album") {
                     echo "<th>Album</th>";
                     echo "<th>Artist</th>";
@@ -127,6 +135,8 @@ session_start();
                         echo "<th>" . $row['songamount'] . "</th>";
                         echo "</tr>";
                     }
+
+                // Song Search
                 } else {
                     echo "<th>Song</th>";
                     echo "<th>Artist</th>";
