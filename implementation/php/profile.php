@@ -138,9 +138,7 @@ if ($_SESSION["user_role"] < 1) {
             
             <br>
             <br>
-            <div id="sub">
-                <p>Subscription End Date: DD-MM-YYYY</p>
-            </div>
+            
 
         </article>
 
