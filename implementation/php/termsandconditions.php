@@ -40,19 +40,26 @@ session_start();
         <article>
             <form>
                 <div id="terms">
-                    <h1> Part 1:</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque odio ligula, ac
-                        egestas
-                        lorem volutpat sit amet. Mauris quis odio ipsum. Ut non justo condimentum, tempor odio nec,
-                        ullamcorper diam. Nulla nec odio malesuada, commodo risus sit amet, condimentum leo. In feugiat,
-                        nunc ac pretium condimentum, odio elit scelerisque erat, vel dapibus magna nisi nec sem. Sed
-                        nisl
-                        neque, semper sit amet odio eget, posuere semper sem. Aenean condimentum at neque ut convallis.
-                        Vestibulum ultrices ante enim, ut accumsan quam eleifend sed. In id ipsum vel sem suscipit
-                        dictum.
-                        Pellentesque non lorem risus. Curabitur blandit sem vel augue tempor sollicitudin. Orci varius
-                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi mollis mattis
-                        varius. Phasellus sit amet imperdiet urna.</p>
+                    <h1> Introduction:</h1>
+                    <p>Thanks for choosing Songify (“Songify,” “we,” “us,” “our”). Songify provides personalized services with social and interactive features for 
+                       streaming music and other content as well as other products and services that may be developed from time to time. 
+                       By signing up or otherwise using any of these Songify services, including all associated features and functionalities, 
+                       websites and user interfaces, as well as all content and software applications associated with our services 
+                       (collectively, the “Songify Service” or “Service”), or accessing any music, videos or other content or material that is 
+                       made available through the Service (the “Content”) you are entering into a binding contract with Songify Netherlands Inc.
+                       Your agreement with us includes these Terms and any additional terms that you agree to, as discussed in the Entire Agreement 
+                       section below, other than terms with any third parties (collectively, the “Agreements”). The Agreements include terms regarding 
+                       future changes to the Agreements, export controls, automatic renewals, limitations of liability, privacy, waiver of class actions, 
+                       and resolution of disputes by arbitration instead of in court. If you wish to review the terms of the Agreements, the current effective 
+                       version of the Agreements can be found on Songify’s website. You acknowledge that you have read and understood the Agreements, accept these 
+                       Agreements, and agree to be bound by them. If you don’t agree with (or cannot comply with) the Agreements, then you may not use the Songify 
+                       Service or access any Content. In order to use the Songify Service and access any Content, you need to (1) be 16 years
+                       or older, or be 13 years or older and have your parent or guardian’s consent to the Agreements, (2) have the power to enter a binding
+                       contract with us and not be barred from doing so under any applicable laws, and (3) reside in the Netherlands. 
+                       You also promise that any registration information that you submit to Songify is true, accurate, and complete, and you agree to keep it that way at all times.
+                      
+                      
+                    </p>
                     <br>
                     <h1> Part 2:</h1>
                     <p>Maecenas venenatis velit a enim ornare dignissim. Donec risus nibh, tempus a fermentum et,
