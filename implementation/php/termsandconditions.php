@@ -114,7 +114,61 @@ session_start();
                         contained in any User Content. YOU AGREE THAT IF ANYONE BRINGS A CLAIM AGAINST SONGIFY RELATED TO USER CONTENT THAT YOU POST, THEN, TO THE EXTENT PERMISSIBLE UNDER LOCAL LAW, YOU WILL INDEMNIFY AND HOLD SONGIFY HARMLESS FROM AND AGAINST ALL DAMAGES, 
                         LOSSES, AND EXPENSES OF ANY KIND (INCLUDING REASONABLE ATTORNEY FEES AND COSTS) ARISING OUT OF SUCH CLAIM.
                     </p>
+                    <br>
+                    <h1>User guidelines</h1>
+                    <p>
+                    Songify respects intellectual property rights and expects you to do the same. We’ve established a few ground rules for you to follow when using the Service, to make sure Songify stays enjoyable for everyone. You must follow these rules and should encourage other users to do the same.
 
+                    The following is not permitted for any reason whatsoever:
+
+                    copying, redistributing, reproducing, “ripping,” recording, transferring, performing or displaying to the public, broadcasting, or making available to the public any part of the Songify Service or the Content, or otherwise making any use of the Songify Service or the Content which is not expressly permitted under the Agreements or applicable law or which otherwise infringes the intellectual property rights (such as copyright) in the Songify Service or the Content or any part of it;
+                    using the Songify Service to import or copy any local files that you do not have the legal right to import or copy in this way;
+                    transferring copies of cached Content from an authorized Device to any other Device via any means;
+                    reverse-engineering, decompiling, disassembling, modifying, or creating derivative works of the Songify Service, Content or any part thereof except to the extent permitted by applicable law;
+                    circumventing any technology used by Songify, its licensors, or any third party to protect the Content or the Service;
+                    selling, renting, sublicensing or leasing of any part of the Songify Service or the Content;
+                    circumventing any territorial restrictions applied by Songify or it licensors;
+                    artificially increasing play counts, follow counts or otherwise manipulating the Service by (i) using any bot, script or other automated process, (ii) providing or accepting any form of compensation (financial or otherwise), or (iii) any other means;
+                    removing or altering any copyright, trademark, or other intellectual property notices contained on the Content or the Service or provided through the Service (including for the purpose of disguising or changing any indications of the ownership or source of any Content);
+                    circumventing or blocking advertisements in the Songify Service, or creating or distributing tools designed to block advertisements in the Songify Service;
+                    providing your password to any other person or using any other person’s username and password;
+                    “crawling” the Songify Service or otherwise using any automated means (including bots, scrapers, and spiders) to view, access or collect information from Songify or the Songify Service;
+                    selling a user account or playlist, or otherwise accepting or offering to accept any compensation, financial or otherwise, to influence the name of an account or playlist or the content included on an account or playlist; or
+                    artificially promoting Content by automated means or otherwise.
+                    Please respect Songify, the owners of the Content, and other users of the Songify Service. Don’t engage in any activity, post any User Content, or register and/or use a username, which is or includes material that:
+
+                    is offensive, abusive, defamatory, pornographic, threatening, or obscene;
+                    is illegal, or intended to promote or commit an illegal act of any kind, including violations of intellectual property rights, privacy rights, or proprietary rights of Songify or a third party;
+                    includes your password or purposely includes any other user’s password or purposely includes personal data of third parties or is intended to solicit such personal data;
+                    includes malicious content such as malware, Trojan horses, or viruses, or otherwise interferes with any user’s access to the Service;
+                    is intended to or does harass or bully other users;
+                    impersonates or misrepresents your affiliation with another user, person, or entity, or is otherwise fraudulent, false, deceptive, or misleading;
+                    involves the transmission of unsolicited mass mailings or other forms of spam, junk mail, chain letters, or similar;
+                    involves commercial or sales activities, such as advertising, promotions, contests, sweepstakes, or pyramid schemes, that are not expressly authorized by Songify;
+                    links to, references, or otherwise promotes commercial products or services, except as expressly authorized by Songify;
+                    interferes with or in any way disrupts the Songify Service, tampers with, breaches, or attempts to probe, scan, or test for vulnerabilities in the Service or Songify’s computer systems, network, usage rules, or any of Songify’s security components, authentication measures or any other protection measures applicable to the Service, the Content or any part thereof; or
+                    conflicts with the Agreements, as determined by Songify.
+                    You acknowledge and agree that posting any User Content that violates these User guidelines (or that Songify reasonably believes violates these User guidelines) may result in immediate termination or suspension of your Songify account. You also agree that Songify may reclaim your username for any reason.
+
+                    Please be thoughtful about how you use the Songify Service and what you share. The Songify Service includes social and interactive features, including the ability to post User Content, share content, and make certain information about you public. Remember that shared or publicly available information may be used and re-shared by other users on Songify or across the web, so please use Songify carefully and be mindful of your account settings. Songify has no responsibility for your choices to post material on the Service.
+
+                    Your password protects your user account, and you are solely responsible for keeping your password confidential and secure. You understand that you are responsible for all use (including any unauthorized use) of your username and password on the Service. If your username or password is lost or stolen, or if you believe there has been unauthorized access to your account by a third party, you must notify us immediately and change your password as soon as possible.
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    </p>
 
 
 
