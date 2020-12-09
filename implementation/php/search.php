@@ -55,7 +55,7 @@ session_start();
         </aside>
         
         <?php
-        include_once("dbconnection.php");
+        require("dbconnection.php");
 
         // Artist Search
         if ($_POST["searchRadio"] == "Artist") {
@@ -73,17 +73,18 @@ session_start();
         // Album Search
         } else if ($_POST["searchRadio"] == "Album") {
             $searchInput = $_POST["search"];
-            $stmt = $conn->prepare("SELECT album.title AS album, users.user_name AS artist, count(song_id) AS songamount 
+            $stmt = $conn->prepare("SELECT album.title AS album, users.user_name AS artist, count(song_id) AS songamount, album.album_id 
             FROM album INNER JOIN users ON album.artist_id = users.user_id 
             INNER JOIN song ON album.album_id = song.album_id
             WHERE LOWER(album.title) LIKE LOWER('%$searchInput%')
-            GROUP BY album.title, users.user_name;");
+            GROUP BY album.title, users.user_name, album.album_id;");
             $stmt->execute();
 
         // Song Search
         } else {
             $searchInput = $_POST["search"];
-            $stmt = $conn->prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album, song.listens AS listens, song.song_path AS spath, song.song_id
+            $stmt = $conn->prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album, song.listens AS listens,
+                                song.song_path AS spath, song.song_id, album.album_id
             FROM song INNER JOIN users ON users.user_id = song.artist_id 
             INNER JOIN album ON song.album_id = album.album_id
             WHERE LOWER(song.title) LIKE LOWER('%$searchInput%')
@@ -130,7 +131,7 @@ session_start();
 
                     foreach ($stmt as $row) {
                         echo "<tr>";
-                        echo "<th>" . $row['album'] . "</th>";
+                        echo "<th><a href='album.php?albumid=". $row['album_id'] ."'>" . $row['album'] . "</a></th>";
                         echo "<th>" . $row['artist'] . "</th>";
                         echo "<th>" . $row['songamount'] . "</th>";
                         echo "</tr>";
@@ -149,7 +150,7 @@ session_start();
                         echo "<tr>";
                         echo "<th>" . $row['title'] . "</th>";
                         echo "<th>" . $row['artist'] . "</th>";
-                        echo "<th>" . $row['album'] . "</th>";
+                        echo "<th><a href='album.php?albumid=". $row['album_id'] ."'>" . $row['album'] . "</a></th>";
                         echo "<th>" . formatNumber($row['listens']) . "</th>";
                         echo "<th>
                                 <audio controls controlsList='nodownload'>
