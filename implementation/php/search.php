@@ -163,7 +163,7 @@ session_start();
                                 <form action='playlist.php?id=".$_POST['playlist_id']."' method='post'>
                                     <input type='hidden' name='playlist_id' value='".$_POST['playlist_id']."'>
                                     <input type='hidden' name='song_id' value='".$row['song_id']."'>
-                                    <input class='add' type='submit' name='submit' value='Add song'>
+                                    <input class='addbutton' type='submit' name='submit' value='Add Song'>
                                 </form>
                                 </th>";
                         }

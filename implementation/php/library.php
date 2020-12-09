@@ -22,10 +22,9 @@ if (!isset($_SESSION["user_name"])) {
 	<main>
 	<header>
 			<a href="main.php"><div id="logo"><img id="logo" src="/img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div></a>
-			<div id="profileButton"><a href="profile.php">User Profile</a></div>
 			<?php 
 				if(isset($_SESSION['user_name'])) {
-				echo "<div id='profileButton'><br> Username: " .$_SESSION['user_name'] . "</div>";
+				echo "<div id='profileButton'><br><a href='profile.php'>Profile - " .$_SESSION['user_name'] . "</a></div>";
 				}
 			?>
 			<div id="title">
