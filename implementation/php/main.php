@@ -75,7 +75,7 @@ if ($_SESSION["user_role"] < 1) {
 
 		<footer>
 			<p>
-				<a href="termsandconditions.html">Terms and Conditions</a>
+				<a href="termsandconditions.php">Terms and Conditions</a>
 			</p>
 
 		</footer><!-- end of footer -->

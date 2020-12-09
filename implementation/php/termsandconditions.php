@@ -1,20 +1,23 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Home</title>
+    <title>Terms and Conditions</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/main.css"><!-- link to stylesheet -->
-    <link rel="stylesheet" href="css/terms.css">
+    <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
+    <link rel="stylesheet" href="../css/terms.css">
 </head>
 
 <body>
 
     <main>
         <header>
-            <div class="column" id="logo"><img id="logo" src="img/Logo.png" alt="Songify" width="60" height="60"
+            <div class="column" id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60"
                     style="display: inline-block; ;"></div>
-            <div class="column" id="profileButton"><a href="php/profile.php">User Profile</a></div>
+            <div class="column" id="profileButton"><a href="profile.php">User Profile</a></div>
             <div id="title"><p>Songify</p></div>
         </header><!-- end of header -->
 
@@ -24,12 +27,12 @@
                     <input type="text" name="search" placeholder="Search.." id="searchbar">
                 </form>
                 <ul>
-                    <li><a href="php/home.php">Home</a></li>
-                    <li><a href="php/library.php">Library</a></li>
-                    <li><a href="php/playlists.php">Playlists</a></li>
-                    <li><a href="php/shop.php">Shop</a></li>
-                    <li><a href="php/trends.php">Trends</a></li>
-                    <li><a href="php/logout.php">Logout</a></li>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="library.php">Library</a></li>
+                    <li><a href="playlists.php">Playlists</a></li>
+                    <li><a href="shop.php">Shop</a></li>
+                    <li><a href="trends.php">Trends</a></li>
+                    <li><a href="logout.php">Logout</a></li>
                 </ul>
             </nav><!-- end of nav -->
         </aside>
@@ -104,22 +107,12 @@
                         nec
                         fermentum sapien accumsan.</p>
                 </div>
-                
-                <div id="submitDiv">
-                    <input id="termsCheck" class="checkboxClass" type="checkbox" required>
-                    <label for="termsCheck" class="checkboxClass">I agree to the Terms and Conditions</label>
-                    
-                </div>
-                <input id="termsSubmit" type="submit" value="Submit">
-
-
-
             </form>
         </article><!-- end of article -->
 
         <footer>
             <p>
-                <a href="termsandconditions.html">Terms and Conditions</a>
+                <a href="termsandconditions.php">Terms and Conditions</a>
             </p>
 
         </footer><!-- end of footer -->

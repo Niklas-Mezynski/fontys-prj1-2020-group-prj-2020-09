@@ -21,7 +21,7 @@ if (!isset($_SESSION["user_name"])) {
       <div>
       </div>
     	<header>
-			<div id="logo"><img id="logo" src="/img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+			<a href="main.php"><div id="logo"><img id="logo" src="/img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div></a>
 			<div id="profileButton"><a href="profile.php">User Profile</a></div>
 			<div id="title">
 				<p>Songify</p>
@@ -109,7 +109,7 @@ if (!isset($_SESSION["user_name"])) {
 
     <footer>
       <p>
-        <a href="termsandconditions.html">Terms and Conditions</a>
+        <a href="termsandconditions.php">Terms and Conditions</a>
       </p>
 
     </footer><!-- end of footer -->

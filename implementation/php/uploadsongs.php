@@ -159,7 +159,7 @@ if ($_SESSION["user_role"] < 3) {
 
         <footer>
             <p>
-                <a href="termsandconditions.html">Terms and Conditions</a>
+                <a href="termsandconditions.php">Terms and Conditions</a>
             </p>
 
         </footer><!-- end of footer -->

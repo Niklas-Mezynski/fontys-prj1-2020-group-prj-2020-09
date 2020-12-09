@@ -2,14 +2,14 @@
 <html>
 
 <head>
-    <title>Home</title>
+    <title>Register</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
     <?php
-    if (isset($_POST["submit"])) {
+    if (isset($_POST["submit"]) and isset($_POST["checkbox"])) {
         include_once("dbconnection.php");
         $stmt = $conn->prepare("SELECT * FROM users WHERE user_name = :user"); //Username überprüfen
         $stmt->bindParam(":user", $_POST["uname"]);
@@ -42,7 +42,9 @@
     ?>
     <main>
         <header>
-            <div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+            
+               <a href = "home.php"><div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div></a>
+            
         </header><!-- end of header -->
 
         <article>
@@ -66,6 +68,8 @@
                     <input style="color:black;" type="text" id="country" name="country" placeholder="Country" /><br>
                     <input style="color:black;" type="password" id="pword" name="pword" placeholder="Password" /><br>
                     <input style="color:black;" type="password" id="pwordconfirm" name="pwordconfirm" placeholder="Confirm Password" /><br>
+                    <label for="checkbox"> I have read and accept the terms and conditions</label><br>
+                    <input style="color:black;" type="checkbox" id="checkbox" name="checkbox" /><br>
                     <input style="color:black;" type="submit" name="submit" value="Submit" />
                 </form>
                 <p>Are you a member?: <a href="login.php">Log in here</a></p>
@@ -75,7 +79,7 @@
 
         <footer>
             <p>
-                <a href="termsandconditions.html">Terms and Conditions</a>
+                <a href="termsandconditions.php">Terms and Conditions</a>
             </p>
 
         </footer><!-- end of footer -->

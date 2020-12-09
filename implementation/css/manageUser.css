@@ -1,0 +1,14 @@
+main article #commandBox{
+    float: right;
+    margin-top: 2em;
+    margin-right: 2em;
+}
+
+main article #commandBox a{
+    display: block;
+	text-decoration: none;
+	background-color: #b3aeae;
+	color: #ffffff;
+    padding: 10px;
+    width: 12em;
+}

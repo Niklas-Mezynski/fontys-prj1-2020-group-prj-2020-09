@@ -23,12 +23,26 @@ if ($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["u
 	exit;
 }
 
+// Checking if a song was added with post and inserting it to the playlist
+if (isset($_POST["submit"])) {
+	//checking that the song is not in the playlist yet
+	$check = $conn->query("SELECT song_already_in_pl(" . $_POST['playlist_id'] . "," . $_POST['song_id'] . ")");
+	$song_already_in_playlist = $check->fetch();
+
+	if ($song_already_in_playlist["song_already_in_pl"] == false) {
+		$inserststmt = $conn->prepare("INSERT INTO song_playlist (playlist_id, song_id) VALUES(:playlist_id, :song_id)");
+		$inserststmt->bindParam(":playlist_id", $_POST["playlist_id"], PDO::PARAM_INT);
+		$inserststmt->bindParam(":song_id", $_POST["song_id"], PDO::PARAM_INT);
+		$inserststmt->execute();
+	}
+}
+
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-	<title>Home</title>
+	<title>Playlists</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/playlist.css">
@@ -38,7 +52,7 @@ if ($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["u
 
 	<main>
 		<header>
-			<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+			<a href="main.php"><div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div></a>
 			<div id="profileButton"><a href="profile.php">User Profile</a></div>
 			<div id="title">
 				<p>Songify</p>
@@ -92,25 +106,12 @@ if ($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["u
 			?>
 
 			<h1><?php echo $plName; ?></h1><br>
-			<a href="search.php"><button id="add">Add songs</button></a><br>
+			<form action="search.php" method="post">
+				<input type="hidden" name="playlist_id" value=<?php echo $playlist_id; ?>>
+				<input id="add" type="submit" name="plsubmit" value="Add Song to playlist">
+			</form>
+			<!--<a href="search.php"><button id="add">Add songs</button></a><br>-->
 
-			<!-- <table>
-					<?php /*
-					echo "<th>Song</th>";
-                    echo "<th>Artist</th>";
-                    echo "<th>Album</th>";
-                    echo "<th>Listens</th>";
-                    
-                    foreach ($stmt as $row) {
-                        echo "<tr>";
-                        echo "<th>" . $row['title'] . "</th>";
-                        echo "<th>" . $row['user_name'] . "</th>";
-                        echo "<th>" . $row['album'] . "</th>";
-                        echo "<th>" . $row['listens'] . "</th>";
-                        echo "</tr>";
-                    } */
-					?>
-				</table> -->
 			<table id="songlist">
 				<tr id="header">
 					<th>Name</th>
@@ -139,7 +140,7 @@ if ($plInformation["public"] != 1 && !($plInformation["user_id"] == $_SESSION["u
 
 		<footer>
 			<p>
-				<a href="termsandconditions.html">Terms and Conditions</a>
+				<a href="termsandconditions.php">Terms and Conditions</a>
 			</p>
 
 		</footer><!-- end of footer -->
