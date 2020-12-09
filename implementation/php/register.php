@@ -9,36 +9,41 @@
 
 <body>
     <?php
-    if (isset($_POST["submit"]) and isset($_POST["checkbox"])) {
-        include_once("dbconnection.php");
-        $stmt = $conn->prepare("SELECT * FROM users WHERE user_name = :user"); //Username überprüfen
-        $stmt->bindParam(":user", $_POST["uname"]);
-        $stmt->execute();
-        $count = $stmt->rowCount();
-        if ($count == 0) {
-            $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email"); //Email überprüfen
-            $stmt->bindParam(":email", $_POST["email"]);
+    if(isset($_POST["submit"])) {
+        if(isset($_POST["checkbox"])) {
+            include_once("dbconnection.php");
+            $stmt = $conn->prepare("SELECT * FROM users WHERE user_name = :user"); //Username überprüfen
+            $stmt->bindParam(":user", $_POST["uname"]);
             $stmt->execute();
             $count = $stmt->rowCount();
             if ($count == 0) {
-                $stmt = $conn->prepare("insert into users (user_id,first_name,last_name,date_of_birth,email,password,user_name,street, house_nr, zip_code, city, country) 
-                values (DEFAULT, :fname, :lname, :dob, :email, :pw, :username, :street, :house_nr, :zipcode, :city, :country)");
-                $stmt->bindParam(":username", $_POST["uname"]);
-                $hash = password_hash($_POST["pword"], PASSWORD_BCRYPT);
-                $stmt->bindParam(":pw", $hash);
-                $stmt->bindParam(":fname", $_POST["fname"]);
-                $stmt->bindParam(":lname", $_POST["lname"]);
-                $stmt->bindParam(":dob", $_POST["bdate"]);
+                $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email"); //Email überprüfen
                 $stmt->bindParam(":email", $_POST["email"]);
-                $stmt->bindParam(":street", $_POST["street"]);
-                $stmt->bindParam(":house_nr", $_POST["house_nr"]);
-                $stmt->bindParam(":zipcode", $_POST["zipcode"]);
-                $stmt->bindParam(":city", $_POST["city"]);
-                $stmt->bindParam(":country", $_POST["country"]);
-                $successful = $stmt->execute();
+                $stmt->execute();
+                $count = $stmt->rowCount();
+                if ($count == 0) {
+                    $stmt = $conn->prepare("insert into users (user_id,first_name,last_name,date_of_birth,email,password,user_name,street, house_nr, zip_code, city, country) 
+                    values (DEFAULT, :fname, :lname, :dob, :email, :pw, :username, :street, :house_nr, :zipcode, :city, :country)");
+                    $stmt->bindParam(":username", $_POST["uname"]);
+                    $hash = password_hash($_POST["pword"], PASSWORD_BCRYPT);
+                    $stmt->bindParam(":pw", $hash);
+                    $stmt->bindParam(":fname", $_POST["fname"]);
+                    $stmt->bindParam(":lname", $_POST["lname"]);
+                    $stmt->bindParam(":dob", $_POST["bdate"]);
+                    $stmt->bindParam(":email", $_POST["email"]);
+                    $stmt->bindParam(":street", $_POST["street"]);
+                    $stmt->bindParam(":house_nr", $_POST["house_nr"]);
+                    $stmt->bindParam(":zipcode", $_POST["zipcode"]);
+                    $stmt->bindParam(":city", $_POST["city"]);
+                    $stmt->bindParam(":country", $_POST["country"]);
+                    $successful = $stmt->execute();
                 }
+            }
+        
+        } else {
+            $TermsAndConditions = true;
         }
-    }
+    } 
     ?>
     <main>
         <header>
@@ -53,7 +58,10 @@
                 <?php
                 if ($successful) {
                     echo "<h3> Erfolgreich registriert!</h3>";
-                }   
+                }
+                if ($TermsAndConditions) {
+                    echo "<h3> You have to accept the terms and conditions</h3>";
+                }
                 ?>
                 <form action="register.php" method="POST">
                     <input style="color:black;" type="email" id="email" name="email" placeholder="Email" /><br>
