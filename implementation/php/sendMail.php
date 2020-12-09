@@ -18,5 +18,5 @@
     }else{
         echo "no success";
     }
-    //header("Location: manageUser.php?id=" . $_GET["id"]);
+    header("Location: manageUser.php?id=" . $_GET["id"]);
 ?>
