@@ -80,7 +80,10 @@ if (!isset($_SESSION["user_name"])) {
 		 <?php
 		 
 		$result = $stmt->fetch(\PDO::FETCH_ASSOC); //get first row of response
-		echo "<img src='data:image/jpeg;base64," . $result['acover'] . "' height='400px' width='400px' id='cover'></p>";
+		if(isset($result['acover'])) {
+			echo "<img src='data:image/jpeg;base64," . $result['acover'] . "' height='400px' width='400px' id='cover'></p>";
+		} 
+		else echo "<img src='../img/albumcover-placeholder.jpg' height='400px' width='400px' id='cover'></p>";
 		echo "<br>";
 		echo "<p style='text-align: left; font-size: 36px'>" .$result['atitle'] . "</p>";
 		echo "<p style='text-align: left; font-size: 24px'>" .$result['alabel'] . "/" .$result['apublisher'] . "</p>";
