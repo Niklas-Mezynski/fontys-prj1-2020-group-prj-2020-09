@@ -61,58 +61,72 @@ session_start();
                       
                     </p>
                     <br>
-                    <h1> Part 2:</h1>
-                    <p>Maecenas venenatis velit a enim ornare dignissim. Donec risus nibh, tempus a fermentum et,
-                        laoreet
-                        eget diam. Nam sed consectetur metus. Maecenas a libero dui. Cras euismod mattis nibh sed
-                        lacinia.
-                        Duis faucibus elementum fringilla. Phasellus pellentesque posuere purus, eget ullamcorper erat
-                        fermentum vitae. Sed vitae vestibulum ipsum. Duis a dui convallis justo elementum tempus et sit
-                        amet
-                        sem. Vestibulum dignissim, odio aliquam pulvinar fermentum, velit nunc consectetur libero, sed
-                        ornare elit metus a sem. Morbi vestibulum tincidunt velit et sodales. Aenean id ante fermentum,
-                        vestibulum tellus sed, ultricies diam. Donec vitae enim in justo consectetur rutrum. Mauris at
-                        tempus lorem. Praesent egestas nunc tempus velit consectetur, quis imperdiet metus placerat.
-                        Praesent pulvinar efficitur diam sed tempor.</p>
+                    <h1> Changes to the Agreements:</h1>
+                    <p>Occasionally we may make changes to the Agreements. When we make material changes to the Agreements, we’ll provide you with notice as appropriate under the circumstances,
+                       e.g., by displaying a prominent notice within the Service or by sending you an email. In some cases, we will notify you in advance, and your continued use of the Service after 
+                       the changes have been made will constitute your acceptance of the changes. Please therefore make sure you read any such notice carefully. If you do not wish to continue using 
+                       the Service under the new version of the Agreements, you may terminate your account by contacting us. If you received a Trial or a Paid Subscription through a third party, you 
+                       must cancel the applicable Paid Subscription through such third party.
+
+                    </p>
                     <br>
-                    <h1> Part 3:</h1>
-                    <p>Sed eleifend malesuada pellentesque. Nam efficitur risus sit amet magna dictum, sed semper justo
-                        convallis. Cras urna nulla, commodo nec laoreet eget, gravida sodales ipsum. Etiam faucibus sit
-                        amet
-                        tellus in luctus. Proin sit amet accumsan ante. Proin placerat lorem sed felis sollicitudin
-                        porta.
-                        Suspendisse metus tortor, laoreet eget risus quis, sodales venenatis elit. Orci varius natoque
-                        penatibus
-                        et magnis dis parturient montes, nascetur ridiculus mus. Ut egestas eget ligula accumsan
-                        sollicitudin.
-                        Pellentesque porta dolor et diam sagittis tempus.</p>
+                    <h1> Service Options:</h1>
+                    <p>You can find a description of our Service options on our website, and we will explain which Service options are available to you when you create a Songify account. Certain options 
+                       are provided to you free-of-charge. The Songify Service that does not require payment is currently referred to as the “Free Service.” Other options require payment before you can access 
+                       them (the “Paid Subscriptions”). We may also offer special promotional plans, memberships, or services, including offerings of third-party products and services in conjunction with or through 
+                       the Songify Service. We are not responsible for the products and services provided by such third parties. We reserve the right to modify, terminate or otherwise amend our offered subscription 
+                       plans and promotional offerings at any time in accordance with these Terms.
+                    </p>
                     <br>
-                    <h1> Part 4:</h1>
-                    <p>Etiam nec maximus diam. Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus
-                        et
-                        malesuada fames ac turpis egestas. Curabitur eget lobortis nulla. Mauris lobortis molestie
-                        ullamcorper.
-                        Curabitur faucibus feugiat sapien sed accumsan. Aliquam tincidunt sollicitudin ultrices.
-                        Vestibulum
-                        in
-                        finibus tortor, ac molestie orci. Nullam rhoncus, ligula a semper egestas, ante urna tempus
-                        urna,
-                        quis
-                        egestas neque ex a nulla.</p>
+                    <h1> Billing:</h1>
+                    <p>You may purchase a Paid Subscription directly from Songify or through a third party either by (1) paying a subscription fee in advance on a monthly basis or some other recurring interval disclosed 
+                       to you prior to your purchase; or (2) pre-payment giving you access to the Songify Service for a specific time period (“Pre-Paid Period”). Songify may change the price for the Paid Subscriptions, 
+                       including recurring subscription fees, the Pre-Paid Period (for periods not yet paid) from time to time and will communicate any price changes to you in advance and, if applicable, how to accept those 
+                       changes. Price changes will take effect at the start of the next subscription period following the date of the price change. Subject to applicable law, you accept the new price by continuing to use the 
+                       Songify Service after the price change takes effect. If you do not agree with a price change, you have the right to reject the change by unsubscribing from the Paid Subscription prior to the price change 
+                       going into effect.
+
+
+                    </p>
                     <br>
-                    <h1> Part 5:</h1>
-                    <p> Pellentesque facilisis suscipit lacinia. Integer quis ultrices turpis, sed consequat quam.
-                        Nullam
-                        fermentum mi id semper ultricies. Duis eget nibh ac turpis scelerisque ultricies. Sed in pretium
-                        mi.
-                        Vivamus vel dignissim orci. Nunc blandit suscipit enim a vehicula. Integer tincidunt sapien
-                        vestibulum,
-                        faucibus lectus luctus, gravida erat. Vestibulum ultrices diam in purus posuere aliquam. Fusce
-                        tempor
-                        tempus cursus. Aliquam volutpat vestibulum arcu posuere finibus. Sed laoreet nisi nec risus
-                        laoreet,
-                        nec
-                        fermentum sapien accumsan.</p>
+                    <h1> Using our service:</h1>
+                    <p> The Songify Service and the Content are the property of Songify or Songify's licensors. We grant you limited, non-exclusive, revocable permission to make use of the Songify Service, and limited, non-exclusive, 
+                        revocable permission to make personal, non-commercial use of the Content (collectively, “Access”). This Access shall remain in effect until and unless terminated by you or Songify. You promise and agree that you 
+                        are using the Songify Service and Content for your own personal, non-commercial use and that you will not redistribute or transfer the Songify Service or the Content.
+                        The Songify software applications and the Content are not sold or transferred to you, and Songify and its licensors retain ownership of all copies of the Songify software applications and Content even after installation 
+                        on your personal computers, mobile handsets, tablets, wearable devices, speakers and/or other devices (“Devices”).
+                        All Songify trademarks, service marks, trade names, logos, domain names, and any other features of the Songify brand (“Songify Brand Features”) are the sole property of Songify or its licensors. The Agreements do not grant 
+                        you any rights to use any Songify Brand Features whether for commercial or non-commercial use.
+                        You agree to abide by our User guidelines and not to use the Songify Service, the Content, or any part thereof in any manner not expressly permitted by the Agreements. Except for the rights expressly granted to you in the 
+                        Agreements, Songify grants no right, title, or interest to you in the Songify Service or Content.
+                        Third party software (for example, open source software libraries) included in the Songify Service are made available to you under the relevant third party software library’s license terms as published in the help or settings 
+                        section of our desktop and mobile client and/or on our website.
+                    </p>
+                    <br>
+                    <h1>User-Generated Content</h1>
+                    <p> Songify users may post, upload, or otherwise contribute content to the Service (which may include, for example, pictures, text, messages, information, playlist titles, descriptions and compilations, and/or other types of content) 
+                        (“User Content”). For the avoidance of doubt, “User Content” includes any such content posted to the Songify Support Community as well as any other part of the Songify Service. You promise that, with respect to any User Content you 
+                        post on Songify, (1) you own or have the right to post such User Content, and (2) such User Content, or its use by Songify as contemplated by the Agreements, does not violate the Agreements or any other rights set forth within the User 
+                        guidelines, applicable law, or the intellectual property, publicity, personality, or other rights of others or imply any affiliation with or endorsement of you or your User Content by Songify or any artist, band, label, entity or individual 
+                        without express written consent from Songify or such individual or entity. Songify may, but has no obligation to, monitor, review, or edit User Content. In all cases, Songify reserves the right to remove or disable access to any User Content 
+                        for any or no reason, including User Content that, in Songify’s sole discretion, violates the Agreements. Songify may take these actions without prior notification to you or any third party. Removal or disabling of access to User Content shall 
+                        be at our sole discretion, and we do not promise to remove or disable access to any specific User Content. You are solely responsible for all User Content that you post. Songify is not responsible for User Content nor does it endorse any opinion 
+                        contained in any User Content. YOU AGREE THAT IF ANYONE BRINGS A CLAIM AGAINST SONGIFY RELATED TO USER CONTENT THAT YOU POST, THEN, TO THE EXTENT PERMISSIBLE UNDER LOCAL LAW, YOU WILL INDEMNIFY AND HOLD SONGIFY HARMLESS FROM AND AGAINST ALL DAMAGES, 
+                        LOSSES, AND EXPENSES OF ANY KIND (INCLUDING REASONABLE ATTORNEY FEES AND COSTS) ARISING OUT OF SUCH CLAIM.
+                    </p>
+
+
+
+
+
+
+                    
+                    
+                    
+                    
+                    
+                    
+                                    
                 </div>
             </form>
         </article><!-- end of article -->
