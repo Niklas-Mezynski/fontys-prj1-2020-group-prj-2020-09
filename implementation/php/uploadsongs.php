@@ -64,6 +64,10 @@ if ($_SESSION["user_role"] < 3) {
         </aside>
 
         <article>
+			<h1>Create Album</h1><br>
+			<form action="createalbum.php">
+				<input class="dataInput" type="submit" value="Create Album" />
+			</form>
             <h1>Upload Songs</h1><br>
 
             <?php
@@ -150,7 +154,7 @@ if ($_SESSION["user_role"] < 3) {
                 </select><br>
                 <input class="dataInput" type="submit" value="Upload song" name="submit">
             </form>
-
+		
         </article><!-- end of article -->
 
         <footer>
