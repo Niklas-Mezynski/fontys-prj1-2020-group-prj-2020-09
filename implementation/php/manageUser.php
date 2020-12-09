@@ -65,10 +65,9 @@ if ($_SESSION["user_role"] < 1) {
 
         <article>
         <div id="commandBox">
-                <a href="">Restrict User</a><br>
                 <?php
                 require("dbconnection.php");
-                $sqlconnect = "select u.User_Name, ur.role_id ,ur.role_name
+                $sqlconnect = "select u.user_id, u.User_Name, ur.role_id ,ur.role_name
                 from users u 
                 inner join user_role ur on u.user_role = ur.role_id
                 where user_id = " . $_GET["id"];
@@ -76,14 +75,15 @@ if ($_SESSION["user_role"] < 1) {
                 $stmt = $conn -> prepare($sqlconnect);
                 $stmt -> execute();
                 foreach($stmt as $row) {
+                    echo "<a href='" . "'>Restrict User</a><br>";
                     if($row["role_id"] == 3){
-                        echo "<a href='promoteDemote.php?command=demote&id=".$_GET["id"]."'>Demote User to an Registered User</a><br>";
+                        echo "<a href='promoteDemote.php?command=demote&id=".$row["user_id"]."'>Demote User to an Registered User</a><br>";
                     }else{
-                        echo "<a href='promoteDemote.php?command=promote&id=".$_GET["id"]."'>Promote User to an Artist</a><br>";
+                        echo "<a href='promoteDemote.php?command=promote&id=".$row["user_id"]."'>Promote User to an Artist</a><br>";
                     }
+                    echo "<a href='sendMail.php?id=".$row["user_id"]."'>Send Warning-Message per mail</a><br>";
                 }   
                 ?>
-                <a href="">Send Warning-Message per mail</a><br>
             </div>
             <div>
                 <img id="profilePicture" src="../img/profilepicture-placeholder.jpg" height="128">
