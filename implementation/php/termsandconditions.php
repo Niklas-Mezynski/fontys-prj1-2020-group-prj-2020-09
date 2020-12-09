@@ -107,16 +107,6 @@ session_start();
                         nec
                         fermentum sapien accumsan.</p>
                 </div>
-                
-                <div id="submitDiv">
-                    <input id="termsCheck" class="checkboxClass" type="checkbox" required>
-                    <label for="termsCheck" class="checkboxClass">I agree to the Terms and Conditions</label>
-                    
-                </div>
-                <input id="termsSubmit" type="submit" value="Submit">
-
-
-
             </form>
         </article><!-- end of article -->
 
