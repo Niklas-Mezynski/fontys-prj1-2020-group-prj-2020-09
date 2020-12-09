@@ -63,30 +63,42 @@ if ($_SESSION["user_role"] < 1) {
             </nav><!-- end of nav -->
         </aside>
 
-        <article>
-            <?php
-                require("dbconnection.php");
-                if(isset($_POST["submit"])) {
-                    $insert = $conn->prepare('INSERT INTO playlist
-                    ("name", user_id, public)
-                    VALUES(:plname,' . $_SESSION["user_id"] . ',:public)');
-                    $insert->bindParam(":plname", $_POST["plname"]);
-                    $insert->bindParam(":public", $_POST["public"],PDO::PARAM_BOOL);
-                    $succesfull = $insert->execute();
-                }
-            ?>
-
-            <div id="centered">
+        <article>            
+		
+		<div id="centered">
                 <h1>Create a new playlist</h1><br>
                 <?php if($succesfull) {echo '<h3 style="color: #3f48cc">Playlist erfolgreich erstellt.</h3><br>';
                 echo '<a href="playlists.php">Back to playlist overview</a><br><br>';} ?>
-                <form action="newPlaylist.php" method="POST">
+                <form action="newPlaylist.php" method="POST" enctype="multipart/form-data">
+					<label>Album Cover </label>
+					<input type="file" name="file"><br>
                     <input class="plform" type="text" name="plname" placeholder="Playlist name"><br><br>
                     <input type="checkbox" name="public">
                     <label for="public">Public</label><br><br>
                     <input class="plform" type="submit" name="submit" value="Create new playlist">
                 </form>
             </div>
+            <?php
+				
+                if(isset($_POST["submit"])) {
+				require("dbconnection.php");
+				$target_dir = "../uploads/";
+							$target_file = $target_dir . basename($_FILES["file"]["name"]);
+							$uploadOk = 1;
+							$fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+							$image_base64 = base64_encode(file_get_contents( $_FILES["file"]["tmp_name"] ));
+				
+                    $insert = $conn->prepare('INSERT INTO playlist
+                    ("name", user_id, public, cover)
+                    VALUES(:plname,' . $_SESSION["user_id"] . ',:public ,:cover)');
+                    $insert->bindParam(":plname", $_POST["plname"]);
+                    $insert->bindParam(":public", $_POST["public"],PDO::PARAM_BOOL);
+					$insert->bindParam(":cover", $image_base64);
+                    $succesfull = $insert->execute();
+                }
+            ?>
+
+
         </article><!-- end of article -->
 
         <footer>

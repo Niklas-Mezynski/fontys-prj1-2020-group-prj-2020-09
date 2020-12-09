@@ -1,4 +1,4 @@
-<?php session_start();
+<?php session_start(); // check if User has session, if not redirect to login page
 if (!isset($_SESSION["user_name"])) {
 		header("Location:../login.php");
 		die("Please login");
@@ -21,7 +21,7 @@ if (!isset($_SESSION["user_name"])) {
       <div>
       </div>
     	<header>
-			<a href="main.php"><div id="logo"><img id="logo" src="/img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div></a>
+			<div id="logo"><img id="logo" src="/img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
 			<div id="profileButton"><a href="profile.php">User Profile</a></div>
 			<div id="title">
 				<p>Songify</p>
@@ -37,19 +37,19 @@ if (!isset($_SESSION["user_name"])) {
 					<li><a href="main.php">Home</a></li>
 					<li><a href="library.php">Library</a></li>
 					<?php
-					if ($_SESSION["user_role"] >= 2) {
+					if ($_SESSION["user_role"] >= 2) { //check if user-role = Registered User
 						echo '<li><a href="playlists.php">Playlists</a></li>';
 					}
 					?>
 					<li><a href="shop.php">Shop</a></li>
 					<li><a href="trends.php">Trends</a></li>
 					<?php
-					if ($_SESSION["user_role"] >= 3) {
+					if ($_SESSION["user_role"] >= 3) { //check if user-role = Artist
 						echo '<li><a href="uploadsongs.php">Upload Songs</a></li>';
 					}
 					?>
 					<?php
-					if ($_SESSION["user_role"] == 4) {
+					if ($_SESSION["user_role"] == 4) { //check if user-role = Admin
 						echo '<li><a href="admin.php">Admin Panel</a></li>';
 					}
 					?>
@@ -61,8 +61,8 @@ if (!isset($_SESSION["user_name"])) {
 
  <?php
 		  include_once ("dbconnection.php");
-		// create the table - just for testing the connection
-		$stmt = $conn->prepare("SELECT album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle ,song.song_path AS sPath, users.user_name AS sArtist
+		// get data from tables album, song and user
+		$stmt = $conn->prepare("SELECT album.cover AS aCover, album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle ,song.song_path AS sPath, users.user_name AS sArtist
 		from (album left join song
 		on album.album_id = song.album_id
 		left join users
@@ -76,9 +76,11 @@ if (!isset($_SESSION["user_name"])) {
       <p></p>
       <div>
         <p style="float: left;">
-          <img src="/img/albumcover-placeholder.jpg" height="400px" width="400px" id="cover"></p>
+          
 		 <?php
-		$result = $stmt->fetch(\PDO::FETCH_ASSOC);
+		 
+		$result = $stmt->fetch(\PDO::FETCH_ASSOC); //get first row of response
+		echo "<img src='data:image/jpeg;base64," . $result['acover'] . "' height='400px' width='400px' id='cover'></p>";
 		echo "<br>";
 		echo "<p style='text-align: left; font-size: 36px'>" .$result['atitle'] . "</p>";
 		echo "<p style='text-align: left; font-size: 24px'>" .$result['alabel'] . "/" .$result['apublisher'] . "</p>";
@@ -90,7 +92,7 @@ if (!isset($_SESSION["user_name"])) {
             <th>Play</th>
           </tr>
          <?php
-		 $stmt->execute();
+		 $stmt->execute(); //execute query to get other data
 			foreach ($stmt as $row)
 			{
 			echo "<tr id='song'>";
@@ -109,7 +111,7 @@ if (!isset($_SESSION["user_name"])) {
 
     <footer>
       <p>
-        <a href="termsandconditions.php">Terms and Conditions</a>
+        <a href="termsandconditions.html">Terms and Conditions</a>
       </p>
 
     </footer><!-- end of footer -->

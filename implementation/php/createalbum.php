@@ -83,7 +83,7 @@ if ($_SESSION["user_role"] < 3) {
 							$uploadOk = 1;
 							$fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 							$image_base64 = base64_encode(file_get_contents( $_FILES["file"]["tmp_name"] ));
-							echo $image_base64;
+
 			            $insert = $conn->prepare('INSERT INTO public.album
 												(title, "date", artist_id, "label", publisher, cover)
 												VALUES(:album_name, :releasedate , :artist_id, :label, :publisher, :cover)');			

@@ -69,7 +69,7 @@ if ($_SESSION["user_role"] < 2) {
 			<div class="grid-container">
 				<?php
 				require("dbconnection.php");
-				$stmt = $conn->prepare("select playlist_id, name from playlist where user_id = :user_id order by playlist_id desc");
+				$stmt = $conn->prepare("select cover, playlist_id, name from playlist where user_id = :user_id order by playlist_id desc");
 				$stmt->bindParam(":user_id", $_SESSION["user_id"]);
 				$stmt->execute();
 				
@@ -79,9 +79,12 @@ if ($_SESSION["user_role"] < 2) {
 					$song_count = $songs_in_pl->rowCount();
 					echo '<a href="playlist.php?id='.$playlist_id.'">
 					<div class="grid-item">
-					<div class="card">
-						<img src="../img/playlistcover-placeholder.jpg" alt="albumcover" style="width:100%">
-						<div class="container">
+					<div class="card">';
+					if(!isset($row['cover'])) {
+						echo '<img src="../img/playlistcover-placeholder.jpg" alt="playlistcover" style="width:100%">'; 
+					}
+					else echo '<img src="data:image/jpeg;base64,' . $row['cover'] . '" alt="playlistcover" style="width:100%">';
+					echo '	<div class="container">
 						  <h4><b>' . $row["name"] . '</b></h4>
 						  <p>' . $song_count . ' Songs</p>
 						</div>
