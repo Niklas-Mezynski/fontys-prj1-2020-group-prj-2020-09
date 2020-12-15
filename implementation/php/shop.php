@@ -96,25 +96,15 @@ if ($_SESSION["user_role"] < 1) {
 
 						echo "<br><p class='successText'>Purchased Subscription</p>";
 					} else if (isset($_POST["confirmCC"])) {
+						$userID = $_SESSION["user_id"];
+
 						// Set Subscription Status to true
-						$sql = "UPDATE users SET subscription_status=true WHERE user_id= ". $userID;
+						$sql = "UPDATE users SET subscription_status=true WHERE user_id=$userID";
 						$stmt = $conn->prepare($sql);
 						$stmt->execute();
 
 						echo "<br><p class='successText'>Purchased Subscription</p>";
 					}
-					?>
-				</form>
-			</div>
-
-			<!-- Purchase Giftcard -->
-			<div class="shop">
-				<p class="text">Gift Card</p>
-				<img src="../img/shopitem-placeholder.jpg" class="image"></p>
-				<form action="shop.php" method="POST">
-					<input type="submit" name="purchaseGiftcard" value="Purchase">
-					<?php
-					//
 					?>
 				</form>
 			</div>
