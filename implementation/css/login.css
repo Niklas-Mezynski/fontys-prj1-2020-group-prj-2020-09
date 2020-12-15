@@ -55,3 +55,7 @@ footer {
 	height: 100%;
 	background-image: linear-gradient(to right, #1f1f1f, #202020, #292929, #3b3b3b, #4e4e4e);
 }
+
+input:invalid {
+	border-color: red;
+}
