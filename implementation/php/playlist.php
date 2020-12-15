@@ -54,6 +54,7 @@ if (isset($_POST["remove_song"]) && ($plInformation["user_id"] == $_SESSION["use
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/playlist.css">
+	<link rel="shortcut icon" href="../img/Logo.png" />
 </head>
 
 <body>

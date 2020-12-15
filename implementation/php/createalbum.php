@@ -18,6 +18,7 @@ if ($_SESSION["user_role"] < 3) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/upload.css">
+    <link rel="shortcut icon" href="../img/Logo.png" />
 </head>
 
 <body>

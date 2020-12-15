@@ -25,7 +25,8 @@ if (isset($_POST["removeplaylist"])) {
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="../css/playlist-overview.css">
-</head>
+	<link rel="shortcut icon" href="../img/Logo.png" />
+	</head>
 
 <body>
 

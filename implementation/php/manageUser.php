@@ -19,6 +19,7 @@ if ($_SESSION["user_role"] < 1) {
     <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
     <link rel="stylesheet" href="../css/profile.css">
     <link rel="stylesheet" href="../css/manageUser.css">
+    <link rel="shortcut icon" href="../img/Logo.png" />
 </head>
 
 <body>

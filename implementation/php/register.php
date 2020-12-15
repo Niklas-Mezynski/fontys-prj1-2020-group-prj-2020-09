@@ -5,6 +5,7 @@
     <title>Register</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="shortcut icon" href="../img/Logo.png" />
 </head>
 
 <body>

@@ -9,6 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
     <link rel="stylesheet" href="../css/search.css">
+    <link rel="shortcut icon" href="../img/Logo.png" />
 </head>
 
 <body>
