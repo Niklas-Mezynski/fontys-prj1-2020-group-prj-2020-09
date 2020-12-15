@@ -46,7 +46,8 @@ article #login{
 
 article #login input{
     border-radius: 8px;
-    height: 35px;
+	height: 35px;
+	color: black;
 }
 
 footer {

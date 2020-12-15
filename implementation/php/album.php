@@ -60,7 +60,7 @@ if (!isset($_SESSION["user_name"])) {
 		</aside>
 
  <?php
-		  include_once ("dbconnection.php");
+		include_once ("dbconnection.php");
 		// get data from tables album, song and user
 		$stmt = $conn->prepare("SELECT album.cover AS aCover, album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle ,song.song_path AS sPath, users.user_name AS sArtist
 		from (album left join song
@@ -79,11 +79,11 @@ if (!isset($_SESSION["user_name"])) {
           
 		 <?php
 		 
-		$result = $stmt->fetch(\PDO::FETCH_ASSOC); //get first row of response
+		$result = $stmt->fetch(\PDO::FETCH_ASSOC); //get first row of response			
 		if(isset($result['acover'])) {
-			echo "<img src='data:image/jpeg;base64," . $result['acover'] . "' height='400px' width='400px' id='cover'></p>";
+			echo "<img src='data:image/jpeg;base64," . $result['acover'] . "'id='cover'></p>";
 		} 
-		else echo "<img src='../img/albumcover-placeholder.jpg' height='400px' width='400px' id='cover'></p>";
+		else echo "<img src='../img/albumcover-placeholder.jpg' id='cover'></p>";
 		echo "<br>";
 		echo "<p style='text-align: left; font-size: 36px'>" .$result['atitle'] . "</p>";
 		echo "<p style='text-align: left; font-size: 24px'>" .$result['alabel'] . "/" .$result['apublisher'] . "</p>";

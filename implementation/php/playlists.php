@@ -9,13 +9,6 @@ if ($_SESSION["user_role"] < 2) {
 	header("Location: main.php");
 	exit;
 }
-
-if (isset($_POST["removeplaylist"])) {
-	include_once("dbconnection.php");
-	$delete = $conn->prepare("DELETE FROM public.playlist WHERE playlist_id=:playlist_id");
-	$delete->bindParam(":playlist_id", $_POST["playlist_id"]);
-	$delete->execute();
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -88,9 +81,9 @@ if (isset($_POST["removeplaylist"])) {
 					<div class="grid-item">
 					<div class="card">';
 					if(!isset($row['cover'])) {
-						echo '<img src="../img/playlistcover-placeholder.jpg" alt="playlistcover" style="width:100%">'; 
+						echo '<img src="../img/playlistcover-placeholder.jpg" id="coverThumb">'; 
 					}
-					else echo '<img src="data:image/jpeg;base64,' . $row['cover'] . '" alt="playlistcover" style="width:100%">';
+					else echo '<img src="data:image/jpeg;base64,' . $row['cover'] . '" id="coverThumb">';
 					echo '	<div class="container">
 						  <h4><b>' . $row["name"] . '</b></h4>
 						  <p>' . $song_count . ' Songs</p>
