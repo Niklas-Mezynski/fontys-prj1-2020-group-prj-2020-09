@@ -59,7 +59,7 @@ session_start();
 
         // Artist Search
         if ($_POST["searchRadio"] == "Artist") {
-            $searchInput = $_POST["search"];
+            $searchInput = htmlspecialchars($_POST["search"]);
             $stmt = $conn->prepare("SELECT users.user_name AS artist, count(albumsongs.title) AS albums, sum(albumsongs.songs) AS songs
             FROM users INNER JOIN 
             (SELECT album.title, album.artist_id, count(song.title) AS songs
@@ -72,7 +72,7 @@ session_start();
 
         // Album Search
         } else if ($_POST["searchRadio"] == "Album") {
-            $searchInput = $_POST["search"];
+            $searchInput = htmlspecialchars($_POST["search"]);
             $stmt = $conn->prepare("SELECT album.title AS album, users.user_name AS artist, count(song_id) AS songamount, album.album_id 
             FROM album INNER JOIN users ON album.artist_id = users.user_id 
             INNER JOIN song ON album.album_id = song.album_id
@@ -82,7 +82,7 @@ session_start();
 
         // Song Search
         } else {
-            $searchInput = $_POST["search"];
+            $searchInput = htmlspecialchars($_POST["search"]);
             $stmt = $conn->prepare("SELECT song.title AS title, users.user_name AS artist, album.title AS album, song.listens AS listens,
                                 song.song_path AS spath, song.song_id, album.album_id
             FROM song INNER JOIN users ON users.user_id = song.artist_id 
