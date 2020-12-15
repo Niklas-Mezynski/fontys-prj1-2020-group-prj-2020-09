@@ -74,8 +74,8 @@
                     <input type="text" id="zipcode" name="zipcode" placeholder="Zip Code" /><br>
                     <input type="text" id="city" name="city" placeholder="City" /><br>
                     <input type="text" id="country" name="country" placeholder="Country" /><br>
-                    <input type="password" id="pword" name="pword" placeholder="Password" /><br>
-                    <input type="password" id="pwordconfirm" name="pwordconfirm" placeholder="Confirm Password" /><br>
+                    <input type="password"  minlength="8" id="pword" name="pword" placeholder="Password" /><br>
+                    <input type="password"  minlength="8" id="pwordconfirm" name="pwordconfirm" placeholder="Confirm Password" /><br>
                     <label for="checkbox"> I have read and accept the terms and conditions</label><br>
                     <input type="checkbox" id="checkbox" name="checkbox" /><br>
                     <input type="submit" name="submit" value="Submit" />
