@@ -8,7 +8,7 @@ if (!isset($_SESSION["user_name"])) {
 <html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 
 <head>
-  <title>Home</title>
+  <title>Album</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="/css/main.css"><!-- link to stylesheet -->
 </head>
