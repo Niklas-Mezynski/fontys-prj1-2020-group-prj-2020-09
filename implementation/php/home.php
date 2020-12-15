@@ -5,7 +5,7 @@
 	<title>Welcome!</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
-	
+	<link rel="shortcut icon" href="../img/Logo.png" />
 </head>
 
 <body>
