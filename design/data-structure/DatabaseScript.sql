@@ -99,3 +99,26 @@ begin
 	end if;
 end;
 $$ language plpgsql;
+
+create or replace function blockUser()
+	returns trigger as $$
+	begin
+		if ( NEW.blocked = true )
+	then
+		update users
+		set user_role = 0
+		where user_id = OLD.user_id;
+	end if;
+		if ( NEW.blocked = false )
+	then
+		update users
+		set user_role = 1
+		where user_id = OLD.user_id;
+	end if;
+	return new;
+end;
+$$ language plpgsql;
+
+create trigger onBlockUser
+after update of "blocked" on users
+for each row execute procedure blockUser();
