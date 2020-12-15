@@ -1,14 +1,14 @@
 <?php
     require("dbconnection.php");
-    if($_GET["command"] == "promote"){
+    if($_GET["command"] == "restrict"){
         $sqlconnect = "update users u
-        set user_role = 3
+        set blocked = true
         where user_id = " . $_GET["id"];
         $stmt = $conn -> prepare($sqlconnect);
         $stmt -> execute();
     }else{
         $sqlconnect = "update users u
-        set user_role = 1
+        set blocked = false
         where user_id = " . $_GET["id"];
         $stmt = $conn -> prepare($sqlconnect);
         $stmt -> execute();
