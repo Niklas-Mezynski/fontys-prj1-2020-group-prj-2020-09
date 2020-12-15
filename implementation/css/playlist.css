@@ -7,7 +7,7 @@
     padding-left: 40px;
 }
 
-#add {
+.smallbutton {
     background-color: #292929;
     border: solid white 2px;
     border-radius: 5px;
