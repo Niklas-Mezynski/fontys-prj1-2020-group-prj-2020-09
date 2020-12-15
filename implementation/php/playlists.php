@@ -9,6 +9,13 @@ if ($_SESSION["user_role"] < 2) {
 	header("Location: main.php");
 	exit;
 }
+
+if (isset($_POST["removeplaylist"])) {
+	include_once("dbconnection.php");
+	$delete = $conn->prepare("DELETE FROM public.playlist WHERE playlist_id=:playlist_id");
+	$delete->bindParam(":playlist_id", $_POST["playlist_id"]);
+	$delete->execute();
+}
 ?>
 <!DOCTYPE html>
 <html>
