@@ -67,7 +67,7 @@ if ($_SESSION["user_role"] < 1) {
         <div id="commandBox">
                 <?php
                 require("dbconnection.php");
-                $sqlconnect = "select u.user_id, u.User_Name, ur.role_id ,ur.role_name
+                $sqlconnect = "select u.user_id, u.User_Name,u.blocked, ur.role_id ,ur.role_name
                 from users u 
                 inner join user_role ur on u.user_role = ur.role_id
                 where user_id = " . $_GET["id"];
@@ -75,7 +75,11 @@ if ($_SESSION["user_role"] < 1) {
                 $stmt = $conn -> prepare($sqlconnect);
                 $stmt -> execute();
                 foreach($stmt as $row) {
-                    echo "<a href='" . "'>Restrict User</a><br>";
+                    if($row["blocked"] == 1){
+                        echo "<a href='restrictEncourage.php?command=encourage&id=" . $row["user_id"] . "'>Encourage User</a><br>";
+                    }else{
+                        echo "<a href='restrictEncourage.php?command=restrict&id=" . $row["user_id"] . "'>Restrict User</a><br>";
+                    }
                     if($row["role_id"] == 3){
                         echo "<a href='promoteDemote.php?command=demote&id=".$row["user_id"]."'>Demote User to an Registered User</a><br>";
                     }else{
