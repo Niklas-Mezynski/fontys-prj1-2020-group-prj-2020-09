@@ -21,10 +21,11 @@ if (!isset($_SESSION["user_name"])) {
 ?>
 	<main>
 	<header>
-			<a href="main.php"><div id="logo"><img id="logo" src="/img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div></a>
+			<div id="logo"><img id="logo" src="/img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+			<div id="profileButton"><a href="profile.php">User Profile</a></div>
 			<?php 
 				if(isset($_SESSION['user_name'])) {
-				echo "<div id='profileButton'><br><a href='profile.php'>Profile - " .$_SESSION['user_name'] . "</a></div>";
+				echo "<div id='profileButton'><br> Username: " .$_SESSION['user_name'] . "</div>";
 				}
 			?>
 			<div id="title">
@@ -73,9 +74,9 @@ if (!isset($_SESSION["user_name"])) {
 				echo "<a href='album.php?albumid=" .$row["albumid"] . "'>";
 				echo "<div class='card'>";		
 				if(isset($row['acover'])) {
-					echo "<img src='data:image/jpeg;base64," . $row['acover'] . "' alt='albumcover' style='width:100%'></p>";
+					echo "<img src='data:image/jpeg;base64," . $row['acover'] . "' id='coverThumb'></p>";
 				}
-				else echo "<img src='../img/albumcover-placeholder.jpg' alt='albumcover' style='width:100%'></a>";
+				else echo "<img src='../img/albumcover-placeholder.jpg'></a>";
 				echo "<div class='container'>";
 				echo "<h4><b>" . $row["atitle"] . "</b></h4>";
 				echo "<p>" .$row["uname"] ."</p>";

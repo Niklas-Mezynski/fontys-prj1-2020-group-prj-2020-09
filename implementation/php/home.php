@@ -39,8 +39,8 @@
 			   <h3 id = "welcometext">Become one of our 200.000 already music enjoying and producing users today!</h3>
 			   
 			 <div class="btn-group">  
-			   <a href="register.php"><button class="button" style="vertical-align:middle"><span>Register now! </span></button></a>
-			   <a href="login.php"><button class="button" style="vertical-align:middle"><span>Login </span></button></a>
+			   <a href="register.php"><button class="button"><span>Register now! </span></button></a>
+			   <a href="login.php"><button class="button"><span>Login </span></button></a>
 			</div>
 	  </div>
 	   

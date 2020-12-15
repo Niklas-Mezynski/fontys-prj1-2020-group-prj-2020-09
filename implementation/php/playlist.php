@@ -37,6 +37,14 @@ if (isset($_POST["submit"])) {
 	}
 }
 
+//checking if a song was removed and the playlist belongs to the user removing the song
+if (isset($_POST["remove_song"]) && ($plInformation["user_id"] == $_SESSION["user_id"])) {
+	$deletestmt = $conn->prepare("DELETE FROM song_playlist	WHERE playlist_id=:playlist_id AND song_id=:song_id");
+	$deletestmt->bindParam(":playlist_id", $playlist_id);
+	$deletestmt->bindParam(":song_id", $_POST["songid"]);
+	$deletestmt->execute();
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -94,7 +102,7 @@ if (isset($_POST["submit"])) {
 
 		<article>
 			<?php
-			$stmt = $conn->prepare("SELECT s.title, u.user_name AS sartist, a.title AS album, s.listens, s.song_path
+			$stmt = $conn->prepare("SELECT s.title, u.user_name AS sartist, a.title AS album, s.listens, s.song_path, s.song_id
 				FROM song s
 				inner join song_playlist sp 
 				on s.song_id = sp.song_id
@@ -110,7 +118,7 @@ if (isset($_POST["submit"])) {
 			<h1><?php echo $plName; ?></h1><br>
 			<form action="search.php" method="post">
 				<input type="hidden" name="playlist_id" value=<?php echo $playlist_id; ?>>
-				<input id="add" type="submit" name="plsubmit" value="Add Song to playlist">
+				<input class='smallbutton' type="submit" name="plsubmit" value="Add Song to playlist">
 			</form>
 			<!--<a href="search.php"><button id="add">Add songs</button></a><br>-->
 
@@ -120,6 +128,7 @@ if (isset($_POST["submit"])) {
 					<th>Artists</th>
 					<th>Album</th>
 					<th>Play</th>
+					<th>Delete Song</th>
 				</tr>
 				<?php
 				$stmt->execute();
@@ -129,11 +138,17 @@ if (isset($_POST["submit"])) {
 					echo "<td>" . $row['sartist'] . "</td>";
 					echo "<td>" . $row['album'] . "</td>";
 					echo "<td>
-              <audio controls controlsList='nodownload'>
-                <source src='" . $row['song_path'] . "' type='audio/mpeg'>
-                Your browser does not support the audio element.
-              </audio>
-            </td>";
+              				<audio controls controlsList='nodownload'>
+                			<source src='" . $row['song_path'] . "' type='audio/mpeg'>
+                			Your browser does not support the audio element.
+              				</audio>
+							</td>";
+					echo "<td>
+							<form action='playlist.php?id=". $playlist_id ."' method='post'>
+								<input type='hidden' name='songid' value='". $row['song_id'] ."'></input>
+								<input class='smallbutton' type='submit' name='remove_song' value='Remove song'></input>
+							</form>
+						</td>";
 					echo "</tr>";
 				} ?>
 			</table>
@@ -142,7 +157,7 @@ if (isset($_POST["submit"])) {
 			if (true) {
 				echo '<form action="playlists.php" method="post">
 				<input type="hidden" name="playlist_id" value=' . $playlist_id . '>
-				<input id="add" type="submit" name="removeplaylist" value="Delete this playlist">
+				<input class="smallbutton" type="submit" name="removeplaylist" value="Delete this playlist">
 				</form>';
 			}
 			?>

@@ -138,6 +138,12 @@ tr#song:hover {
 
 img#cover {
 	margin: 20px;
+	height: 30rem;
+	width: 30rem;
+}
+
+img#coverThumb {
+	width:100%;
 }
 
 #userfont{
@@ -168,7 +174,6 @@ img#cover {
 	padding: 40px;
   }
 
- 
   
   #welcometexttitle{
    font-size: 45px;
