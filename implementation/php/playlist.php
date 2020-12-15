@@ -52,7 +52,9 @@ if (isset($_POST["submit"])) {
 
 	<main>
 		<header>
-			<a href="main.php"><div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div></a>
+			<a href="main.php">
+				<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
+			</a>
 			<div id="profileButton"><a href="profile.php">User Profile</a></div>
 			<div id="title">
 				<p>Songify</p>
@@ -135,7 +137,15 @@ if (isset($_POST["submit"])) {
 					echo "</tr>";
 				} ?>
 			</table>
-
+			<br><br>
+			<?php
+			if (true) {
+				echo '<form action="playlists.php" method="post">
+				<input type="hidden" name="playlist_id" value=' . $playlist_id . '>
+				<input id="add" type="submit" name="removeplaylist" value="Delete this playlist">
+				</form>';
+			}
+			?>
 		</article>
 
 		<footer>

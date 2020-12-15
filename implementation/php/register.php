@@ -64,21 +64,21 @@
                 }
                 ?>
                 <form action="register.php" method="POST">
-                    <input style="color:black;" type="email" id="email" name="email" placeholder="Email" /><br>
-                    <input style="color:black;" type="text" id="uname" name="uname" placeholder="Username" /><br>
-                    <input style="color:black;" type="text" id="fname" name="fname" placeholder="First Name" /><br>
-                    <input style="color:black;" type="text" id="lname" name="lname" placeholder="Last Name" /><br>
-                    <input style="color:black;" type="date" id="bdate" name="bdate" placeholder="YYYY:MM:DD" /><br>
-                    <input style="color:black;" type="text" id="strret" name="street" placeholder="Street" /><br>
-                    <input style="color:black;" type="text" id="house_nr" name="house_nr" placeholder="House Nr." /><br>
-                    <input style="color:black;" type="text" id="zipcode" name="zipcode" placeholder="Zip Code" /><br>
-                    <input style="color:black;" type="text" id="city" name="city" placeholder="City" /><br>
-                    <input style="color:black;" type="text" id="country" name="country" placeholder="Country" /><br>
-                    <input style="color:black;" type="password" id="pword" name="pword" placeholder="Password" /><br>
-                    <input style="color:black;" type="password" id="pwordconfirm" name="pwordconfirm" placeholder="Confirm Password" /><br>
+                    <input type="email" id="email" name="email" placeholder="Email" /><br>
+                    <input type="text" id="uname" name="uname" placeholder="Username" /><br>
+                    <input type="text" id="fname" name="fname" placeholder="First Name" /><br>
+                    <input type="text" id="lname" name="lname" placeholder="Last Name" /><br>
+                    <input type="date" id="bdate" name="bdate" placeholder="YYYY:MM:DD" /><br>
+                    <input type="text" id="strret" name="street" placeholder="Street" /><br>
+                    <input type="text" id="house_nr" name="house_nr" placeholder="House Nr." /><br>
+                    <input type="text" id="zipcode" name="zipcode" placeholder="Zip Code" /><br>
+                    <input type="text" id="city" name="city" placeholder="City" /><br>
+                    <input type="text" id="country" name="country" placeholder="Country" /><br>
+                    <input type="password" id="pword" name="pword" placeholder="Password" /><br>
+                    <input type="password" id="pwordconfirm" name="pwordconfirm" placeholder="Confirm Password" /><br>
                     <label for="checkbox"> I have read and accept the terms and conditions</label><br>
-                    <input style="color:black;" type="checkbox" id="checkbox" name="checkbox" /><br>
-                    <input style="color:black;" type="submit" name="submit" value="Submit" />
+                    <input type="checkbox" id="checkbox" name="checkbox" /><br>
+                    <input type="submit" name="submit" value="Submit" />
                 </form>
                 <p>Are you a member?: <a href="login.php">Log in here</a></p>
                 <p><a href="main.php">Go back to Home</a></p>

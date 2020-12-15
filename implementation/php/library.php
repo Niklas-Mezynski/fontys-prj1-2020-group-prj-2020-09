@@ -1,4 +1,4 @@
-<?php session_start();
+<?php session_start(); // check if User has session, if not redirect to login page
 if (!isset($_SESSION["user_name"])) {
 		header("Location:../login.php");
 		die("Please login");
@@ -15,17 +15,16 @@ if (!isset($_SESSION["user_name"])) {
 <body>
  <?php
 		 include_once ("dbconnection.php");
-		// create the table - just for testing the connection
-		$stmt = $conn->prepare("Select album.title AS aTitle, album.album_id AS albumid, users.user_name AS uName from album join users on album.artist_id = users.user_id");
+		// get album data from table
+		$stmt = $conn->prepare("Select album.cover AS aCover, album.title AS aTitle, album.album_id AS albumid, users.user_name AS uName from album join users on album.artist_id = users.user_id");
 		$stmt->execute();
 ?>
 	<main>
 	<header>
 			<a href="main.php"><div id="logo"><img id="logo" src="/img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div></a>
-			<div id="profileButton"><a href="profile.php">User Profile</a></div>
 			<?php 
 				if(isset($_SESSION['user_name'])) {
-				echo "<div id='profileButton'><br> Username: " .$_SESSION['user_name'] . "</div>";
+				echo "<div id='profileButton'><br><a href='profile.php'>Profile - " .$_SESSION['user_name'] . "</a></div>";
 				}
 			?>
 			<div id="title">
@@ -42,19 +41,19 @@ if (!isset($_SESSION["user_name"])) {
 					<li><a href="main.php">Home</a></li>
 					<li><a href="library.php">Library</a></li>
 					<?php
-					if ($_SESSION["user_role"] >= 2) {
+					if ($_SESSION["user_role"] >= 2) { //check if user-role = Registered User
 						echo '<li><a href="playlists.php">Playlists</a></li>';
 					}
 					?>
 					<li><a href="shop.php">Shop</a></li>
 					<li><a href="trends.php">Trends</a></li>
 					<?php
-					if ($_SESSION["user_role"] >= 3) {
+					if ($_SESSION["user_role"] >= 3) { //check if user-role = Artist
 						echo '<li><a href="uploadsongs.php">Upload Songs</a></li>';
 					}
 					?>
 					<?php
-					if ($_SESSION["user_role"] == 4) {
+					if ($_SESSION["user_role"] == 4) { //check if user-role = Admin
 						echo '<li><a href="admin.php">Admin Panel</a></li>';
 					}
 					?>
@@ -67,13 +66,16 @@ if (!isset($_SESSION["user_name"])) {
 		<article>
             <p></p>
 			<div class="grid-container">
-			<?php 
+			<?php //create card for each album entry in database
 			foreach ($stmt as $row)
 			{
 				echo "<div class='grid-item'>";
 				echo "<a href='album.php?albumid=" .$row["albumid"] . "'>";
 				echo "<div class='card'>";		
-				echo "<img src='../img/albumcover-placeholder.jpg' alt='albumcover' style='width:100%'></a>";
+				if(isset($row['acover'])) {
+					echo "<img src='data:image/jpeg;base64," . $row['acover'] . "' alt='albumcover' style='width:100%'></p>";
+				}
+				else echo "<img src='../img/albumcover-placeholder.jpg' alt='albumcover' style='width:100%'></a>";
 				echo "<div class='container'>";
 				echo "<h4><b>" . $row["atitle"] . "</b></h4>";
 				echo "<p>" .$row["uname"] ."</p>";
@@ -87,7 +89,7 @@ if (!isset($_SESSION["user_name"])) {
 
 		<footer>
 			<p>
-				<a href="termsandconditions.php">Terms and Conditions</a>
+				<a href="termsandconditions.html">Terms and Conditions</a>
 			</p>
 
 		</footer><!-- end of footer -->

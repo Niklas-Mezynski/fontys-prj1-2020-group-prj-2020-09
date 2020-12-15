@@ -64,6 +64,10 @@ if ($_SESSION["user_role"] < 3) {
         </aside>
 
         <article>
+			<h1>Create Album</h1><br>
+			<form action="createalbum.php">
+				<input class="dataInput" type="submit" value="Create Album" />
+			</form>
             <h1>Upload Songs</h1><br>
 
             <?php
@@ -129,12 +133,24 @@ if ($_SESSION["user_role"] < 3) {
             ?>
 
             <form action="uploadsongs.php" method="post" enctype="multipart/form-data">
+                
                 <label>Select song to upload (in .mp3 format) </label><input class="dataInput" type="file" name="fileToUpload"><br>
-                <label>Song name </label><input class="dataInput" type="text" name="song_name"><br>
-                <label>Label </label><input class="dataInput" type="text" name="label"><br>
-                <label>Publisher </label><input class="dataInput" type="text" name="publisher"><br>
-                <label>Price </label><input class="dataInput" type="number" min="0.0" max="3.0" step="0.01" value="00.00" name="price"><br>
-                <label for="album">Album </label>
+
+                <table>
+                <tr><td>Song name</td>
+                <td><input class="dataInput" type="text" name="song_name"></td></tr>
+
+                <tr><td>Label</td>
+                <td><input class="dataInput" type="text" name="label"></td></tr>
+
+                <tr><td><label>Publisher </label></td>
+                <td> <input class="dataInput" type="text" name="publisher"></td></tr>
+
+                <tr><td>Price </td>
+                <td> <input class="dataInput" type="number" min="0.0" max="3.0" step="0.01" value="00.00" name="price"></td></tr>
+
+                <tr><td> <label for="album">Album </label></td>
+                <td> 
                 <select id="album" name="album">
                     
                     <?php
@@ -147,10 +163,12 @@ if ($_SESSION["user_role"] < 3) {
                         echo '<option value="'. $row["album_id"] .'">'. $row["title"] .'</option>';
                     }
                     ?>
-                </select><br>
+                </select></td></tr>
+                </table>
+                
                 <input class="dataInput" type="submit" value="Upload song" name="submit">
             </form>
-
+		
         </article><!-- end of article -->
 
         <footer>
