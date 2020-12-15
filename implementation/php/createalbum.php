@@ -67,11 +67,11 @@ if ($_SESSION["user_role"] < 3) {
 			<h1>Create Album</h1><br>
 			
 			    <form action="createalbum.php" method="post" enctype="multipart/form-data">
-                <label>Album Cover </label><input class="dataInput" type="file" name="file"><br>
-                <label>Album Name </label><input class="dataInput" type="text" name="album_name"><br>
-                <label>Label </label><input class="dataInput" type="text" name="label"><br>
-                <label>Publisher </label><input class="dataInput" type="text" name="publisher"><br>
-                <label>Release Date </label><input class="dataInput" type="date" name="releasedate"><br>
+                <label>Album Cover </label><input class="dataInput" type="file" name="file" required><br>
+                <label>Album Name </label><input class="dataInput" type="text" name="album_name" required><br>
+                <label>Label </label><input class="dataInput" type="text" name="label" required><br>
+                <label>Publisher </label><input class="dataInput" type="text" name="publisher" required><br>
+                <label>Release Date </label><input class="dataInput" type="date" name="releasedate" required><br>
                 <input class="dataInput" type="submit" value="Create Album" name="submit"><br>
             </form>
 			<?php
