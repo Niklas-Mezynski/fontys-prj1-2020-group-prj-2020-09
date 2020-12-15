@@ -154,21 +154,21 @@ session_start();
 
                     Your password protects your user account, and you are solely responsible for keeping your password confidential and secure. You understand that you are responsible for all use (including any unauthorized use) of your username and password on the Service. If your username or password is lost or stolen, or if you believe there has been unauthorized access to your account by a third party, you must notify us immediately and change your password as soon as possible.
 
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     </p>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
 
 
 
