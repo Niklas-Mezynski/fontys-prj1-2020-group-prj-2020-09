@@ -72,7 +72,7 @@ if ($_SESSION["user_role"] < 1) {
 			<!-- Purchase Subscription -->
 			<div class="shop">
 				<p class="text">Subscription</p>
-				<img src="../img/shopitem-placeholder.jpg" class="image"></p>
+				<img src="../img/subscription.png" class="image"></p>
 				<form action="shop.php" method="POST">
 					<input type="submit" name="purchaseSubscription" value="Purchase">
 					<?php
