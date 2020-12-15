@@ -11,6 +11,7 @@ if (!isset($_SESSION["user_name"])) {
   <title>Home</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="/css/main.css"><!-- link to stylesheet -->
+  <link rel="shortcut icon" href="../img/Logo.png" />
 </head>
 <style> 
 <?php include "/css/main.css" ?>

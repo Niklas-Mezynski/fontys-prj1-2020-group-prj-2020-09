@@ -17,6 +17,7 @@ if ($_SESSION["user_role"] < 4) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
     <link rel="stylesheet" href="../css/trends.css">
+    <link rel="shortcut icon" href="../img/Logo.png" />
 </head>
 
 <body>
