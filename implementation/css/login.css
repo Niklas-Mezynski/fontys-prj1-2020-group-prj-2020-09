@@ -45,9 +45,9 @@ article #login{
 }
 
 article #login input{
-    border-radius: 8px;
-	height: 35px;
-	color: black;
+    border-radius: 15px;
+	height: 4vh;
+	color: white;
 }
 
 footer {
@@ -56,6 +56,10 @@ footer {
 	background-image: linear-gradient(to right, #1f1f1f, #202020, #292929, #3b3b3b, #4e4e4e);
 }
 
-input:invalid {
-	border-color: red;
+input {
+	background-color: #292929;
+	color: white;
+	border-color: white;
+	margin-bottom: 4px;
+	padding: 2px;
 }

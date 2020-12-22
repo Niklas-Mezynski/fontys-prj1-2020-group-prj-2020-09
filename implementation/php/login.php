@@ -46,10 +46,10 @@ if (isset($_POST["submit"])) {
             <div id="login">
                 <form action="login.php" method="post">
                     <label for="uname">Username or Email</label><br>
-                    <input style="color:black;" type="text" id="uname" name="uname" /><br>
+                    <input type="text" id="uname" name="uname" /><br>
                     <label for="pword">Password</label><br>
-                    <input style="color:black;" type="password" id="pword" name="pword" /><br>
-                    <input style="color:black;" type="submit" value="Submit" name="submit" />
+                    <input type="password" id="pword" name="pword" /><br>
+                    <input type="submit" value="Submit" name="submit" />
                 </form>
                 <p>Not a member?: <a href="register.php">Register here</a></p>
                 <p><a href="main.php">Go back to Home</a></p>
