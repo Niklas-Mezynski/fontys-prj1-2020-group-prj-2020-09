@@ -2,29 +2,29 @@
 session_start();
 if (isset($_POST["submit"])) {
     include_once("dbconnection.php");
-    $stmt = $conn->prepare("SELECT * FROM users WHERE user_name = :user"); //Username überprüfen
+    $stmt = $conn->prepare("SELECT * FROM users WHERE user_name = :user"); //User information
     $stmt->bindParam(":user", $_POST["uname"]);
     $stmt->execute();
     $count = $stmt->rowCount();
-    if ($count == 1) {
-        if ($count == 1) {
-            $row = $stmt->fetch();
-            if (password_verify($_POST["pword"], $row["password"])) {
-                $_SESSION["user_id"] = $row["user_id"];
-                $_SESSION["user_role"] = $row["user_role"];
-                $_SESSION["user_name"] = $row["user_name"];
-                header("Location: main.php");
-            } else {
-                echo "Der Login ist fehlgeschlagen";
-            }
+
+    if ($count == 1) {  //If username exists
+        $row = $stmt->fetch();
+        if (password_verify($_POST["pword"], $row["password"])) {  //Checking password
+            $_SESSION["user_id"] = $row["user_id"];
+            $_SESSION["user_role"] = $row["user_role"];
+            $_SESSION["user_name"] = $row["user_name"];
+            header("Location: main.php");
         } else {
             echo "Der Login ist fehlgeschlagen";
         }
+    } else {
+        echo "Der Login ist fehlgeschlagen";
     }
 }
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Login</title>
     <meta charset="UTF-8">
@@ -33,7 +33,7 @@ if (isset($_POST["submit"])) {
 </head>
 
 <body>
-    
+
 
     <main>
         <header>
@@ -45,7 +45,7 @@ if (isset($_POST["submit"])) {
         <article>
             <div id="login">
                 <form action="login.php" method="post">
-                    <label for="uname">Username or Email</label><br>
+                    <label for="uname">Username</label><br>
                     <input type="text" id="uname" name="uname" /><br>
                     <label for="pword">Password</label><br>
                     <input type="password" id="pword" name="pword" /><br>

@@ -23,24 +23,25 @@
                 $stmt->execute();
                 $count = $stmt->rowCount();
                 if ($count == 0) {
-                    $stmt = $conn->prepare("insert into users (user_id,first_name,last_name,date_of_birth,email,password,user_name,street, house_nr, zip_code, city, country) 
-                    values (DEFAULT, :fname, :lname, :dob, :email, :pw, :username, :street, :house_nr, :zipcode, :city, :country)");
-                    $stmt->bindParam(":username", $_POST["uname"]);
-                    $hash = password_hash($_POST["pword"], PASSWORD_BCRYPT);
-                    $stmt->bindParam(":pw", $hash);
-                    $stmt->bindParam(":fname", $_POST["fname"]);
-                    $stmt->bindParam(":lname", $_POST["lname"]);
-                    $stmt->bindParam(":dob", $_POST["bdate"]);
-                    $stmt->bindParam(":email", $_POST["email"]);
-                    $stmt->bindParam(":street", $_POST["street"]);
-                    $stmt->bindParam(":house_nr", $_POST["house_nr"]);
-                    $stmt->bindParam(":zipcode", $_POST["zipcode"]);
-                    $stmt->bindParam(":city", $_POST["city"]);
-                    $stmt->bindParam(":country", $_POST["country"]);
-                    $successful = $stmt->execute();
-                }
-            }
-        
+                    if ($_POST["pword"] == $_POST["pwordconfirm"]) {
+                        $stmt = $conn->prepare("insert into users (user_id,first_name,last_name,date_of_birth,email,password,user_name,street, house_nr, zip_code, city, country) 
+                        values (DEFAULT, :fname, :lname, :dob, :email, :pw, :username, :street, :house_nr, :zipcode, :city, :country)");
+                        $stmt->bindParam(":username", $_POST["uname"]);
+                        $hash = password_hash($_POST["pword"], PASSWORD_BCRYPT);
+                        $stmt->bindParam(":pw", $hash);
+                        $stmt->bindParam(":fname", $_POST["fname"]);
+                        $stmt->bindParam(":lname", $_POST["lname"]);
+                        $stmt->bindParam(":dob", $_POST["bdate"]);
+                        $stmt->bindParam(":email", $_POST["email"]);
+                        $stmt->bindParam(":street", $_POST["street"]);
+                        $stmt->bindParam(":house_nr", $_POST["house_nr"]);
+                        $stmt->bindParam(":zipcode", $_POST["zipcode"]);
+                        $stmt->bindParam(":city", $_POST["city"]);
+                        $stmt->bindParam(":country", $_POST["country"]);
+                        $successful = $stmt->execute();
+                    } else {echo "Die Passwörter stimmen nicht überein";}
+                } else {echo "Email wird bereits verwendet.";}
+            } else {echo "Username ist bereits vergeben";}
         } else {
             $TermsAndConditions = true;
         }
