@@ -24,7 +24,7 @@ CREATE TABLE Album (
 	Artist_ID serial ,
 	Label varchar(255),
 	Publisher varchar(255),
-	cover varchar NULL,
+	cover varchar(255) NULL
 );
 CREATE TABLE Song (
 	Song_ID serial primary key,
@@ -43,7 +43,7 @@ CREATE TABLE Playlist (
 	Name varchar(255) not null,
 	User_ID int,
 	Public boolean default false,
-	cover varchar NULL,
+	cover varchar(255) NULL
 );
 CREATE TABLE song_playlist (
 	Playlist_ID int,
