@@ -86,7 +86,6 @@ if ($_SESSION["user_role"] < 1) {
                     }else{
                         echo "<a href='promoteDemote.php?command=promote&id=".$row["user_id"]."'>Promote User to an Artist</a><br>";
                     }
-                    echo "<a href='sendMail.php?id=".$row["user_id"]."'>Send Warning-Message per mail</a><br>";
                 }   
                 ?>
             </div>
