@@ -1,12 +1,13 @@
 <?php
 session_start();
-if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {
+if (!(isset($_SESSION["user_id"]) && isset($_SESSION["user_role"]))) {  //Check if Session variables are set
 	header("Location: home.php");
 	session_destroy();
 	exit;
 }
-if ($_SESSION["user_role"] < 1) {
-	header("Location: main.php");
+if ($_SESSION["user_role"] < 1) { //Check that User has enough permission
+	header("Location: home.php");
+	session_destroy();
 	exit;
 }
 ?>
@@ -24,11 +25,11 @@ if ($_SESSION["user_role"] < 1) {
 
 	<main>
 		<header>
-			<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
-			<?php 
-				if(isset($_SESSION['user_name'])) {
-				echo "<div id='profileButton'><br><a href='profile.php'>Profile - " .$_SESSION['user_name'] . "</a></div>";
-				}
+			<div id="logo"><img id="logo" src="../img/Logo.png" alt="Songify" width="60" height="60"></div>
+			<?php
+			if (isset($_SESSION['user_name'])) {
+				echo "<div id='profileButton'><br><a href='profile.php'>Profile - " . $_SESSION['user_name'] . "</a></div>";
+			}
 			?>
 			<div id="title">
 				<p>Songify</p>
@@ -73,7 +74,7 @@ if ($_SESSION["user_role"] < 1) {
 			$stmt->bindParam(":user_id", $_SESSION["user_id"]);
 			$stmt->execute();
 			$row = $stmt->fetch();
-			echo "<h1>Hallo " . $row["user_name"] . "!";
+			echo "<h1>Hello " . $row["user_name"] . "!";
 			?>
 
 		</article><!-- end of article -->
