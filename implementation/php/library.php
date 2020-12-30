@@ -9,7 +9,7 @@ if (!isset($_SESSION["user_name"])) {
 <head>
 	<title>Library</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="/css/main.css"><!-- link to stylesheet -->
+	<link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
 	<link rel="shortcut icon" href="../img/Logo.png" />
 </head>
 
@@ -17,18 +17,15 @@ if (!isset($_SESSION["user_name"])) {
  <?php
 		 include_once ("dbconnection.php");
 		// get album data from table
-		$stmt = $conn->prepare("Select album.cover AS aCover, album.title AS aTitle, album.album_id AS albumid, users.user_name AS uName from album join users on album.artist_id = users.user_id");
+		$stmt = $conn->prepare("Select album.cover AS aCover, album.title AS aTitle, album.album_id AS albumid, 
+		users.user_name AS uName 
+		from album join users on album.artist_id = users.user_id");
 		$stmt->execute();
 ?>
 	<main>
 	<header>
 			<div id="logo"><img id="logo" src="/img/Logo.png" alt="Songify" width="60" height="60" style="display: inline-block; ;"></div>
 			<div id="profileButton"><a href="profile.php">User Profile</a></div>
-			<?php 
-				if(isset($_SESSION['user_name'])) {
-				echo "<div id='profileButton'><br> Username: " .$_SESSION['user_name'] . "</div>";
-				}
-			?>
 			<div id="title">
 				<p>Songify</p>
 			</div>

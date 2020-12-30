@@ -8,13 +8,12 @@ if (!isset($_SESSION["user_name"])) {
 <html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 
 <head>
-  <title>Home</title>
+  <title>Album</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="/css/main.css"><!-- link to stylesheet -->
+  <link rel="stylesheet" href="../css/main.css"><!-- link to stylesheet -->
   <link rel="shortcut icon" href="../img/Logo.png" />
 </head>
 <style> 
-<?php include "/css/main.css" ?>
 </style>
 <body>
   <main>
@@ -63,14 +62,15 @@ if (!isset($_SESSION["user_name"])) {
  <?php
 		include_once ("dbconnection.php");
 		// get data from tables album, song and user
-		$stmt = $conn->prepare("SELECT album.cover AS aCover, album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, song.title AS sTitle ,song.song_path AS sPath, users.user_name AS sArtist
+		$stmt = $conn->prepare("SELECT album.cover AS aCover, album.title AS aTitle, album.label AS aLabel, album.publisher AS aPublisher, 
+		song.title AS sTitle ,song.song_path AS sPath, users.user_name AS sArtist
 		from (album left join song
 		on album.album_id = song.album_id
 		left join users
 		on song.artist_id = users.user_id)
 		where album.album_id = :albumid");
-		$stmt->bindParam(":albumid", htmlspecialchars($_GET["albumid"]));
-		$stmt->execute();
+		$stmt->bindParam(":albumid", htmlspecialchars($_GET["albumid"])); //bind albumid 
+		$stmt->execute(); //execute query
 ?>
 
     <article>
@@ -82,14 +82,14 @@ if (!isset($_SESSION["user_name"])) {
 		 
 		$result = $stmt->fetch(\PDO::FETCH_ASSOC); //get first row of response			
 		if(isset($result['acover'])) {
-			echo "<img src='data:image/jpeg;base64," . $result['acover'] . "'id='cover'></p>";
+			echo "<img src='data:image/jpeg;base64," . $result['acover'] . "'id='cover'></p>"; //print album cover from database
 		} 
-		else echo "<img src='../img/albumcover-placeholder.jpg' id='cover'></p>";
+		else echo "<img src='../img/albumcover-placeholder.jpg' id='cover'></p>"; //if no album cover was found use default cover
 		echo "<br>";
 		echo "<p style='text-align: left; font-size: 36px'>" .$result['atitle'] . "</p>";
 		echo "<p style='text-align: left; font-size: 24px'>" .$result['alabel'] . "/" .$result['apublisher'] . "</p>";
 		?>
-        <table id="songlist">
+        <table id="songlist"> //
           <tr id="header">
             <th>Name</th>
             <th>Artists</th>
@@ -97,7 +97,7 @@ if (!isset($_SESSION["user_name"])) {
           </tr>
          <?php
 		 $stmt->execute(); //execute query to get other data
-			foreach ($stmt as $row)
+			foreach ($stmt as $row) //foreach song in album create a table row
 			{
 			echo "<tr id='song'>";
 			echo "<td>" . $row['stitle'] . "</td>";
@@ -106,7 +106,7 @@ if (!isset($_SESSION["user_name"])) {
               <audio controls controlsList='nodownload'>
                 <source src='".$row['spath'] . "' type='audio/mpeg'>
                 Your browser does not support the audio element.
-              </audio>
+              </audio>  //audio control with mp3 file from folder
             </td>";
 			echo "</tr>";
 			} ?>
