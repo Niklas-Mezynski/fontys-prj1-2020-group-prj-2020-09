@@ -1,7 +1,7 @@
 <?php
     $host = "prj1_postgres";
     $port = "5432";
-    $db = "postgres";   /*Just for now*/
+    $db = "postgres";
     $user = "postgres";
     $pword = "mypassword";
 
