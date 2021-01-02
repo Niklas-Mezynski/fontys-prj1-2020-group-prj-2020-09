@@ -33,3 +33,23 @@ ALTER TABLE users
 add CONSTRAINT check_16_years_old
 CHECK (date_part('year', age(Date_Of_Birth)) >= 16);
 
+
+create or replace function checkUploadPermission()
+returns trigger as $$
+begin
+if (select p.upload_songs 
+from permissions p
+inner join user_role ur on p.user_role_id = ur.role_id 
+inner join users u on ur.role_id = u.user_role
+where u.user_id = new.artist_id) = false
+then
+return null;
+end if;
+return new;
+end;
+$$ language plpgsql;
+
+CREATE TRIGGER checkUploadPermission
+AFTER INSERT ON song
+FOR EACH ROW execute procedure checkUploadPermission();
+
