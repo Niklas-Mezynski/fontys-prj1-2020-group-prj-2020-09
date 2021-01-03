@@ -65,17 +65,17 @@ if ($_SESSION["user_role"] < 3) {
         </aside>
 
         <article>
-			<h1>Create Album</h1><br>
-			<form action="createalbum.php">
-				<input class="dataInput" type="submit" value="Create Album" />
-			</form>
+            <h1>Create Album</h1><br>
+            <form action="createalbum.php">
+                <input class="dataInput" type="submit" value="Create Album" />
+            </form>
             <h1>Upload Songs</h1><br>
 
             <?php
             if (isset($_POST["submit"])) {
 
                 require("dbconnection.php");
-
+                //Calculate Song_ID
                 $stmtID = $conn->query("SELECT max(song_id) AS song_id FROM song;");
                 $rowID = $stmtID->fetch();
                 $song_id = $rowID["song_id"] + 1;
@@ -87,14 +87,8 @@ if ($_SESSION["user_role"] < 3) {
 
                 $finalFile = $target_dir . $song_id . "." . $fileType;
 
-                // Check if file already exists
-                if (file_exists($target_file)) {
-                    echo "Sorry, file already exists.";
-                    $uploadOk = 0;
-                }
-
                 // Check file size
-                if ($_FILES["fileToUpload"]["size"] > 5000000) {
+                if ($_FILES["fileToUpload"]["size"] > 2000000) {
                     echo "Sorry, your file is too large.";
                     $uploadOk = 0;
                 }
@@ -121,7 +115,7 @@ if ($_SESSION["user_role"] < 3) {
                         $insert->bindParam(":label", $_POST["label"]);
                         $insert->bindParam(":publisher", $_POST["publisher"]);
                         $insert->bindParam(":price", $_POST["price"]);
-                        $insert->bindParam(":album",$_POST["album"]);
+                        $insert->bindParam(":album", $_POST["album"]);
                         $insert->bindParam(":song_path", $finalFile);
                         $insert->execute();
                         echo "<h4>The file has been uploaded.</h4>";
@@ -134,42 +128,53 @@ if ($_SESSION["user_role"] < 3) {
             ?>
 
             <form action="uploadsongs.php" method="post" enctype="multipart/form-data">
-                
-                <label>Select song to upload (in .mp3 format) </label><input class="dataInput" type="file" name="fileToUpload"><br>
+
+                <label>Select song to upload (in .mp3 format) </label>
+                <input class="dataInput" type="file" name="fileToUpload" accept="audio/mp3"><br>
 
                 <table>
-                <tr><td>Song name</td>
-                <td><input class="dataInput" type="text" name="song_name"></td></tr>
+                    <tr>
+                        <td>Song name</td>
+                        <td><input class="dataInput" type="text" name="song_name"></td>
+                    </tr>
 
-                <tr><td>Label</td>
-                <td><input class="dataInput" type="text" name="label"></td></tr>
+                    <tr>
+                        <td>Label</td>
+                        <td><input class="dataInput" type="text" name="label"></td>
+                    </tr>
 
-                <tr><td><label>Publisher </label></td>
-                <td> <input class="dataInput" type="text" name="publisher"></td></tr>
+                    <tr>
+                        <td><label>Publisher </label></td>
+                        <td> <input class="dataInput" type="text" name="publisher"></td>
+                    </tr>
 
-                <tr><td>Price </td>
-                <td> <input class="dataInput" type="number" min="0.0" max="3.0" step="0.01" value="00.00" name="price"></td></tr>
+                    <tr>
+                        <td>Price </td>
+                        <td> <input class="dataInput" type="number" min="0.10" max="3.00" step="0.01" value="00.00" name="price"></td>
+                    </tr>
 
-                <tr><td> <label for="album">Album </label></td>
-                <td> 
-                <select id="album" name="album">
-                    
-                    <?php
-                    require("dbconnection.php");
-                    $stmtAlbum = $conn->prepare("select * from album where artist_id = :user_id");
-                    $stmtAlbum->bindParam(":user_id", $_SESSION["user_id"]);
-                    $stmtAlbum->execute();
-                    
-                    foreach ($stmtAlbum as $row) {
-                        echo '<option value="'. $row["album_id"] .'">'. $row["title"] .'</option>';
-                    }
-                    ?>
-                </select></td></tr>
+                    <tr>
+                        <td> <label for="album">Album </label></td>
+                        <td>
+                            <select id="album" name="album">
+
+                                <?php //Creating dropdown menu for albums
+                                require("dbconnection.php");
+                                $stmtAlbum = $conn->prepare("select * from album where artist_id = :user_id");
+                                $stmtAlbum->bindParam(":user_id", $_SESSION["user_id"]);
+                                $stmtAlbum->execute();
+
+                                foreach ($stmtAlbum as $row) {
+                                    echo '<option value="' . $row["album_id"] . '">' . $row["title"] . '</option>';
+                                }
+                                ?>
+                            </select></td>
+                    </tr>
                 </table>
-                
+
                 <input class="dataInput" type="submit" value="Upload song" name="submit">
             </form>
-		
+
         </article><!-- end of article -->
 
         <footer>
