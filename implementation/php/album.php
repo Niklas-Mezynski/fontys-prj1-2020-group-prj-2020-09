@@ -82,20 +82,21 @@ if (!isset($_SESSION["user_name"])) {
 		 
 		$result = $stmt->fetch(\PDO::FETCH_ASSOC); //get first row of response			
 		if(isset($result['acover'])) {
-			echo "<img src='data:image/jpeg;base64," . $result['acover'] . "'id='cover'></p>"; //print album cover from database
+			echo "<img src='data:image/jpeg;base64," . $result['acover'] . "'id='cover'></p>"; 
 		} 
 		else echo "<img src='../img/albumcover-placeholder.jpg' id='cover'></p>"; //if no album cover was found use default cover
 		echo "<br>";
 		echo "<p style='text-align: left; font-size: 36px'>" .$result['atitle'] . "</p>";
 		echo "<p style='text-align: left; font-size: 24px'>" .$result['alabel'] . "/" .$result['apublisher'] . "</p>";
 		?>
-        <table id="songlist"> //
+        <table id="songlist">
           <tr id="header">
             <th>Name</th>
             <th>Artists</th>
             <th>Play</th>
           </tr>
          <?php
+		 if ($_SESSION["user_role"] >= 2) {
 		 $stmt->execute(); //execute query to get other data
 			foreach ($stmt as $row) //foreach song in album create a table row
 			{
@@ -106,10 +107,10 @@ if (!isset($_SESSION["user_name"])) {
               <audio controls controlsList='nodownload'>
                 <source src='".$row['spath'] . "' type='audio/mpeg'>
                 Your browser does not support the audio element.
-              </audio>  //audio control with mp3 file from folder
+              </audio>  
             </td>";
 			echo "</tr>";
-			} ?>
+			}} else echo "You have to be a subscriber to listen to music." ?>
         </table>
     </article><!-- end of article -->
 
