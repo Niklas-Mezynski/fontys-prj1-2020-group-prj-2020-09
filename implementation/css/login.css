@@ -36,15 +36,14 @@ header {
 	padding-top: 20px;
 }
 
-article #login{
-    /*background-image: linear-gradient(to top, #1f1f1f, #202020, #292929, #3b3b3b, #4e4e4e);*/
+article .login {
     margin: 2em;
     margin-right: 20em;
     padding: 1em;
     text-align: center;
 }
 
-article #login input{
+article .login input{
     border-radius: 15px;
 	height: 4vh;
 	color: white;

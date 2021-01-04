@@ -43,12 +43,12 @@ if (isset($_POST["submit"])) {
         </header><!-- end of header -->
 
         <article>
-            <div id="login">
+            <div class="login">
                 <form action="login.php" method="post">
                     <label for="uname">Username</label><br>
-                    <input type="text" id="uname" name="uname" /><br>
+                    <input type="text" name="uname" /><br>
                     <label for="pword">Password</label><br>
-                    <input type="password" id="pword" name="pword" /><br>
+                    <input type="password" name="pword" /><br>
                     <input type="submit" value="Submit" name="submit" />
                 </form>
                 <p>Not a member?: <a href="register.php">Register here</a></p>

@@ -56,7 +56,7 @@
 
         <article>
 
-            <div id="login">
+            <div class="login">
                 <?php
                 if ($successful) {
                     echo "<h3> Erfolgreich registriert!</h3>";
